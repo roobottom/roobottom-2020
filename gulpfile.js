@@ -29,10 +29,10 @@ const js = (callback) => {
   }))
   .pipe(dest('./_site'))
 }
-
+const transform_basepath = "./_source/article_images/"
 const transforms = [
   {
-    src: "./_source/images/**/*.+(jpeg|jpg|png)",
+    src: transform_basepath + "**/*.+(jpeg|jpg|png)",
     dest: "./_site/assets/images/",
     options: {
       width: 860,
@@ -44,23 +44,27 @@ const transforms = [
 const images = (callback) => {
   transforms.forEach( (transform) => {
     
-    if(!fs.existsSync(transform.dest)) {
-      fs.mkdirSync(transform.dest, {recursive: true}, (err) => {
-        if (err) throw err
-      })
-    }
 
     let files = glob.sync(transform.src)
 
     files.forEach( (file) => {
       let filename = path.basename(file)
-      console.log(path.dirname(file))
-      // sharp(file)
-      //   .resize(transform.options)
-      //   .toFile(`${transform.dest}/${filename}`)
-      //   .catch(err => {
-      //     console.log(err)
-      //   })
+      let filepath = path.dirname(file)
+      filepath = filepath.replace(transform_basepath, "")
+      let dest = transform.dest + "/" + filepath
+
+      if(!fs.existsSync(dest)) {
+        fs.mkdirSync(dest, {recursive: true}, (err) => {
+          if (err) throw err
+        })
+      }
+
+      sharp(file)
+        .resize(transform.options)
+        .toFile(`${dest}/${filename}`)
+        .catch(err => {
+          console.log(err)
+        })
     })
 
   })
