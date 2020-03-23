@@ -3,9 +3,9 @@ const markdownItAttrs = require("markdown-it-attrs")
 const markdownItDiv = require("markdown-it-div")
 
 
-module.exports = function (config) {
+module.exports = function (eleventyConfig) {
 
-  //markdown-it config
+  //markdown-it eleventyConfig
   let mdOptions = {
     typographer: true,
     quotes: '“”‘’',
@@ -15,14 +15,19 @@ module.exports = function (config) {
             .use(markdownItAttrs)
             .use(markdownItDiv)
 
-  //11ty md config
-  config.setLibrary("md", md)
-  config.addPairedShortcode("markdown", function(content) {
+  //11ty md eleventyConfig
+  eleventyConfig.setLibrary("md", md)
+  eleventyConfig.addPairedShortcode("markdown", function(content) {
     return md.render(content)
   })
 
   //passthough
-  config.addPassthroughCopy("_source/assets")
+  eleventyConfig.addPassthroughCopy("_source/assets")
+
+  //create articles category
+  eleventyConfig.addCollection("articles", function(collection) {
+    return collection.getFilteredByGlob("./_source/articles/*.md")
+  })
 
 
   return {
