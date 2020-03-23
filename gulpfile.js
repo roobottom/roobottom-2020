@@ -54,12 +54,13 @@ const images = (callback) => {
 
     files.forEach( (file) => {
       let filename = path.basename(file)
-      sharp(file)
-        .resize(transform.options)
-        .toFile(`${transform.dest}/${filename}`)
-        .catch(err => {
-          console.log(err)
-        })
+      console.log(path.dirname(file))
+      // sharp(file)
+      //   .resize(transform.options)
+      //   .toFile(`${transform.dest}/${filename}`)
+      //   .catch(err => {
+      //     console.log(err)
+      //   })
     })
 
   })
