@@ -33,7 +33,7 @@ const transform_basepath = "./_source/article_images/"
 const transforms = [
   {
     src: transform_basepath + "**/*.+(jpeg|jpg|png)",
-    dest: "./_site/assets/images/",
+    dest: "./_site/articles/",
     options: {
       width: 860,
       fit: "cover"
@@ -51,20 +51,25 @@ const images = (callback) => {
       let filename = path.basename(file)
       let filepath = path.dirname(file)
       filepath = filepath.replace(transform_basepath, "")
-      let dest = transform.dest + "/" + filepath
+      let destPath = `${transform.dest}/${filepath}`
+      let destFile = `${destPath}/${filename}`
 
-      if(!fs.existsSync(dest)) {
-        fs.mkdirSync(dest, {recursive: true}, (err) => {
+      if(!fs.existsSync(destPath)) {
+        fs.mkdirSync(destPath, {recursive: true}, (err) => {
           if (err) throw err
         })
       }
 
-      sharp(file)
+
+      if(!fs.existsSync(destFile)) {
+        sharp(file)
         .resize(transform.options)
-        .toFile(`${dest}/${filename}`)
+        .toFile(destFile)
         .catch(err => {
           console.log(err)
         })
+      }
+      
     })
 
   })
@@ -75,7 +80,7 @@ exports.default = function(callback) {
   eleventyLocal()
   watch(['./_source/_less/**/*.less', './_source/app.js'], 
     { ignoreInitial: false }, 
-    series(css))
+    series(css, images))
   callback()
 }
 exports.build = series(eleventyLive, css, images)

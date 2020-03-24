@@ -1,6 +1,7 @@
 const markdownIt = require("markdown-it")
 const markdownItAttrs = require("markdown-it-attrs")
-const markdownItDiv = require("markdown-it-div")
+const markdownItImplicitFigures = require('markdown-it-implicit-figures')
+const markdownItDiv = require('markdown-it-div')
 
 
 module.exports = function (eleventyConfig) {
@@ -13,6 +14,11 @@ module.exports = function (eleventyConfig) {
   }
   let md =  markdownIt(mdOptions)
             .use(markdownItAttrs)
+            .use(markdownItImplicitFigures, {
+              dataType: true,
+              figcaption: true,
+              copyAttrs: true
+            })
             .use(markdownItDiv)
 
   //11ty md eleventyConfig
