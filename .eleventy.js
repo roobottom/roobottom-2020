@@ -2,6 +2,7 @@ const markdownIt = require("markdown-it")
 const markdownItAttrs = require("markdown-it-attrs")
 const markdownItImplicitFigures = require('markdown-it-implicit-figures')
 const markdownItDiv = require('markdown-it-div')
+const markdownItAbbr = require('markdown-it-abbr')
 
 
 module.exports = function (eleventyConfig) {
@@ -20,6 +21,7 @@ module.exports = function (eleventyConfig) {
               copyAttrs: true
             })
             .use(markdownItDiv)
+            .use(markdownItAbbr)
 
   //11ty md eleventyConfig
   eleventyConfig.setLibrary("md", md)
