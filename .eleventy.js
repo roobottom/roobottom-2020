@@ -34,7 +34,9 @@ module.exports = function (eleventyConfig) {
 
   //create articles category
   eleventyConfig.addCollection("articles", function(collection) {
-    return collection.getFilteredByGlob("./_source/articles/*.md")
+    return articles = collection.getFilteredByGlob("./_source/articles/*.md").sort( function(a, b) {
+      return b.date - a.date
+    })
   })
 
 

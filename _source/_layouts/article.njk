@@ -1,0 +1,33 @@
+---
+layout: _wrapper.njk
+---
+<h1>{{ title }}</h1>
+{{ content | safe }}
+
+{% set count = 0 %}
+{% set prevPage = null %}
+{% set nextPage = null %}
+{%- for article in collections.articles %}
+  {% if article.url == page.url %}
+    {% set prevPage = collections['articles'][count + 1] %}
+    {% set nextPage = collections['articles'][count - 1] %}
+  {% endif %}
+  {% set count = count + 1 %}
+{% endfor -%}
+
+<nav class="prevNext" aria-label="Pagination" role="navigation">
+  <ul class="prevNext__list">
+    {% if prevPage %}
+    <li class="prevNext__item prevNext__item--prev">
+      <span class="prevNext__itemLabel">Previously:</span>
+      <a href="{{ prevPage.url }}" rel="prev" class="prevNext__link">{{ prevPage.data.title }}</a>
+    </li>
+    {% endif %}
+    {% if nextPage %}
+    <li class="prevNext__item prevNext__item--next">
+      <span class="prevNext__itemLabel">Next up:</span>
+      <a href="{{ nextPage.url }}" rel="next" class="prevNext__link">{{ nextPage.data.title }}</a>
+    </li>
+    {% endif %}
+  </ul> 
+</nav>
