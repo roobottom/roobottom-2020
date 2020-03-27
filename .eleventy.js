@@ -3,6 +3,7 @@ const markdownItAttrs = require("markdown-it-attrs")
 const markdownItImplicitFigures = require('markdown-it-implicit-figures')
 const markdownItDiv = require('markdown-it-div')
 const markdownItAbbr = require('markdown-it-abbr')
+const moment = require('moment')
 
 
 module.exports = function (eleventyConfig) {
@@ -37,6 +38,11 @@ module.exports = function (eleventyConfig) {
     return articles = collection.getFilteredByGlob("./_source/articles/*.md").sort( function(a, b) {
       return b.date - a.date
     })
+  })
+
+  //filters
+  eleventyConfig.addFilter("date", (value, format = 'dddd, Do MMMM YYYY') => {
+    return moment(value).format(format)
   })
 
 
