@@ -78,7 +78,7 @@ const images = (callback) => {
 
 exports.default = function(callback) {
   eleventyLocal()
-  watch(['./_source/_less/**/*.less', './_source/app.js'], 
+  watch(['./_source/_less/**/*.less', './_source/article_images/**/*.*'], 
     { ignoreInitial: false }, 
     series(css, images))
   callback()
