@@ -44,6 +44,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("date", (value, format = 'dddd, Do MMMM YYYY') => {
     return moment(value).format(format)
   })
+  eleventyConfig.addFilter("firstParagraph", (html) => {
+    var regexp = RegExp('\<p\>(.+?)\<\/p\>', 'm')
+    return (regexp.exec(html) === null) ? '' : regexp.exec(html)[0]
+  })
 
 
   return {
