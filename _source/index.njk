@@ -1,9 +1,13 @@
 ---
 title: Homepage
-layout: default.njk
+layout: headerless.njk
 ---
-<ul>
-{%- for article in collections.articles -%}
-  <li><a href="{{ article.url}}">{{ article.data.title }}</a> - {{ article.data.date | date }}</li>
+<h1>Hello, my name is Jon, and I love making things for the web.</h1>
+{% set popularTags %}
+{%- for tag in collections.tagList -%}
+{%- if loop.index < 6 -%}
+<a href="/tags/{{ tag | slug }}">{{ tag }}</a>{% if loop.index < 4 %}, {% elif loop.index == 4 %} and {% endif %}
+{%- endif -%}
 {%- endfor -%}
-</ul>
+{% endset %}
+<p>This is my personal website where I write articles on subjects like {{ popularTags | safe }}.</p>
