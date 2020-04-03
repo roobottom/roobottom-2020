@@ -40,6 +40,9 @@ module.exports = function (eleventyConfig) {
     })
   })
 
+  //create tagList collection
+  eleventyConfig.addCollection("tagList", require("./_lib/getTagList"))
+
   //filters
   eleventyConfig.addFilter("date", (value, format = 'dddd, Do MMMM YYYY') => {
     return moment(value).format(format)
