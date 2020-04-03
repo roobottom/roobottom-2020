@@ -1,21 +1,20 @@
----
-pagination:
-  data: collections
-  size: 1
-  alias: tag
-  filter:
-    - all
-    - articles
-permalink: /tags/{{ tag }}/
-layout: default.njk
-eleventyExcludeFromCollections: true
+---js
+{
+  pagination: {
+    data: 'collections.tagList',
+    size: 1,
+    alias: 'tag',
+    filter: ['all', 'articles']
+},
+  layout: 'default.njk',
+  renderData: {
+    title: 'Tagged “{{ tag }}”'
+  },
+  permalink: "/tags/{{ tag }}/"
+}
 ---
 {% from "./_components/teaser.njk" import teaser %}
-<main>
-<h1>Tagged “{{ tag }}”</h1>
-
 {% set taglist = collections[ tag ] %}
 {% for article in taglist | reverse %}
   {{ teaser(article) }}
 {% endfor %}
-</main>

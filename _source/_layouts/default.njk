@@ -1,4 +1,11 @@
 ---
 layout: _wrapper.njk
 ---
-{{ content | safe }}
+<main>
+  <header>
+    <h1>{{ renderData.title or title }}</h1>
+  </header>
+  <div class="wrapper-content">
+    {{ content | safe }}
+  </div>
+</main>
