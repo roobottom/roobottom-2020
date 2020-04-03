@@ -4,6 +4,8 @@ layout: default.njk
 title: Tags
 ---
 {% for tag in collections.tagList %}
+  {% set taglist = collections[ tag ] %}
+  {% set tagSize = taglist | length %}
   {% set tagUrl %}/tags/{{ tag }}/{% endset %}
-  <a href="{{ tagUrl }}" class="tag">{{ tag }}</a>
+  <a href="{{ tagUrl }}" class="tag">{{ tag }} {{ tagSize }}</a>
 {% endfor %}
