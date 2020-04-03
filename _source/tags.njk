@@ -10,7 +10,7 @@
   renderData: {
     title: 'Tagged “{{ tag }}”'
   },
-  permalink: "/tags/{{ tag }}/"
+  permalink: "/tags/{{ tag | slug }}/"
 }
 ---
 {% from "./_components/teaser.njk" import teaser %}
