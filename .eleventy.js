@@ -19,7 +19,7 @@ module.exports = function (eleventyConfig) {
             .use(markdownItImplicitFigures, {
               dataType: true,
               figcaption: true,
-              copyAttrs: true
+              copyAttrs: 'class'
             })
             .use(markdownItDiv)
             .use(markdownItAbbr)
