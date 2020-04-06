@@ -1,0 +1,13 @@
+.wrapper {
+  max-width: var(--site-max-width);
+  margin: 0 auto;
+  padding: 0 var(--grid-gap);
+  box-sizing: border-box;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  grid-gap: var(--grid-gap);
+  grid-auto-flow: dense;
+}

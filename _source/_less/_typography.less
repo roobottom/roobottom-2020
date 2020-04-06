@@ -1,0 +1,46 @@
+@font-face {
+  font-family: 'rajdhani';
+  src: url('/assets/fonts/rajdhani-bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'overpass';
+  src: url('/assets/fonts/overpass-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'overpass';
+  src: url('/assets/fonts/overpass-italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'overpass';
+  src: url('/assets/fonts/overpass-bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'overpass';
+  src: url('/assets/fonts/overpass-bold-italic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+body {
+  font-family: 'overpass';
+}
+
+#type {
+  #heading {
+    .default() {
+      text-transform: uppercase;
+    }
+  }
+}
+
+h1 {
+  #type > #heading > .default
+}

@@ -13,40 +13,38 @@ layout: _wrapper.njk
   {% set count = count + 1 %}
 {%- endfor -%}
 
-<main class="h-entry">
-  <header>
-    <p><a href="/articles"><span class="visually-hidden">Go to all </span>Articles</a></p>
-    <h1>{{ title }}</h1>
-  </header>
-  <footer>
-    <p><span class="visually-hidden">Published on</span> <time class="dt-published" datetime="{{ date | date('') }}">{{ date | date }}</time></p>
-  </footer>
-  <div class="prose">
-    {{ content | safe }}
-  </div>
-  <h2 id="articleTags">Tagged</h2>
-  <ul class="tagCloud" aria-labelledby="articleTags">
-    {% for tagItem in tags %}
-      <li class="tagCloud-tag">{{ tag({
-        title: tagItem,
-        url: '/tags/' + tagItem | slug
-      }) }}</li>
-    {% endfor %}
-  </ul>
-  <nav class="prevNext" aria-label="Pagination">
-    <ul class="prevNext__list">
-      {% if prevPage %}
-      <li class="prevNext__item prevNext__item--prev">
-        <span class="prevNext__itemLabel">Previously:</span>
-        <a href="{{ prevPage.url }}" rel="prev" class="prevNext__link">{{ prevPage.data.title }}</a>
-      </li>
-      {% endif %}
-      {% if nextPage %}
-      <li class="prevNext__item prevNext__item--next">
-        <span class="prevNext__itemLabel">Next up:</span>
-        <a href="{{ nextPage.url }}" rel="next" class="prevNext__link">{{ nextPage.data.title }}</a>
-      </li>
-      {% endif %}
-    </ul> 
-  </nav>
-</main>
+<header>
+  <p><a href="/articles"><span class="visually-hidden">View all </span>Articles</a></p>
+  <h1>{{ title }}</h1>
+</header>
+<footer>
+  <p><span class="visually-hidden">Published on</span> <time class="dt-published" datetime="{{ date | date('') }}">{{ date | date }}</time></p>
+</footer>
+<div class="prose">
+  {{ content | safe }}
+</div>
+<h2 id="articleTags">Tagged</h2>
+<ul class="tagCloud" aria-labelledby="articleTags">
+  {% for tagItem in tags %}
+    <li class="tagCloud-tag">{{ tag({
+      title: tagItem,
+      url: '/tags/' + tagItem | slug
+    }) }}</li>
+  {% endfor %}
+</ul>
+<nav class="prevNext" aria-label="Pagination">
+  <ul class="prevNext__list">
+    {% if prevPage %}
+    <li class="prevNext__item prevNext__item--prev">
+      <span class="prevNext__itemLabel">Previously:</span>
+      <a href="{{ prevPage.url }}" rel="prev" class="prevNext__link">{{ prevPage.data.title }}</a>
+    </li>
+    {% endif %}
+    {% if nextPage %}
+    <li class="prevNext__item prevNext__item--next">
+      <span class="prevNext__itemLabel">Next up:</span>
+      <a href="{{ nextPage.url }}" rel="next" class="prevNext__link">{{ nextPage.data.title }}</a>
+    </li>
+    {% endif %}
+  </ul> 
+</nav>

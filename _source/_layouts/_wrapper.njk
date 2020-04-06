@@ -11,19 +11,21 @@
     <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
 </head>
 <body>
-<header class="banner">
-<a href="/" class="banner-link" rel="home">Jon Roobottom’s Website</a>
-<nav class="banner-navigation" aria-label="site">
-    <ul class="navigation">
-        <li><a href="/">Home</a></li>
-        <li><a href="/articles">Articles</a></li>
-        <li><a href="/tags">Tags</a></li>
-        <li><a href="/about">About</a></li>
-    </ul>
-</nav>
+<header class="banner wrapper">
+    <a href="/" class="banner-link" rel="home">Jon Roobottom’s Website</a>
+    <nav class="banner-navigation" aria-label="site">
+        <ul class="navigation">
+            <li><a href="/">Home</a></li>
+            <li><a href="/articles">Articles</a></li>
+            <li><a href="/tags">Tags</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+    </nav>
 </header>
-{{ content | safe }}
-<footer class="footer">
+<main class="wrapper">
+  {{ content | safe }}
+</main>
+<footer class="wrapper">
     <div class="footer-copyright">&copy; {{ today | date('YYYY') }}</div>
 </footer>
 </body>
