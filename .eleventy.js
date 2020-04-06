@@ -51,6 +51,9 @@ module.exports = function (eleventyConfig) {
     var regexp = RegExp('\<p\>(.+?)\<\/p\>', 'm')
     return (regexp.exec(html) === null) ? '' : regexp.exec(html)[0]
   })
+  eleventyConfig.addFilter("plural", (noun, count, suffix="s") => {
+    return `${noun}${count !== 1 ? suffix: ''}`
+  })
 
 
   return {

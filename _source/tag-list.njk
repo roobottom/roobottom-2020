@@ -3,9 +3,13 @@ permalink: /tags/
 layout: default.njk
 title: Tags
 ---
-{% for tag in collections.tagList %}
-  {% set taglist = collections[ tag ] %}
-  {% set tagSize = taglist | length %}
-  {% set tagUrl %}/tags/{{ tag }}/{% endset %}
-  <a href="{{ tagUrl }}" class="tag">{{ tag }} {{ tagSize }}</a>
-{% endfor %}
+{% from "./_components/tag.njk" import tag %}
+<ul class="tagCloud">
+  {% for tagItem in collections.tagList %}
+    <li class="tagCloud-tag">{{ tag({
+      title: tagItem,
+      url: '/tags/' + tagItem | slug,
+      count: collections[tagItem] | length
+    }) }}</li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,3 @@
+{% macro tag(tag) %}
+<a href="{{ tag.url }}" class="tag" rel="tag" aria-label="{{ tag.title }}"><span class="tag-name">{{ tag.title }}</span>{% if tag.count %} <span class="tag-count">{{ tag.count }} <span class="visually-hidden">{{ 'article' | plural(tag.count) }}</span></span>{% endif %}</a>
+{% endmacro %}
