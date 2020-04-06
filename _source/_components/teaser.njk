@@ -3,7 +3,7 @@
 #}
 {% macro teaser(data) %}
 <article class="teaser h-entry">
-  <time class="dt-published" datetime="{{ data.data.date }}">{{ data.data.date | date('Do MMM YYYY') }}</time>
+  <time class="dt-published" datetime="{{ data.data.date | date('') }}">{{ data.data.date | date('Do MMM YYYY') }}</time>
   <h3 class="teaser-title p-name">{{ data.data.title }}</h3>
   <div class="teaser-content p-summary">
     {{ data.templateContent | firstParagraph | safe }}
