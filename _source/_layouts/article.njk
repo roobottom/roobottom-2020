@@ -5,25 +5,25 @@ layout: _wrapper.njk
 {% set count = 0 %}
 {% set prevPage = null %}
 {% set nextPage = null %}
-{%- for article in collections.articles %}
+{%- for article in collections.articles -%}
   {% if article.url == page.url %}
     {% set prevPage = collections['articles'][count + 1] %}
     {% set nextPage = collections['articles'][count - 1] %}
   {% endif %}
   {% set count = count + 1 %}
-{% endfor -%}
+{%- endfor -%}
 
 <main class="h-entry">
   <header>
-    <p><a href="/articles"><span class="visually-hidden">Go back to <span>Articles</a></p>
+    <p><a href="/articles"><span class="visually-hidden">Go to all </span>Articles</a></p>
     <h1>{{ title }}</h1>
   </header>
   <footer>
-    <p><span class="visually-hidden">Published on</span> <a href="//roobottom.com" class="u-url" rel="bookmark"><time class="dt-published" datetime="{{ date }}">{{ date | date }}</time></a></p>
+    <p><span class="visually-hidden">Published on</span> <time class="dt-published" datetime="{{ date | date('') }}">{{ date | date }}</time></p>
   </footer>
-  <article>
+  <div class="prose">
     {{ content | safe }}
-  </article>
+  </div>
   <h2 id="articleTags">Tagged</h2>
   <ul class="tagCloud" aria-labelledby="articleTags">
     {% for tagItem in tags %}
@@ -33,7 +33,7 @@ layout: _wrapper.njk
       }) }}</li>
     {% endfor %}
   </ul>
-  <nav class="prevNext" aria-label="Pagination" role="navigation">
+  <nav class="prevNext" aria-label="Pagination">
     <ul class="prevNext__list">
       {% if prevPage %}
       <li class="prevNext__item prevNext__item--prev">
