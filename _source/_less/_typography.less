@@ -34,9 +34,12 @@ body {
 }
 
 #type {
-  #heading {
-    .default() {
-      text-transform: uppercase;
+  #font {
+    .sans() {
+      font-family: 'overpass';
+    }
+    .serif() {
+      font-family: 'rajdhani';
     }
   }
   #size {
@@ -44,8 +47,8 @@ body {
         font-size: unit(16/@base,rem);
         line-height: 24 / 16;
         .break-min({
-            font-size: unit(19/@base,rem);
-            line-height: 34 / 19;
+            font-size: unit(21/@base,rem);
+            line-height: 30 / 21;
         });
     }
     .compact() {
@@ -77,16 +80,17 @@ body {
         });
     }
     .h1() {
-        font-size: unit(32/@base, rem);
-        line-height: 38 / 32;
+        font-size: unit(30/@base, rem);
+        line-height: .9;
         .break-min({
-            font-size: unit(44/@base, rem);
-            line-height: 48 / 44;
+            font-size: unit(60/@base, rem);
         });
         .break-mid({
-            font-size: unit(62/@base, rem);
-            line-height: 66 / 62;
+          font-size: unit(90/@base, rem); 
         });
+        .break-max({
+          font-size: unit(120/@base, rem);
+        })
     }
     .h2() {
         font-size: unit(26/@base,rem);
@@ -108,9 +112,11 @@ body {
 }
 
 h1 {
-  #type > #heading > .default;
   #type > #size > .h1;
+  #type > #font > .serif;
+  text-transform: uppercase;
   letter-spacing: -0.1px;
+  text-align: center;
 }
 
 h2, .h2 {
@@ -146,13 +152,13 @@ h3, .h3 {
       margin-top: unit(2/@base,rem);
   }
   p, ol, ul, h2, h3, h4, h5, h6, time {
-    margin-bottom: var(--gap);
+    margin-bottom: calc(var(--type-base) / var(--base));
   }
   p+h2, ul+h2, ol+h2,
   p+h3, ul+h3, ol+h3 {
-      margin-top: calc(var(--gap) * 2);
+      margin-top: calc(var(--type-base) / var(--base) * 2);
   }
   figure {
-    margin-bottom: calc(var(--gap) * 2);
+    margin-bottom: calc(var(--type-base) / var(--base) * 2);
   }
 }
