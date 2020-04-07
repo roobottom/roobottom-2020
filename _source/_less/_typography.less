@@ -39,8 +39,120 @@ body {
       text-transform: uppercase;
     }
   }
+  #size {
+    .regular() {
+        font-size: unit(16/@base,rem);
+        line-height: 24 / 16;
+        .break-min({
+            font-size: unit(19/@base,rem);
+            line-height: 34 / 19;
+        });
+    }
+    .compact() {
+      font-size: unit(16/@base,rem);
+      line-height: 20 / 16;
+      .break-min({
+          font-size: unit(19/@base,rem);
+          line-height: 23 / 19;
+      });
+    }
+    .small() {
+        font-size: unit(15/@base, rem); 
+        line-height: 20 / 15;
+    }
+    .large() {
+        font-size: unit(19/@base,rem);
+        line-height: 26 / 19;
+        .break-min({
+            font-size: unit(24/@base,rem);
+            line-height: 32 / 24;
+        });
+    }
+    .x-large() {
+        font-size: unit(23/@base,rem);
+        line-height: 27 / 23;
+        .break-min({
+            font-size: unit(32/@base,rem);
+            line-height: 40 / 32;
+        });
+    }
+    .h1() {
+        font-size: unit(32/@base, rem);
+        line-height: 38 / 32;
+        .break-min({
+            font-size: unit(44/@base, rem);
+            line-height: 48 / 44;
+        });
+        .break-mid({
+            font-size: unit(62/@base, rem);
+            line-height: 66 / 62;
+        });
+    }
+    .h2() {
+        font-size: unit(26/@base,rem);
+        line-height: 30 / 26;
+        .break-min({
+            font-size: unit(34/@base,rem);
+            line-height: 38 / 34;
+        });
+    }
+    .h3() {
+        font-size: unit(20/@base,rem);
+        line-height: 24 / 20;
+        .break-min({
+            font-size: unit(24/@base,rem);
+            line-height: 28 / 24;
+        });
+    }
+  }
 }
 
 h1 {
-  #type > #heading > .default
+  #type > #heading > .default;
+  #type > #size > .h1;
+  letter-spacing: -0.1px;
+}
+
+h2, .h2 {
+  #type > #size > .h2;
+}
+
+h3, .h3 {
+  #type > #size > .h3;
+}
+
+.prose {
+  p, ol, ul, h4, h5, h6 {
+    #type > #size > .regular;
+  }
+  time {
+    #type > #size > .small;
+    color: @c_grey_dark;
+    display: inline-block;
+  }
+  >ol>li,
+    >ul>li {
+        margin-left: 1em;
+    }
+
+  //spacing
+  .break-max({
+      >ol>li,
+      >ul>li {
+          padding-left: unit(8/@base,rem);
+      }
+  });
+  li + li {
+      margin-top: unit(2/@base,rem);
+  }
+  p, ol, ul, h2, h3, h4, h5, h6, time {
+    margin-bottom: var(--gap);
+  }
+  p+h2, ul+h2, ol+h2,
+  p+h3, ul+h3, ol+h3 {
+      margin-top: calc(var(--gap) * 2);
+  }
+  figure {
+    margin-bottom: calc(var(--gap) * 2);
+  }
 }

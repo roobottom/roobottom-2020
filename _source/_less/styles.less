@@ -3,6 +3,34 @@
 
   --site-max-width: 1440px;
 }
+@base: 16;
+@site-width: 1440;
+@break-max-rem: unit(@site-width/@base,rem);
+@break-min: 580;
+@break-min-rem: unit(@break-min/@base,rem);
+@break-mid: 690;
+@break-mid-rem: unit(@break-mid/@base,rem);
+
+@c_grey_light: #EFEFEF;
+@c_grey_med: #737373;
+@c_grey_dark: #505050;
+@c_grey_x-dark: #222;
+
+.break-min(@rule) {
+  @media screen and (min-width: (@break-min-rem) ) {
+    @rule();
+  }
+}
+.break-mid(@rule) {
+  @media screen and (min-width: (@break-mid-rem) ) {
+    @rule();
+  }
+}
+.break-max(@rule) {
+  @media screen and (min-width: (@break-max-rem) ) {
+    @rule();
+  }
+}
 @import "_reset"; 
 @import "_layout"; 
 @import "_typography"; 
