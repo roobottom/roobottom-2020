@@ -1,0 +1,22 @@
+.darkmoderules() {
+  --c-text: #FFF;
+  --c-bg: #222;
+  --c-text-quiet: #999;
+  
+  img {
+    opacity: .75;
+    transition: opacity .5s ease-in-out;
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+  }
+}
+
+
+html[data-theme='dark'] {
+  .darkmoderules();
+}
+@media (prefers-color-scheme: dark) {
+  .darkmoderules();
+}
