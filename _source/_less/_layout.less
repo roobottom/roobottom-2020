@@ -1,7 +1,7 @@
 .wrapper {
   max-width: var(--site-max-width);
   margin: 0 auto;
-  padding: 0 var(--grid-gap);
+  padding: 0 calc(var(--grid-gap) / var(--base));
   box-sizing: border-box;
 }
 
@@ -10,24 +10,4 @@
   grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
   grid-gap: var(--grid-gap);
   grid-auto-flow: dense;
-}
-
-.layout-article {
-  >p, >ul, >ol,
-  >h2, >h3, >h4, >h5, >h6,
-  hr {
-    max-width: unit(680/@base, rem);
-    margin-left: auto;
-    margin-right: auto;
-  }
-  figure { //default figures
-    max-width: unit(760/@base, rem);
-    margin-left: auto;
-    margin-right: auto;
-    >figcaption {
-      max-width: unit(680/@base, rem);
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
 }

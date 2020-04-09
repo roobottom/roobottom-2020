@@ -50,7 +50,7 @@
 
     .small() {
         font-size: unit(16/@base, rem); 
-        line-height: 30 / 16;
+        line-height: 24 / 16;
     }
     .large() {
         font-size: unit(19/@base,rem);
@@ -108,14 +108,6 @@
   }
 }
 
-h1 {
-  #type > #size > .h1;
-  #type > #font > .serif;
-  text-transform: uppercase;
-  letter-spacing: -0.1px;
-  text-align: center;
-}
-
 h2, .h2 {
   #type > #size > .h2;
 }
@@ -166,6 +158,7 @@ h3, .h3 {
   figcaption {
     margin-top: calc(var(--type-base) / var(--base) / 4);
     #type > #size > .small;
+    color: var(--c-text-quiet);
   }
   a {
     #type > #style > .link;

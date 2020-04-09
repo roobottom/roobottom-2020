@@ -1,0 +1,27 @@
+.banner {
+  #type > #size > .regular;
+  #type > #font > .serif;
+  text-transform: uppercase;
+  margin-top: calc(var(--type-base) / var(--base));
+  margin-bottom: calc(var(--type-base) / var(--base) * 3);
+  .break-mid({
+    display: flex;
+    justify-content: space-between;
+  });
+
+  //general link styling
+  a {
+    color: var(--c-text);
+    text-decoration: none;
+    &.current,
+    &:hover {
+      text-decoration: underline;
+    }
+    &:focus {
+      color: var(--c-link-focus);
+      background-color: var(--c-link-focus-bg);
+      text-decoration: none;
+      box-shadow: 0 -2px var(--c-link-focus-bg), 0 4px var(--c-link-focus);
+    }
+  }
+}

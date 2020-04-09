@@ -13,14 +13,13 @@ layout: _wrapper.njk
   {% set count = count + 1 %}
 {%- endfor -%}
 
-<header class="prose">
-  <a href="/articles" class="larr"><span class="visually-hidden">View all </span>Articles</a>
-  <h1>{{ title }}</h1>
+<header class="article-header">
+  <h1 class="article-title">{{ title }}</h1>
 </header>
-<footer class="prose">
+<footer class="article-footer">
   <span class="visually-hidden">Published on</span> <time class="dt-published" datetime="{{ date | date('') }}">{{ date | date }}</time>
 </footer>
-<div class="prose layout-article">
+<div class="prose article-content">
   {{ content | safe }}
 </div>
 <h2 id="articleTags">Tagged</h2>
