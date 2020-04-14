@@ -1,0 +1,30 @@
+.teaser {
+  &:nth-of-type(4n-3) {
+    background-color: var(--c-teaser-1);
+  }
+  &:nth-of-type(4n-2) {
+    background-color: var(--c-teaser-2);
+  }
+  &:nth-of-type(4n-1) {
+    background-color: var(--c-teaser-3);
+  }
+  &:nth-of-type(4n) {
+    background-color: var(--c-teaser-4);
+  }
+
+  position: relative;
+  padding: calc(var(--type-base) / var(--base));
+  border-radius: var(--border-radius);
+
+  &-permalink {
+    &:before {
+      content: "";
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      z-index: 2;
+    }
+  }
+}
