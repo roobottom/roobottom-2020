@@ -21,6 +21,10 @@
 
   --site-max-width: 1440px;
 
+  --border-radius: 5px;
+
+  //--c: colour, --s: style
+
   --c-text: #222;
   --c-bg: #FFF;
   --c-text-quiet: #999;
@@ -31,6 +35,23 @@
   --c-link-hover-bg: #E8F4FD;
   --c-link-focus: #222;
   --c-link-focus-bg: #FFE35B;
+
+  //tag
+  --c-tag: #FFF;
+  --c-tag-bg: #8D007C;
+  --c-tag-hover: var(--c-tag);
+  --c-tag-bg-hover: #640058;
+  --c-tag-focus: #000;
+  --c-tag-bg-focus: #FFE35B;
+  --s-tag-shadow: 0 2px 4px fade(black, 20%);
+  //tag count
+  --c-tag-count: #000;
+  --c-tag-count-bg: #FF00E1;
+  --c-tag-count-hover: var(--c-tag-count);
+  --c-tag-count-bg-hover: var(--c-tag-count-bg);
+  --c-tag-count-focus: #000;
+  --c-tag-count-bg-focus: #FFF4C1;
+
 }
 
 @base: 16;
@@ -50,6 +71,7 @@
 @import "components/article"; 
 @import "components/banner"; 
 @import "components/navigation"; 
+@import "components/tag"; 
 
 body {
   #type > #font > .sans;
