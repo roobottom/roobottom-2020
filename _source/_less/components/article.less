@@ -17,22 +17,26 @@
     margin-bottom: calc(var(--type-base) / var(--base) * 2);
   }
   &-content {
+    margin-bottom: calc(var(--type-base) / var(--base) * 2);
     >p, >ul, >ol,
     >h2, >h3, >h4, >h5, >h6,
     hr {
-      max-width: unit(680/@base, rem);
-      margin-left: auto;
-      margin-right: auto;
+      .center(680);
     }
     figure { //default figures
-      max-width: unit(760/@base, rem);
-      margin-left: auto;
-      margin-right: auto;
+      .center(760);
       >figcaption {
-        max-width: unit(680/@base, rem);
-        margin-left: auto;
-        margin-right: auto;
+        .center(680);
       }
     }
+  }
+  &-tags,
+  &-prevNext {
+    .center(680);
+    margin-bottom: calc(var(--type-base) / var(--base) * 2);
+  }
+  &-tags__title {
+    #type > #size > .h3;
+    margin-bottom: calc(var(--type-base) / var(--base))
   }
 }

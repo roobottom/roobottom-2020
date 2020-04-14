@@ -1,0 +1,31 @@
+.prevNext {
+  &-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  &-item {
+    list-style: none;
+  }
+  &-itemLabel {
+    display: block;
+    #type > #size > .h3;
+  }
+
+  &-item--next {
+    text-align: right;
+    margin-left: auto;
+  }
+
+  &-item--prev &-itemLabel:before {
+    content: "←";
+  }
+  &-item--next &-itemLabel:after {
+    content: "→";
+  }
+
+  &-link {
+    #type > #size > .regular;
+    #type > #style > .link;
+  }
+}

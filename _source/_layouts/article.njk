@@ -22,27 +22,29 @@ layout: _wrapper.njk
 <div class="prose article-content">
   {{ content | safe }}
 </div>
-<h2 id="articleTags">Tagged</h2>
-<ul class="tagCloud" aria-labelledby="articleTags">
-  {% for tagItem in tags %}
-    <li class="tagCloud-tag">{{ tag({
-      title: tagItem,
-      url: '/tags/' + tagItem | slug
-    }) }}</li>
-  {% endfor %}
-</ul>
-<nav class="prevNext" aria-label="Pagination">
-  <ul class="prevNext__list">
+<div class="article-tags">
+  <h2 id="articleTags" class="article-tags__title">Tagged</h2>
+  <ul class="tagCloud" aria-labelledby="articleTags">
+    {% for tagItem in tags %}
+      <li class="tagCloud-tag">{{ tag({
+        title: tagItem,
+        url: '/tags/' + tagItem | slug
+      }) }}</li>
+    {% endfor %}
+  </ul>
+</div>
+<nav class="article-prevNext prevNext" aria-label="Pagination">
+  <ul class="prevNext-list">
     {% if prevPage %}
-    <li class="prevNext__item prevNext__item--prev">
-      <span class="prevNext__itemLabel">Previously:</span>
-      <a href="{{ prevPage.url }}" rel="prev" class="prevNext__link">{{ prevPage.data.title }}</a>
+    <li class="prevNext-item prevNext-item--prev">
+      <span class="prevNext-itemLabel">Previous article</span>
+      <a href="{{ prevPage.url }}" rel="prev" class="prevNext-link">{{ prevPage.data.title }}</a>
     </li>
     {% endif %}
     {% if nextPage %}
-    <li class="prevNext__item prevNext__item--next">
-      <span class="prevNext__itemLabel">Next up:</span>
-      <a href="{{ nextPage.url }}" rel="next" class="prevNext__link">{{ nextPage.data.title }}</a>
+    <li class="prevNext-item prevNext-item--next">
+      <span class="prevNext-itemLabel">Next article</span>
+      <a href="{{ nextPage.url }}" rel="next" class="prevNext-link">{{ nextPage.data.title }}</a>
     </li>
     {% endif %}
   </ul> 
