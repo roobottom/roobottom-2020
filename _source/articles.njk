@@ -4,10 +4,17 @@ layout: default.njk
 ---
 {% from "./_components/teaser.njk" import teaser %}
 {% set currentYear = null %}
+{% set articleId = 0 %}
 {%- for article in collections.articles -%}
   {% if article.data.date | date('YYYY') != currentYear %}
-  {% set currentYear = article.data.date | date('YYYY') %}
-  <h2>{{ currentYear }}</h2>
+    {% set currentYear = article.data.date | date('YYYY') %}
+    <h2 class="grid-title">{{ currentYear }}</h2>
+    <div class="grid">
   {% endif %}
-  {{ teaser(article) }}
+    {{ teaser(article) }}
+  {% if collections.articles[articleId + 1].data.date | date('YYYY') != currentYear %}
+    </div>
+  {% endif %}
+  {% set articleId = articleId + 1 %}
 {%- endfor -%}
+</div>

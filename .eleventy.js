@@ -54,6 +54,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("plural", (noun, count, suffix="s") => {
     return `${noun}${count !== 1 ? suffix: ''}`
   })
+  eleventyConfig.addFilter("stripTags", (html) => {
+    return html.replace(/(<([^>]+)>)/ig,"")
+  })
 
 
   return {

@@ -2,13 +2,17 @@
   data: [object]
 #}
 {% macro teaser(data) %}
-<article class="teaser h-entry">
-  <time class="dt-published" datetime="{{ data.data.date | date('') }}">{{ data.data.date | date('Do MMM YYYY') }}</time>
-  <h3 class="teaser-title p-name">{{ data.data.title }}</h3>
-  <div class="teaser-content p-summary">
-    {{ data.templateContent | firstParagraph | safe }}
+<article class="teaser">
+  <time class="teaser-date" datetime="{{ data.data.date | date('') }}">
+    <span class="teaser-date__month">{{ data.data.date | date('MMM') }}</span>
+    <span class="teaser-date__day">{{ data.data.date | date('Do') }}</span>
+    <span class="teaser-date__year">{{ data.data.date | date('YYYY') }}</span>
+  </time>
+  <h3 class="teaser-title">{{ data.data.title }}</h3>
+  <div class="teaser-content">
+    {{ data.templateContent | firstParagraph | stripTags }}
   </div>
   {# todo: Workout how to turn this into a proper permalink (https://roobottom.com/) #}
-  <a href="{{ data.url }}" class="teaser-permalink u-url" rel="bookmark">Keep reading “{{ data.data.title }}”</a>
+  <a href="{{ data.url }}" class="teaser-permalink" rel="bookmark">Keep reading “{{ data.data.title }}”</a>
 </article>
 {% endmacro %}

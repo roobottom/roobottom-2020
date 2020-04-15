@@ -1,9 +1,9 @@
 ---
 layout: _wrapper.njk
 ---
-<header class="header">
-  <h1 class="title">{{ renderData.title or title }}</h1>
+<header class="default-header">
+  <h1 class="default-title">{{ renderData.title or title }}</h1>
 </header>
-<div class="wrapper-content">
+<div class="default-content">
   {{ content | safe }}
 </div>
