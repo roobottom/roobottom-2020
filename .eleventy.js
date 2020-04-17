@@ -57,6 +57,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("stripTags", (html) => {
     return html.replace(/(<([^>]+)>)/ig,"")
   })
+  eleventyConfig.addFilter("paginationURL", (index, prefix="page-") => {
+    return (index === 0) ? `` : `${prefix}${index}/`
+  })
 
 
   return {

@@ -1,20 +1,26 @@
 ---
 title: Articles
 layout: default.njk
+pagination:
+  data: collections.articles
+  size: 10
+  alias: articles
+permalink: "/articles/{{ pagination.pageNumber | paginationURL }}"
 ---
 {% from "./_components/teaser.njk" import teaser %}
 {% set currentYear = null %}
 {% set articleId = 0 %}
-{%- for article in collections.articles -%}
-  {% if article.data.date | date('YYYY') != currentYear %}
-    {% set currentYear = article.data.date | date('YYYY') %}
-    <h2 class="grid-title">{{ currentYear }}</h2>
-    <div class="grid">
-  {% endif %}
-    {{ teaser(article) }}
-  {% if collections.articles[articleId + 1].data.date | date('YYYY') != currentYear %}
-    </div>
-  {% endif %}
-  {% set articleId = articleId + 1 %}
+<h2></h2>
+<div class="grid">
+{%- for article in articles -%}
+  {{ teaser(article) }}
 {%- endfor -%}
 </div>
+<nav aria-labelledby="pagination-title">
+  <h2 id="pagination-title">Articles pagination</h2>
+  <ol>
+{%- for pageEntry in pagination.pages %}
+    <li><a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}>Page {{ loop.index }}</a></li>
+{%- endfor %}
+  </ol>
+</nav>

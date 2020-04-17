@@ -62,10 +62,11 @@
 
 @base: 16;
 @site-width: 1440;
-@break-max-rem: unit(@site-width/@base,rem);
+@break-max: 1180; //must be less than the site-width
+@break-max-rem: unit(@break-max/@base,rem);
 @break-min: 580;
 @break-min-rem: unit(@break-min/@base,rem);
-@break-mid: 690;
+@break-mid: 980;
 @break-mid-rem: unit(@break-mid/@base,rem);
 
 
