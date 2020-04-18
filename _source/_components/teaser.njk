@@ -2,12 +2,19 @@
   data: [object]
 #}
 {% macro teaser(data) %}
+{% if data.data.cover %}{% set cover =  data.data.cover %}
+{% elif data.templateContent | firstImage %}{% set cover = data.templateContent | firstImage %}
+{% else %}{% set cover = false %}
+{% endif %}
 <article class="teaser">
   <time class="teaser-date" datetime="{{ data.data.date | date('') }}">
     <span class="teaser-date__month">{{ data.data.date | date('MMM') }}</span>
     <span class="teaser-date__day">{{ data.data.date | date('Do') }}</span>
     <span class="teaser-date__year">{{ data.data.date | date('YYYY') }}</span>
   </time>
+  {% if cover %}
+  <img src="{{ data.url }}{{ cover }}" alt="" class="teaser-cover"/>
+  {% endif %}
   <h3 class="teaser-title">{{ data.data.title }}</h3>
   <div class="teaser-content">
     {{ data.templateContent | firstParagraph | stripTags }}
