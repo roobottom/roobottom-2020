@@ -1,3 +1,12 @@
+@base: 16;
+@site-width: 1640;
+@break-max: 1380; //must be less than the site-width
+@break-max-rem: unit(@break-max/@base,rem);
+@break-min:  500;
+@break-min-rem: unit(@break-min/@base,rem);
+@break-mid: 980;
+@break-mid-rem: unit(@break-mid/@base,rem);
+
 .break-min(@rule) {
   @media screen and (min-width: (@break-min-rem) ) {
     @rule();
@@ -19,7 +28,7 @@
   --base: 16;
   --type-base: 30rem;
 
-  --site-max-width: 1440px;
+  --site-max-width: unit(@site-width, px);
 
   --border-radius: 5px;
 
@@ -53,21 +62,16 @@
   --c-tag-count-bg-focus: #FFF4C1;
 
   //teasers
-  --c-teaser-1: #8D007C;
-  --c-teaser-2: #FF00E1;
-  --c-teaser-3: #FC1054;
-  --c-teaser-4: #0064AF;
+  --c-teaser-1: #FFF;
+  --c-teaser-1-bg: #8D007C;
+  --c-teaser-2: #000;
+  --c-teaser-2-bg: #FF00E1;
+  --c-teaser-3: #FFF;
+  --c-teaser-3-bg: #FC1054;
+  --c-teaser-4: #FFF;
+  --c-teaser-4-bg: #0064AF;
 
 }
-
-@base: 16;
-@site-width: 1440;
-@break-max: 1180; //must be less than the site-width
-@break-max-rem: unit(@break-max/@base,rem);
-@break-min: 580;
-@break-min-rem: unit(@break-min/@base,rem);
-@break-mid: 980;
-@break-mid-rem: unit(@break-mid/@base,rem);
 
 
 @import "_reset"; 

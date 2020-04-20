@@ -6,18 +6,16 @@
 {% elif data.templateContent | firstImage %}{% set cover = data.templateContent | firstImage %}
 {% else %}{% set cover = false %}
 {% endif %}
-<article class="teaser">
+<article class="teaser{% if cover %} teaser--has-cover{% endif %}">
+  <div class="teaser-cover"{% if cover %} style="background-image: url({{ data.url }}{{ cover }});"{% endif %}></div>
   <time class="teaser-date" datetime="{{ data.data.date | date('') }}">
-    <span class="teaser-date__month">{{ data.data.date | date('MMM') }}</span>
     <span class="teaser-date__day">{{ data.data.date | date('Do') }}</span>
+    <span class="teaser-date__month">{{ data.data.date | date('MMM') }}</span>
     <span class="teaser-date__year">{{ data.data.date | date('YYYY') }}</span>
   </time>
-  {% if cover %}
-  <img src="{{ data.url }}{{ cover }}" alt="" class="teaser-cover"/>
-  {% endif %}
   <h3 class="teaser-title">{{ data.data.title }}</h3>
   <div class="teaser-content">
-    {{ data.templateContent | firstParagraph | stripTags }}
+    {% if data.data.intro %}{{ data.data.intro }}{% else %}{{ data.templateContent | firstParagraph | stripTags }}{% endif %}
   </div>
   {# todo: Workout how to turn this into a proper permalink (https://roobottom.com/) #}
   <a href="{{ data.url }}" class="teaser-permalink" rel="bookmark">Keep reading “{{ data.data.title }}”</a>

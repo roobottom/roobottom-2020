@@ -64,6 +64,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("paginationURL", (index, prefix="page-") => {
     return (index === 0) ? `` : `${prefix}${index}/`
   })
+  eleventyConfig.addFilter("markdown", (content) => {
+    return md.render(content)
+  })
 
 
   return {

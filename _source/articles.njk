@@ -3,14 +3,13 @@ title: Articles
 layout: default.njk
 pagination:
   data: collections.articles
-  size: 10
+  size: 12
   alias: articles
 permalink: "/articles/{{ pagination.pageNumber | paginationURL }}"
 ---
 {% from "./_components/teaser.njk" import teaser %}
 {% set currentYear = null %}
 {% set articleId = 0 %}
-<h2></h2>
 <div class="grid">
 {%- for article in articles -%}
   {{ teaser(article) }}
