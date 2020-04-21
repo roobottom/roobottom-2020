@@ -34,42 +34,72 @@
 
   //--c: colour, --s: style
 
+  //core colours
+  --c-core-purple: #CB52FC;
+  --c-core-purple-dark: #64008C;
+  --c-core-pink: #FF00E1;
+  --c-core-pink-dark: #97138E;
+  --c-core-red: #FC1054;
+  --c-core-red-dark: #D5003D;
+  --c-core-blue: #008AF2;
+  --c-core-blue-dark: #046DBD; 
+
+  //text and links
   --c-text: #222;
   --c-bg: #FFF;
   --c-text-quiet: #999;
   --c-text-whisper: #F3F3F3; 
+  --c-bg-focus: #FFE35B;
 
-  --c-link: #008af2;
-  --c-link-hover: #008af2;
+  //links
+  --c-link: var(--c-core-blue);
+  --c-link-hover: var(--c-core-blue-dark);
   --c-link-hover-bg: #E8F4FD;
   --c-link-focus: #222;
-  --c-link-focus-bg: #FFE35B;
+  --c-link-focus-bg: var(--c-bg-focus);
 
   //tag
-  --c-tag: #FFF;
-  --c-tag-bg: #8D007C;
+  --c-tag: #000;
+  --c-tag-bg: var(--c-core-purple);
+
   --c-tag-hover: var(--c-tag);
-  --c-tag-bg-hover: #640058;
+  --c-tag-bg-hover: var(--c-core-pink);
+
   --c-tag-focus: #000;
-  --c-tag-bg-focus: #FFE35B;
+  --c-tag-bg-focus: var(--c-bg-focus);
+
   --s-tag-shadow: 0 2px 4px fade(black, 20%);
+  
   //tag count
-  --c-tag-count: #000;
-  --c-tag-count-bg: #FF00E1;
+  --c-tag-count: #FFF;
+  --c-tag-count-bg: var(--c-core-purple-dark);
+
   --c-tag-count-hover: var(--c-tag-count);
-  --c-tag-count-bg-hover: var(--c-tag-count-bg);
+  --c-tag-count-bg-hover: var(--c-core-pink-dark);
+
   --c-tag-count-focus: #000;
   --c-tag-count-bg-focus: #FFF4C1;
 
   //teasers
-  --c-teaser-1: #FFF;
-  --c-teaser-1-bg: #8D007C;
+  --c-teaser-1: #000;
+  --c-teaser-1-bg: var(--c-core-purple);
+  --c-teaser-1-hover: #FFF;
+  --c-teaser-1-bg-hover: var(--c-core-purple-dark);
+
   --c-teaser-2: #000;
-  --c-teaser-2-bg: #FF00E1;
-  --c-teaser-3: #FFF;
-  --c-teaser-3-bg: #FC1054;
-  --c-teaser-4: #FFF;
-  --c-teaser-4-bg: #0064AF;
+  --c-teaser-2-bg: var(--c-core-pink);
+  --c-teaser-2-hover: #FFF;
+  --c-teaser-2-bg-hover: var(--c-core-pink-dark);
+
+  --c-teaser-3: #000;
+  --c-teaser-3-bg: var(--c-core-red);
+  --c-teaser-3-hover: #FFF;
+  --c-teaser-3-bg-hover: var(--c-core-red-dark);
+
+  --c-teaser-4: #000;
+  --c-teaser-4-bg: var(--c-core-blue);
+  --c-teaser-4-hover: #FFF;
+  --c-teaser-4-bg-hover: var(--c-core-blue-dark);
 
 }
 

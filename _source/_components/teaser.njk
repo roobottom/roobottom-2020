@@ -1,7 +1,7 @@
 {# teaser. 
   data: [object]
 #}
-{% macro teaser(data) %}
+{% macro teaser(data, global) %}
 {% if data.data.cover %}{% set cover =  data.data.cover %}
 {% elif data.templateContent | firstImage %}{% set cover = data.templateContent | firstImage %}
 {% else %}{% set cover = false %}
@@ -17,7 +17,7 @@
   <div class="teaser-content">
     {% if data.data.intro %}{{ data.data.intro }}{% else %}{{ data.templateContent | firstParagraph | stripTags }}{% endif %}
   </div>
-  {# todo: Workout how to turn this into a proper permalink (https://roobottom.com/) #}
+  ENV: {{ global.env }}
   <a href="{{ data.url }}" class="teaser-permalink" rel="bookmark">Keep reading “{{ data.data.title }}”</a>
 </article>
 {% endmacro %}

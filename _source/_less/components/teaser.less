@@ -1,4 +1,6 @@
 .teaser {
+
+  //type 1
   &:nth-of-type(4n-3),
   &:nth-of-type(4n-3) &-date__day {
     background-color: var(--c-teaser-1-bg);
@@ -6,6 +8,15 @@
       color: var(--c-teaser-1);
     }
   }
+  &:nth-of-type(4n-3):hover,
+  &:nth-of-type(4n-3):hover &-date__day {
+    background-color: var(--c-teaser-1-bg-hover);
+    &, a {
+      color: var(--c-teaser-1-hover);
+    }
+  }
+
+  //type 2
   &:nth-of-type(4n-2),
   &:nth-of-type(4n-2) &-date__day {
     background-color: var(--c-teaser-2-bg);
@@ -13,6 +24,15 @@
       color: var(--c-teaser-2);
     }
   }
+  &:nth-of-type(4n-2):hover,
+  &:nth-of-type(4n-2):hover &-date__day {
+    background-color: var(--c-teaser-2-bg-hover);
+    &, a {
+      color: var(--c-teaser-2-hover);
+    }
+  }
+
+  //type 3
   &:nth-of-type(4n-1),
   &:nth-of-type(4n-1) &-date__day {
     background-color: var(--c-teaser-3-bg);
@@ -20,12 +40,35 @@
       color: var(--c-teaser-3);
     }
   }
+  &:nth-of-type(4n-1):hover,
+  &:nth-of-type(4n-1):hover &-date__day {
+    background-color: var(--c-teaser-3-bg-hover);
+    &, a {
+      color: var(--c-teaser-3-hover);
+    }
+  }
+
+  //type 4
   &:nth-of-type(4n),
   &:nth-of-type(4n) &-date__day {
     background-color: var(--c-teaser-4-bg);
     &, a {
       color: var(--c-teaser-4);
     }
+  }
+  &:nth-of-type(4n):hover,
+  &:nth-of-type(4n):hover &-date__day {
+    background-color: var(--c-teaser-4-bg-hover);
+    &, a {
+      color: var(--c-teaser-4-hover);
+    }
+  }
+
+  //focus state
+  &:focus,
+  &:foucs &-date__day {
+    background-color: var(--c-bg-focus);
+    &, a { color: #000; }
   }
 
   position: relative;
@@ -34,6 +77,8 @@
   flex-direction: column;
   overflow: hidden;
   align-items: start;
+  transition-property: background-color, color;
+  transition-duration: 0.3s;
 
   &:hover {
     box-shadow: 0 0 10px black;

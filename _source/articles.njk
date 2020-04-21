@@ -12,7 +12,7 @@ permalink: "/articles/{{ pagination.pageNumber | paginationURL }}"
 {% set articleId = 0 %}
 <div class="grid">
 {%- for article in articles -%}
-  {{ teaser(article) }}
+  {{ teaser(article, global) }}
 {%- endfor -%}
 </div>
 <nav aria-labelledby="pagination-title">
