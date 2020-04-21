@@ -1,4 +1,3 @@
 module.exports = {
-  env: process.env.ELEVENTY_ENV,
-  test: 'hi'
+  env: process.env.ELEVENTY_ENV
 }
