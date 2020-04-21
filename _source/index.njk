@@ -2,6 +2,14 @@
 title: Homepage
 layout: headerless.njk
 ---
+<svg class="shapeParty" width="100%" height="100%" viewBox="0 0 580 580" preserveAspectRatio="xMidYMid slice">
+  <g fill="none" fill-rule="evenodd" stroke="#FFF" stroke-width="13">
+    <path d="M120.4 26.4l169.3 186.2-248.5 52.8z" class="shapeParty-triangle"></path>
+    <circle cx="443.5" cy="189.5" r="100.5" class="shapeParty-circle"></circle>
+    <path d="M202.4 278.3l189 65-65 189.2-189-65z" class="shapeParty-square"></path>
+  </g>
+</svg>
+<div class="introduction">
 <h1>Hello, my name is Jon, and I love making things for the web.</h1>
 {% set popularTags %}
 {%- for tag in collections.tagList -%}
@@ -11,3 +19,4 @@ layout: headerless.njk
 {%- endfor -%}
 {% endset %}
 <p>This is my personal website where I write articles on subjects like {{ popularTags | safe }}.</p>
+</div>
