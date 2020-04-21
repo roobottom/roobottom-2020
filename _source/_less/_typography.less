@@ -98,6 +98,8 @@
     .link() {
       color: var(--c-link);
       text-decoration: underline;
+      transition-property: color, background-color;
+      transition-duration: var(--s-transition-duration);
       &:hover {
         color: var(--c-link-hover);
         background-color: var(--c-link-hover-bg);
