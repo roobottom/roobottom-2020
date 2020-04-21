@@ -64,13 +64,6 @@
     }
   }
 
-  //focus state
-  &:focus,
-  &:foucs &-date__day {
-    background-color: var(--c-bg-focus);
-    &, a { color: #000; }
-  }
-
   position: relative;
   border-radius: var(--border-radius);
   display: flex;
@@ -142,14 +135,18 @@
   &-permalink {
     margin-top: auto;
     &:before {
-        content: "";
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        position: absolute;
-        z-index: 2;
-      }
+      content: "";
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      z-index: 2;
+    }
+    &:focus:before {
+      border: 3px solid var(--c-bg-focus);
+      box-shadow: 0 0 10px var(--c-bg-focus);
+    }
   }
 
   &-permalink:after {
