@@ -18,6 +18,6 @@
     {% if data.data.intro %}{{ data.data.intro }}{% else %}{{ data.templateContent | firstParagraph | stripTags }}{% endif %}
   </div>
   {% if global.env == 'production' %}{% set sitelink = '//roobottom.com/' %}{% endif %}
-  <a href="{{ sitelink }}{{ data.url }}" class="teaser-permalink" rel="bookmark">Keep reading “{{ data.data.title }}”</a>
+  <a href="{{ data.url }}" class="teaser-permalink" rel="bookmark">Keep reading “{{ data.data.title }}”</a>
 </article>
 {% endmacro %}
