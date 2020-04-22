@@ -15,11 +15,11 @@ permalink: "/articles/{{ pagination.pageNumber | paginationURL }}"
   {{ teaser(article, global) }}
 {%- endfor -%}
 </div>
-<nav aria-labelledby="pagination-title">
-  <h2 id="pagination-title">Articles pagination</h2>
-  <ol>
+<nav aria-labelledby="pagination-title" class="pagination">
+  <h2 id="pagination-title" class="pagination-title">Articles pagination</h2>
+  <ol class="pagination-items">
 {%- for pageEntry in pagination.pages %}
-    <li><a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}>Page {{ loop.index }}</a></li>
+    <li class="pagination-item"><a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %} class="pagination-link">Page {{ loop.index }}</a></li>
 {%- endfor %}
   </ol>
 </nav>

@@ -1,0 +1,59 @@
+.pagination {
+  margin: calc(var(--type-base) * 2 / var(--base)) 0;
+
+  &-title {
+    #type > #size > .h3;
+    margin-bottom: calc(var(--type-gap) / var(--base));
+    text-align: center;
+  }
+
+  &-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(6rem, 9rem));
+    gap: calc(var(--grid-gap) / var(--base));
+    justify-content: center;
+  }
+
+  &-item {
+    list-style-type: none;
+    &:before {
+      content: "\200B"; /* accessibilty fix: https://unfetteredthoughts.net/2017/09/26/voiceover-and-list-style-type-none/ */
+    }
+  }
+
+  &-link {
+    color: var(--c-pagination);
+    background-color: var(--c-pagination-bg);
+    border: 2px solid var(--c-pagination-border);
+    
+    border-radius: var(--border-radius);
+    #type > #size > .large;
+    #type > #font > .serif;
+    text-transform: uppercase;
+    text-align: center;
+    display: flex;
+    min-height: 3em;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+
+    &[aria-current] {
+      color: var(--c-pagination-current);
+      background-color: var(--c-pagination-bg-current);
+      border-color: var(--c-pagination-border-current);
+    }
+
+    &:hover {
+      color: var(--c-pagination-hover);
+      background-color: var(--c-pagination-bg-hover);
+      border-color: var(--c-pagination-border-hover);
+    }
+
+    &:focus {
+      color: var(--c-pagination-focus);
+      background-color: var(--c-pagination-bg-focus);
+      border-color: var(--c-pagination-border-focus);
+    }
+
+  }
+}
