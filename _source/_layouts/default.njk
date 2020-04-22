@@ -4,6 +4,6 @@ layout: _wrapper.njk
 <header class="defaultPage-header">
   <h1 class="defaultPage-title">{{ renderData.title or title }}</h1>
 </header>
-<div class="defaultPage-content">
+<div class="defaultPage-content {{ contentClasses }}">
   {{ content | safe }}
 </div>

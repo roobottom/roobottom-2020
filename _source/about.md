@@ -1,6 +1,7 @@
 ---
 title: About
 layout: default.njk
+contentClasses: 'prose article-content'
 ---
 Hello. Thank you for taking the time for visiting my website. I've been writing articles here for the last 15 years. But I've been tinkering on this domain since 2001. 
 
