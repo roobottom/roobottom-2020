@@ -1,11 +1,17 @@
----
-title: Articles
-layout: default.njk
-pagination:
-  data: collections.articles
-  size: 12
-  alias: articles
-permalink: "/articles/{{ pagination.pageNumber | paginationURL }}"
+---js
+{
+  pagination: {
+    data: 'collections.articles',
+    size: 12,
+    alias: 'articles'
+  },
+  layout: 'default.njk',
+  title: 'Articles',
+  renderData: {
+    titleElement: 'List of articles page {{ pagination.pageNumber + 1 }} of {{ pagination.pages | length }}'
+  },
+  permalink: '/articles/{{ pagination.pageNumber | paginationURL }}'
+}
 ---
 {% from "./_components/teaser.njk" import teaser %}
 {% set currentYear = null %}
