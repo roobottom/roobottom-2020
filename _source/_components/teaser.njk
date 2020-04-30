@@ -13,7 +13,7 @@
     <span class="teaser-date__month">{{ data.data.date | date('MMM') }}</span>
     <span class="teaser-date__year">{{ data.data.date | date('YYYY') }}</span>
   </time>
-  <h3 class="teaser-title">{{ data.data.title }}</h3>
+  <h2 class="teaser-title">{{ data.data.title }}</h2>
   <div class="teaser-content">
     {% if data.data.intro %}{{ data.data.intro }}{% else %}{{ data.templateContent | firstParagraph | stripTags }}{% endif %}
   </div>
