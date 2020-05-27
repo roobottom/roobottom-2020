@@ -37,7 +37,8 @@ const transforms = [
     options: {
       width: 860,
       fit: "cover"
-    }
+    },
+    greyscale: false
   }
 ]
 
@@ -64,6 +65,7 @@ const images = (callback) => {
       if(!fs.existsSync(destFile)) {
         sharp(file)
         .resize(transform.options)
+        .greyscale(transform.greyscale)
         .toFile(destFile)
         .catch(err => {
           console.log(err)
