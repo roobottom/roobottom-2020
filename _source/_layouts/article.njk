@@ -1,7 +1,6 @@
 ---
 layout: _wrapper.njk
 ---
-{% from "../_components/tag.njk" import tag %}
 {% set count = 0 %}
 {% set prevPage = null %}
 {% set nextPage = null %}
@@ -22,17 +21,7 @@ layout: _wrapper.njk
 <div class="prose article-content">
   {{ content | safe }}
 </div>
-<div class="article-tags">
-  <h2 id="articleTags" class="article-tags__title">Tagged</h2>
-  <ul class="tagCloud" aria-labelledby="articleTags">
-    {% for tagItem in tags %}
-      <li class="tagCloud-tag">{{ tag({
-        title: tagItem,
-        url: '/tags/' + tagItem | slug
-      }) }}</li>
-    {% endfor %}
-  </ul>
-</div>
+
 <nav class="article-prevNext prevNext" aria-label="Pagination">
   <ul class="prevNext-list">
     {% if prevPage %}

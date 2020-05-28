@@ -1,11 +1,11 @@
 @base: 16;
-@site-width: 1640;
-@break-max: 1380; //must be less than the site-width
+
+@break-max: 1170;
 @break-max-rem: unit(@break-max/@base,rem);
-@break-min:  500;
-@break-min-rem: unit(@break-min/@base,rem);
 @break-mid: 980;
 @break-mid-rem: unit(@break-mid/@base,rem);
+@break-min:  500;
+@break-min-rem: unit(@break-min/@base,rem);
 
 .break-min(@rule) {
   @media screen and (min-width: (@break-min-rem) ) {
@@ -23,138 +23,4 @@
   }
 }
 
-:root {
-  --grid-gap: 40rem;
-  --base: 16;
-  --type-base: 30rem;
-
-  --site-max-width: unit(@site-width, px);
-
-  --border-radius: 5px;
-
-  //--c: colour, --s: style
-
-  //core colours
-  --c-core-purple: #CB52FC;
-  --c-core-purple-dark: #64008C;
-  --c-core-pink: #FF00E1;
-  --c-core-pink-dark: #97138E;
-  --c-core-red: #FF0049;
-  --c-core-red-dark: #AB0031;
-  --c-core-blue: #008AF2;
-  --c-core-blue-dark: #0160A7; 
-
-  //core animations
-  --s-transition-duration: 0.3s;
-
-  //text and links
-  --c-text: #222;
-  --c-bg: #FFF;
-  --c-text-quiet: #999;
-  --c-text-whisper: #F3F3F3; 
-  --c-bg-focus: #FFE35B;
-
-  //links
-  --c-link: var(--c-core-blue);
-  --c-link-hover: var(--c-core-blue-dark);
-  --c-link-hover-bg: #E8F4FD;
-  --c-link-focus: #222;
-  --c-link-focus-bg: var(--c-bg-focus);
-
-  //tag
-  --c-tag: #000;
-  --c-tag-bg: var(--c-core-purple);
-
-  --c-tag-hover: var(--c-tag);
-  --c-tag-bg-hover: var(--c-core-pink);
-
-  --c-tag-focus: #000;
-  --c-tag-bg-focus: var(--c-bg-focus);
-
-  --s-tag-shadow: 0 2px 4px fade(black, 20%);
-  
-  //tag count
-  --c-tag-count: #FFF;
-  --c-tag-count-bg: var(--c-core-purple-dark);
-
-  --c-tag-count-hover: var(--c-tag-count);
-  --c-tag-count-bg-hover: var(--c-core-pink-dark);
-
-  --c-tag-count-focus: #000;
-  --c-tag-count-bg-focus: #FFF4C1;
-
-  //teasers
-  --c-teaser-1: #000;
-  --c-teaser-1-bg: var(--c-core-purple);
-  --c-teaser-1-hover: #FFF;
-  --c-teaser-1-bg-hover: var(--c-core-purple-dark);
-
-  --c-teaser-2: #000;
-  --c-teaser-2-bg: var(--c-core-pink);
-  --c-teaser-2-hover: #FFF;
-  --c-teaser-2-bg-hover: var(--c-core-pink-dark);
-
-  --c-teaser-3: #000;
-  --c-teaser-3-bg: var(--c-core-red);
-  --c-teaser-3-hover: #FFF;
-  --c-teaser-3-bg-hover: var(--c-core-red-dark);
-
-  --c-teaser-4: #000;
-  --c-teaser-4-bg: var(--c-core-blue);
-  --c-teaser-4-hover: #FFF;
-  --c-teaser-4-bg-hover: var(--c-core-blue-dark);
-
-  //pagination
-  --c-pagination: var(--c-core-blue);
-  --c-pagination-border: var(--c-core-blue);
-  --c-pagination-bg: (--c-text);
-
-  --c-pagination-hover: #FFF;
-  --c-pagination-border-hover: var(--c-core-blue-dark);
-  --c-pagination-bg-hover: var(--c-core-blue-dark);
-
-  --c-pagination-current: #000;
-  --c-pagination-border-current: var(--c-core-blue);
-  --c-pagination-bg-current: var(--c-core-blue);
-
-  --c-pagination-focus: #000;
-  --c-pagination-border-focus: var(--c-bg-focus);
-  --c-pagination-bg-focus: var(--c-bg-focus);
-
-}
-
-
-@import "_reset"; 
-@import "_layout"; 
-@import "_typography"; 
-
-@import "components/article"; 
-@import "components/banner"; 
-@import "components/navigation"; 
-@import "components/tag"; 
-@import "components/prevNext"; 
-@import "components/teaser"; 
-@import "components/defaultPage"; 
-@import "components/shapeParty"; 
-@import "components/introduction"; 
-@import "components/pagination"; 
-@import "components/footer"; 
-
-body {
-  #type > #font > .sans;
-  background-color: var(--c-bg);
-  color: var(--c-text);
-}
-
-//utils
-.visually-hidden {
-  position:absolute;
-  left:-10000px;
-  top:auto;
-  width:1px;
-  height:1px;
-  overflow:hidden;
-}
-
-
-@import "_darkmode"; 
+@import "_typography";

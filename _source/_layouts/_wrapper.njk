@@ -7,7 +7,7 @@
     <meta name="description" content="The personal website of Jon Roobottom">
     <meta name="robots" content="index, follow">
     <title>{{ renderData.titleElement or renderData.title or title }} / Jon Roobottom’s website</title>
-    {# <link href="/assets/styles.css" rel="stylesheet"/> #}
+    <link href="/assets/styles.css" rel="stylesheet"/>
     <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
 </head>
 <body>
@@ -15,9 +15,10 @@
     <a href="/" class="banner-link" rel="home">Jon Roobottom’s Website</a>
     <nav class="banner-navigation" aria-label="site">
         <ul class="navigation">
-            {% for item in global.menu %}
+            {%- for item in global.menu -%}
             <li><a href="{{ item.url }}" {% if page.url.startsWith(item.url) %}aria-current="page"{% endif %}>{{ item.title }}</a></li>
-            {% endfor %}
+            {%- endfor -%}
+            <li><button>Switch between dark and light modes</button></li>
         </ul>
     </nav>
 </header>
