@@ -6,7 +6,7 @@ title: Archives
 {% set archives = collections.articles | archives %}
 {# meta data paragraph #}
 {% set avg =  ((collections.articles | length) / archives.yearStats.spread) | round(2) %}
-<p>Over the last {{ archives.yearStats.spread }} years I’ve written {{ collections.articles | length }} articles. I write an average of {{ avg }} articles per year. My most prolific year was {{ archives.yearStats.busiest.year }} when I wrote {{ archives.yearStats.busiest.count }} posts. By contrast, the quietest year was {{ archives.yearStats.quietest.year }} with {{ archives.yearStats.quietest.count }} {{ 'post' | plural(archives.yearStats.quietest.count) }}</p>
+<p>Over the last {{ archives.yearStats.spread }} years I’ve written {{ collections.articles | length }} articles. I write an average of {{ avg }} articles per year. My most prolific year was {{ archives.yearStats.busiest.year }} when I wrote {{ archives.yearStats.busiest.count }} {{ 'article' | plural(archives.yearStats.busiest.count) }}. By contrast, the quietest year was {{ archives.yearStats.quietest.year }} with {{ archives.yearStats.quietest.count }} {{ 'article' | plural(archives.yearStats.quietest.count) }}.</p>
 
 {# render posts #}
 {%- for year in archives.years -%}

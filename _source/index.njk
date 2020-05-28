@@ -1,10 +1,12 @@
 ---
-title: Homepage
-layout: headerless.njk
+title: Welcome
+layout: default.njk
+omitTitle: true
 ---
 <div class="introduction">
 <h1>Hello.</h1>
 <p class="lead">I'm Jon and this is my website.<br>I write things.</p>
+</div>
 {%- for article in collections.articles | limit(5) -%}
 
   {% if article.data.cover %}{% set cover =  article.data.cover %}
@@ -22,4 +24,3 @@ layout: headerless.njk
     <a href="{{ article.url }}" class="teaser-link">Read {{ article.data.title }}</a>
   </article>
 {%- endfor -%}
-</div>

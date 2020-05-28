@@ -1,3 +1,0 @@
-{% macro tag(tag) %}
-<a href="{{ tag.url }}" class="tag{% if tag.count %} tag--has-count{% endif %}" rel="tag" aria-label="{{ tag.title }}"><div class="tag-name">{{ tag.title }}</div>{% if tag.count %} <div class="tag-count"><span class="visually-hidden">- </span>{{ tag.count }} <span class="visually-hidden">{{ 'article' | plural(tag.count) }}</span></div>{% endif %}</a>
-{% endmacro %}

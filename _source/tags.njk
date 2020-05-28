@@ -8,15 +8,17 @@
 },
   layout: 'default.njk',
   renderData: {
-    title: 'Artciles tagged “{{ tag }}”'
+    title: 'Articles tagged “{{ tag }}”'
   },
   permalink: "/tags/{{ tag | slug }}/"
 }
 ---
-{% from "./_components/teaser.njk" import teaser %}
 {% set taglist = collections[ tag ] %}
-<div class="grid">
-{% for article in taglist | reverse %}
-  {{ teaser(article) }}
-{% endfor %}
-</div>
+<dl class="summary-list">
+  {%- for article in taglist | reverse -%}
+    <div class="summary-list-row">
+      <dt><a href="{{ article.url }}">{{ article.data.title }}</a></dt>
+      <dd><time class="teaser-date" datetime="{{ article.date | date('') }}">{{ article.date | date }}</time><dd>
+    </div>
+  {%- endfor -%}
+</dl>
