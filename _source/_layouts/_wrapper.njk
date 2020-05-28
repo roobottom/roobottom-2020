@@ -7,7 +7,7 @@
     <meta name="description" content="The personal website of Jon Roobottom">
     <meta name="robots" content="index, follow">
     <title>{{ renderData.titleElement or renderData.title or title }} / Jon Roobottom’s website</title>
-    <link href="/assets/styles.css" rel="stylesheet"/>
+    {# <link href="/assets/styles.css" rel="stylesheet"/> #}
     <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
 </head>
 <body>
@@ -15,9 +15,9 @@
     <a href="/" class="banner-link" rel="home">Jon Roobottom’s Website</a>
     <nav class="banner-navigation" aria-label="site">
         <ul class="navigation">
-            <li><a href="/articles" {% if page.url.startsWith('/articles') %}aria-current="page"{% endif %}>Articles</a></li>
-            <li><a href="/tags" {% if page.url.startsWith('/tags') %}aria-current="page"{% endif %}>Tags</a></li>
-            <li><a href="/about" {% if page.url.startsWith('/about') %}aria-current="page"{% endif %}>About</a></li>
+            {% for item in global.menu %}
+            <li><a href="{{ item.url }}" {% if page.url.startsWith(item.url) %}aria-current="page"{% endif %}>{{ item.title }}</a></li>
+            {% endfor %}
         </ul>
     </nav>
 </header>

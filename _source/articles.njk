@@ -1,31 +1,22 @@
----js
-{
-  pagination: {
-    data: 'collections.articles',
-    size: 12,
-    alias: 'articles'
-  },
-  layout: 'default.njk',
-  title: 'Articles',
-  renderData: {
-    titleElement: 'List of articles page {{ pagination.pageNumber + 1 }} of {{ pagination.pages | length }}'
-  },
-  permalink: '/articles/{{ pagination.pageNumber | paginationURL }}'
-}
 ---
-{% from "./_components/teaser.njk" import teaser %}
-{% set currentYear = null %}
-{% set articleId = 0 %}
-<div class="grid">
-{%- for article in articles -%}
-  {{ teaser(article, global) }}
+layout: default.njk
+title: Archives
+---
+
+{% set archives = collections.articles | archives %}
+{# meta data paragraph #}
+{% set avg =  ((collections.articles | length) / archives.yearStats.spread) | round(2) %}
+<p>Over the last {{ archives.yearStats.spread }} years I’ve written {{ collections.articles | length }} articles. I write an average of {{ avg }} articles per year. My most prolific year was {{ archives.yearStats.busiest.year }} when I wrote {{ archives.yearStats.busiest.count }} posts. By contrast, the quietest year was {{ archives.yearStats.quietest.year }} with {{ archives.yearStats.quietest.count }} {{ 'post' | plural(archives.yearStats.quietest.count) }}</p>
+
+{# render posts #}
+{%- for year in archives.years -%}
+  <h2>{{ year }}</h2>
+    <dl class="summary-list">
+    {%- for article in archives.posts[year] -%}
+      <div class="summary-list-row">
+        <dt><a href="{{ article.url }}">{{ article.data.title }}</a></dt>
+        <dd><time class="teaser-date" datetime="{{ article.date | date('') }}">{{ article.date | date }}</time><dd>
+      </div>
+    {%- endfor -%}
+    </dl>
 {%- endfor -%}
-</div>
-<nav aria-labelledby="pagination-title" class="pagination">
-  <h2 id="pagination-title" class="pagination-title">Articles pagination</h2>
-  <ol class="pagination-items">
-{%- for pageEntry in pagination.pages %}
-    <li class="pagination-item"><a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %} class="pagination-link">Page {{ loop.index }}</a></li>
-{%- endfor %}
-  </ol>
-</nav>

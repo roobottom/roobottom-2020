@@ -2,21 +2,24 @@
 title: Homepage
 layout: headerless.njk
 ---
-<svg class="shapeParty" width="100%" height="100%" viewBox="0 0 580 580" preserveAspectRatio="xMidYMid slice">
-  <g fill="none" fill-rule="evenodd" stroke="#FFF" stroke-width="13">
-    <path d="M120.4 26.4l169.3 186.2-248.5 52.8z" class="shapeParty-triangle"></path>
-    <circle cx="443.5" cy="189.5" r="100.5" class="shapeParty-circle"></circle>
-    <path d="M202.4 278.3l189 65-65 189.2-189-65z" class="shapeParty-square"></path>
-  </g>
-</svg>
 <div class="introduction">
-<h1>Hello, my name is Jon, and I love making things for the web.</h1>
-{% set popularTags %}
-{%- for tag in collections.tagList -%}
-{%- if loop.index < 6 -%}
-<a href="/tags/{{ tag | slug }}">{{ tag }}</a>{% if loop.index < 4 %}, {% elif loop.index == 4 %} and {% endif %}
-{%- endif -%}
+<h1>Hello.</h1>
+<p class="lead">I'm Jon and this is my website.<br>I write things.</p>
+{%- for article in collections.articles | limit(5) -%}
+
+  {% if article.data.cover %}{% set cover =  article.data.cover %}
+  {% elif article.templateContent | firstImage %}{% set cover = article.templateContent | firstImage %}
+  {% else %}{% set cover = false %}
+  {% endif %}
+
+  <article class="teaser{% if cover %} teaser--has-cover{% endif %}">
+    <div class="teaser-cover" {% if cover %} style="background-image: url({{ article.url }}{{ cover }});"{% endif %}></div>
+    <div class="teaser-content">
+      <h2>{{ article.data.title }}</h2>
+      <time class="teaser-date" datetime="{{ article.date | date('') }}">{{ article.date | date }}</time>
+      <p>{% if data.data.intro %}{{ article.data.intro }}{% else %}{{ article.templateContent | firstParagraph | stripTags | hangingPunctuation | safe }}{% endif %}</p>
+    <div>
+    <a href="{{ article.url }}" class="teaser-link">Read {{ article.data.title }}</a>
+  </article>
 {%- endfor -%}
-{% endset %}
-<p>This is my personal website where I write articles on subjects like {{ popularTags | safe }}.</p>
 </div>
