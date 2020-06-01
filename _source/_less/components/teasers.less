@@ -1,0 +1,45 @@
+.break-base({
+  @teaser-padding: 30;
+  @teaser-padding-rem: unit(@teaser-padding/@base, rem);
+
+  .teasers {
+    display: flex;
+    overflow-x: scroll;
+    width: 100vw;
+    margin-left: unit(-1 * @teaser-padding/@base,rem);
+    margin-right: unit(-1 * @teaser-padding/@base,rem);
+    padding-left: @teaser-padding-rem;
+    padding-right: @teaser-padding-rem;
+    box-sizing: border-box;
+    .space(bottom,2);
+  
+    //no idea why this works
+    //but it stops the last item hitting the end
+    //of the scrollable area
+    &:after {
+      content: "";
+      display: block;
+      flex: 1 0 1px;
+    }
+  }
+  
+  .teaser {
+    background-color: var(--c-background-tint);
+    flex: 1 0 70vw;
+    margin-right: @teaser-padding-rem;
+    border-top: 3px solid var(--c-first);
+  
+    &-cover {
+      width: 100%;
+      height: unit(180/@base,rem);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+    }
+  
+    &-introduction {
+      display: none;
+    }
+  
+  }
+});

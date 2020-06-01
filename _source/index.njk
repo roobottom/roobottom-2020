@@ -4,23 +4,23 @@ layout: default.njk
 omitTitle: true
 ---
 <div class="introduction">
-<h1>Hello.</h1>
-<p class="lead">I'm Jon and this is my website.<br>I write things.</p>
+  <h1 class="introduction-title">Hello.</h1>
+  <p class="introduction-content">I’m <a href="/about">Jon</a> and this is my website.<br>I write things.</p>
 </div>
+<div class="teasers">
 {%- for article in collections.articles | limit(5) -%}
-
   {% if article.data.cover %}{% set cover =  article.data.cover %}
   {% elif article.templateContent | firstImage %}{% set cover = article.templateContent | firstImage %}
   {% else %}{% set cover = false %}
   {% endif %}
-
   <article class="teaser{% if cover %} teaser--has-cover{% endif %}">
     <div class="teaser-cover" {% if cover %} style="background-image: url({{ article.url }}{{ cover }});"{% endif %}></div>
     <div class="teaser-content">
-      <h2>{{ article.data.title }}</h2>
+      <h2 class="teaser-title">{{ article.data.title }}</h2>
       <time class="teaser-date" datetime="{{ article.date | date('') }}">{{ article.date | date }}</time>
-      <p>{% if data.data.intro %}{{ article.data.intro }}{% else %}{{ article.templateContent | firstParagraph | stripTags | hangingPunctuation | safe }}{% endif %}</p>
+      <p class="teaser-introduction">{% if data.data.intro %}{{ article.data.intro }}{% else %}{{ article.templateContent | firstParagraph | stripTags | hangingPunctuation | safe }}{% endif %}</p>
     <div>
     <a href="{{ article.url }}" class="teaser-link">Read {{ article.data.title }}</a>
   </article>
 {%- endfor -%}
+</div>

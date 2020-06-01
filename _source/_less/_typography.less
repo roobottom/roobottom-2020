@@ -5,12 +5,163 @@
   font-style: normal;
 }
 
-@import "https://overpass-30e2.kxcdn.com/overpass.css";
-
-body {
-  font-family: 'overpass';
+@font-face {
+  font-family: 'rajdhani';
+  src: url('/assets/fonts/rajdhani-bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'breave';
+@import "https://overpass-30e2.kxcdn.com/overpass.css";
+
+#type {
+  #size {
+    //in size order - refer to the sketch design doc
+    .h1() {
+      font-size: unit(40/@base, rem);
+      line-height: 1;
+      .break-min({
+        font-size: unit(60/@base,rem);
+      });
+      .break-mid({
+        font-size: unit(80/@base, rem);
+        line-height: 90/80;
+      });
+      .break-max({
+        font-size: unit(110/@base, rem);
+        line-height: 90/110;
+      });
+    }
+    .h2() {
+      font-size: unit(30/@base, rem);
+      line-height: 1;
+      .break-mid({
+        font-size: unit(45/@base, rem);
+      });
+      .break-max({
+        font-size: unit(60/@base, rem);
+      });
+    }
+    .introduction() {
+      font-size: unit(25/@base, rem);
+      line-height: 30/25;
+      .break-mid({
+        font-size: unit(34/@base, rem);
+        line-height: 40/34;
+      });
+      .break-max({
+        font-size: unit(38/@base, rem);
+        line-height: 40/38;
+      });
+    }
+    .h3() {
+      font-size: unit(19/@base, rem);
+      line-height: 20/19;
+      .break-mid({
+        font-size: unit(25/@base, rem);
+        line-height: 30/25;
+      });
+      //max is same as mid
+    }
+    .navigation() {
+      font-size: unit(17/@base, rem);
+      line-height: 20/17;
+      .break-mid({
+        font-size: unit(20/@base,rem);
+        line-height: 1;
+      });
+    }
+    .sitename() { //this never grows
+      font-size: unit(20/@base, rem);
+      line-height: 1;
+    }
+    .p() {
+      font-size: unit(17/@base, rem);
+      line-height: 25/17;
+      .break-mid({
+        font-size: unit(21/@base, rem);
+        line-height: 30/21;
+      });
+    }
+    .small() {
+      font-size: unit(15/@base, rem);
+      line-height: 15/15;
+      .break-mid({
+        font-size: unit(17/@base, rem);
+        line-height: 20/17;
+      });
+    }
+  }
+  #font {
+    .sans() {
+      font-family: 'overpass';
+    }
+    .serif() {
+      font-family: 'breave';
+    }
+    .alt() {
+      font-family: 'rajdhani';
+    }
+  }
+  #style {
+    .link() {
+      color: var(--c-link);
+      text-decoration: underline;
+      &:hover {
+        color: var(--c-link-hover);
+      }
+      &:focus {
+        outline: 3px solid var(--c-first);
+        color: var(--c-link);
+      }
+    }
+  }
+}
+
+body {
+  #type > #font > .sans;
+  color: var(--c-text);
+}
+
+//global type styles
+h1 {
+  #type > #font > .serif;
+  #type > #size > .h1;
+}
+
+.site-title {
+  .break-min({
+    text-align: center;
+  });
+}
+
+.visually-hidden { 
+  position: absolute !important;
+  height: 1px; 
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap; /* added line */
+}
+
+.prose {
+  //spacing
+  h2, h3, h4, h5, h6 {
+    .space(top,2);
+    .space(bottom,.25);
+  }
+  p, ul, ol, figure {
+    .space(bottom);
+  }
+  li:not(:last-child) {
+    .space(bottom,.25);
+  }
+
+  h2, h3, h4, h5, h6 {
+    #type > #size > .h3;
+  }
+  p, li {
+    #type > #size > .p;
+  }
 }

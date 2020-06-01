@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="The personal website of Jon Roobottom">
+    <meta name="description" content="Jon Roobottom’s personal website">
     <meta name="robots" content="index, follow">
     <title>{{ renderData.titleElement or renderData.title or title }} / Jon Roobottom’s website</title>
     <link href="/assets/styles.css" rel="stylesheet"/>
@@ -12,13 +12,13 @@
 </head>
 <body>
 <header class="banner wrapper">
-    <a href="/" class="banner-link" rel="home">Jon Roobottom’s Website</a>
+    <a href="/" class="banner-sitename" rel="home">Jon’s <span class="banner-sitename__description">Website</span></a>
     <nav class="banner-navigation" aria-label="site">
-        <ul class="navigation">
+        <ul class="banner-navigation__list">
             {%- for item in global.menu -%}
-            <li><a href="{{ item.url }}" {% if page.url.startsWith(item.url) %}aria-current="page"{% endif %}>{{ item.title }}</a></li>
+            <li class="banner-navigation__item"><a href="{{ item.url }}" {% if page.url.startsWith(item.url) %}aria-current="page"{% endif %} class="banner-navigation__link">{{ item.title }}</a></li>
             {%- endfor -%}
-            <li><button>Switch between dark and light modes</button></li>
+            <li class="banner-navigation__item"><button class="banner-navigation__switch">Switch between dark and light modes</button></li>
         </ul>
     </nav>
 </header>

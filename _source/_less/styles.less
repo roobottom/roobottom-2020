@@ -1,12 +1,21 @@
+//responsiveness
 @base: 16;
-
 @break-max: 1170;
 @break-max-rem: unit(@break-max/@base,rem);
-@break-mid: 980;
+@break-mid: 870;
 @break-mid-rem: unit(@break-mid/@base,rem);
-@break-min:  500;
+@break-min: 570;
 @break-min-rem: unit(@break-min/@base,rem);
 
+@max-text-width: 590;
+@max-text-width-rem: unit(@max-text-width/@base, rem);
+
+
+.break-base(@rule) {
+  @media screen and (max-width: (@break-min-rem) ) {
+    @rule();
+  }
+}
 .break-min(@rule) {
   @media screen and (min-width: (@break-min-rem) ) {
     @rule();
@@ -23,4 +32,33 @@
   }
 }
 
+//variables
+:root {
+  //colours
+  --c-background: #FFFFFF;
+  --c-background-tint: #FAF8FA;
+  --c-text: #1E1A1E;
+  --c-text-tint: #5D686F;
+  --c-link: #1E1A1E;
+  --c-link-hover: #577590;
+  --c-first: #FFB600;
+  --c-second: #FF5D1A;
+  --c-third: #30BCED;
+  --c-fourth: #F00699;
+}
+
+//globals
+//@import "_darkmode";
+@import "_reset";
 @import "_typography";
+@import "_layout";
+
+//components
+@import "components/banner";
+@import "components/introduction";
+@import "components/article";
+@import "components/teasers";
+
+body {
+  background-color: var(--c-background);
+}

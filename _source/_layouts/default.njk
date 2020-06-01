@@ -1,5 +1,5 @@
 ---
 layout: _wrapper.njk
 ---
-{% if not omitTitle %}<h1 class="{{ titleClasses }}">{{ renderData.title or title }}</h1>{% endif %}
+{% if not omitTitle %}<h1 class="site-title {{ titleClasses }}">{{ renderData.title or title }}</h1>{% endif %}
 {{ content | safe }}
