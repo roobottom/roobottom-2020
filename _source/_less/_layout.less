@@ -11,10 +11,7 @@
 }
 
 .space(@direction, @distance: 1, @prop: margin) {
-  @{prop}-@{direction}: unit( @distance * 20 / @base, rem );
-  .break-min({
-    @{prop}-@{direction}: unit( @distance * 30 / @base, rem );
-  });
+  @{prop}-@{direction}: ~"calc(@{distance} * var(--space))";
 }
 
 .peek-calc(@distance, @prop) {

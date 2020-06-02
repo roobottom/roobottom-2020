@@ -14,7 +14,7 @@ omitTitle: true
   {% else %}{% set cover = false %}
   {% endif %}
   <article class="teaser{% if cover %} teaser--has-cover{% endif %}">
-    <div class="teaser-cover" {% if cover %} style="background-image: url({{ article.url }}greyscale-{{ cover }});"{% endif %}></div>
+    {% if cover %}<img src="{{ article.url }}cover-{{ cover }}" class="teaser-cover"/>{% endif %}
     <h2 class="teaser-title"><a href="{{ article.url }}" class="teaser-link">{{ article.data.title }}</a></h2>
     <time class="teaser-date" datetime="{{ article.date | date('') }}">{{ article.date | date }}</time>
     <p class="teaser-introduction">{% if data.data.intro %}{{ article.data.intro }}{% else %}{{ article.templateContent | firstParagraph | stripTags | hangingPunctuation | safe }}{% endif %}</p>

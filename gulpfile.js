@@ -44,11 +44,12 @@ const transforms = [
     src: transform_basepath + "**/*.+(jpeg|jpg|png)",
     dest: "./_site/articles",
     options: {
-      width: 560,
+      width: 570,
+      height: 380,
       fit: "cover"
     },
     greyscale: true,
-    filename_prepend: 'greyscale-'
+    filename_prepend: 'cover-'
   }
 ]
 
