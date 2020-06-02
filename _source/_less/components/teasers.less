@@ -1,3 +1,56 @@
+.teaser-card() {
+  @padding-base-rem: unit(10/@base,rem);
+  @padding-mid-rem: unit(30/@base,rem);
+  .teaser {
+    background-color: var(--c-background-tint);
+    flex: 1 0 70vw;
+    max-width: unit(260/@base,rem);
+    margin-right: @teaser-padding-rem;
+    border-top: 3px solid var(--c-first);
+    display: flex;
+    flex-direction: column;
+    &-cover {
+      width: 100%;
+      height: unit(180/@base,rem);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+    }
+
+    &-title {
+      .space(top);
+    }
+    &-title, &-date {
+      .space(bottom);
+      padding-left: @padding-base-rem;
+      padding-right: @padding-base-rem;
+      .break-mid({
+        padding-left: @padding-mid-rem;
+        padding-right: @padding-mid-rem;
+      });
+    }
+  
+    &-introduction {
+      display: none;
+    }
+
+    &-date {
+      margin-top: auto;
+    }
+
+    //colour modifiers for each
+    &:nth-of-type(4n-2) {
+      border-color: var(--c-second);
+    }
+    &:nth-of-type(4n-1) {
+      border-color: var(--c-third);
+    }
+    &:nth-of-type(4n) {
+      border-color: var(--c-fourth);
+    }
+  }
+}
+
 .break-base({
   @teaser-padding: 30;
   @teaser-padding-rem: unit(@teaser-padding/@base, rem);
@@ -10,6 +63,7 @@
     margin-right: unit(-1 * @teaser-padding/@base,rem);
     padding-left: @teaser-padding-rem;
     padding-right: @teaser-padding-rem;
+    padding-bottom: @teaser-padding-rem;
     box-sizing: border-box;
     .space(bottom,2);
   
@@ -23,23 +77,26 @@
     }
   }
   
-  .teaser {
-    background-color: var(--c-background-tint);
-    flex: 1 0 70vw;
-    margin-right: @teaser-padding-rem;
-    border-top: 3px solid var(--c-first);
-  
-    &-cover {
-      width: 100%;
-      height: unit(180/@base,rem);
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: cover;
-    }
-  
-    &-introduction {
-      display: none;
-    }
-  
-  }
+  .teaser-card;
 });
+
+//general teaser styling 
+.teaser {
+  position: relative;
+  &-link {
+    #type > #size > .h2;
+    #type > #font > .serif;
+    .space(bottom);
+    text-decoration: none;
+    color: var(--c-text);
+    &:before {
+      content: "";
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      z-index: 2;
+    }
+  }
+}
