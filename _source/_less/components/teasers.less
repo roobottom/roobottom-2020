@@ -106,45 +106,64 @@
     background-position: center center;
     background-size: cover;
   }
+  &-date {
+    #type > #size > .small;
+  }
 }
 
 .break-min({
   .teaser {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    column-gap: unit(30/@base,rem);
+    column-gap: var(--space);
     .space(bottom,5);
     .space(top,5);
 
-    &-title,
-    &-date,
-    &-introduction {
+    &-content {
       grid-column: 1;
     }
 
     &-title,
     &-date {
       .space(bottom);
+      display: block;
     }
 
-    &-date {
-      #type > #size > .small;
-    }
 
     &-cover {
       grid-column: 2;
-      grid-row: 1 / span 3;
-      position: relative;
-      &:after {
-        content: "";
+      grid-row: 1;
+
+      &-container {
+        position: relative;
+        &:after {
+          content: "";
+          display: block;
+          position: absolute;
+          width: calc(100% + var(--space));
+          height: calc(100% + var(--space));
+          top: 0;
+          left: 0;
+          background-color: var(--c-first);
+          mix-blend-mode: hard-light;
+        }
+      }
+    
+      &-image {
         display: block;
-        position: absolute;
-        width: calc(100% + var(--space));
-        height: calc(100% + var(--space));
-        top: 0;
-        left: 0;
-        background-color: var(--c-first);
-        mix-blend-mode: soft-light;
+      }
+      
+    }
+
+    //reverse direction
+    &:nth-of-type(2n) &-content {
+      grid-column: 2;
+    }
+    &:nth-of-type(2n) &-cover {
+      grid-column: 1;
+      &-container:after {
+        left: auto;
+        right: 0;
       }
     }
 

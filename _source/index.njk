@@ -14,10 +14,18 @@ omitTitle: true
   {% else %}{% set cover = false %}
   {% endif %}
   <article class="teaser{% if cover %} teaser--has-cover{% endif %}">
-    {% if cover %}<img src="{{ article.url }}cover-{{ cover }}" class="teaser-cover"/>{% endif %}
-    <h2 class="teaser-title"><a href="{{ article.url }}" class="teaser-link">{{ article.data.title }}</a></h2>
-    <time class="teaser-date" datetime="{{ article.date | date('') }}">{{ article.date | date }}</time>
-    <p class="teaser-introduction">{% if data.data.intro %}{{ article.data.intro }}{% else %}{{ article.templateContent | firstParagraph | stripTags | hangingPunctuation | safe }}{% endif %}</p>
+    {% if cover %}
+    <figure class="teaser-cover">
+      <div class="teaser-cover-container">
+        <img src="{{ article.url }}cover-{{ cover }}" class="teaser-cover-image"/>
+      </div>
+    </figure>
+    {% endif %}
+    <div class="teaser-content">
+      <h2 class="teaser-title"><a href="{{ article.url }}" class="teaser-link">{{ article.data.title }}</a></h2>
+      <time class="teaser-date" datetime="{{ article.date | date('') }}">{{ article.date | date }}</time>
+      <p class="teaser-introduction">{% if data.data.intro %}{{ article.data.intro }}{% else %}{{ article.templateContent | firstParagraph | stripTags | hangingPunctuation | safe }}{% endif %}</p>
+    </div>
   </article>
 {%- endfor -%}
 </div>
