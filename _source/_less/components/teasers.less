@@ -1,16 +1,78 @@
-.teaser-card() {
-  @padding-base-rem: unit(10/@base,rem);
-  @padding-mid-rem: unit(30/@base,rem);
+//general teaser styling 
+.teaser {
+  position: relative;
+  &-link {
+    #type > #size > .h2;
+    #type > #font > .serif;
+    .space(bottom);
+    text-decoration: none;
+    color: var(--c-text);
+    &:before {
+      content: "";
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      z-index: 2;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  &-introduction {
+    #type > #size > .p;
+    max-width: var(--max-text-width);
+  }
+  &-cover {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+  &-date {
+    #type > #size > .small;
+  }
+}
+
+//< min
+.break-base({
+  @teaser-padding: 30;
+  .teasers {
+    display: flex;
+    overflow-x: scroll;
+    width: 100vw;
+    margin-left: unit(-1 * @teaser-padding/@base,rem);
+    margin-right: unit(-1 * @teaser-padding/@base,rem);
+    padding-left: var(--space);
+    padding-right: var(--space);
+    padding-bottom: var(--space);
+    box-sizing: border-box;
+    .space(bottom,2);
+  
+    //no idea why this works
+    //but it stops the last item hitting the end
+    //of the scrollable area
+    &:after {
+      content: "";
+      display: block;
+      flex: 1 0 1px;
+    }
+  }
   .teaser {
     background-color: var(--c-background-tint);
     flex: 1 0 70vw;
     max-width: unit(260/@base,rem);
-    margin-right: @teaser-padding-rem;
+    margin-right: unit(@teaser-padding/@base,rem);
     border-top: 3px solid var(--c-first);
     display: flex;
     flex-direction: column;
-    &-cover {
-      height: unit(180/@base,rem);
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
 
     &-title {
@@ -18,12 +80,8 @@
     }
     &-title, &-date {
       .space(bottom);
-      padding-left: @padding-base-rem;
-      padding-right: @padding-base-rem;
-      .break-mid({
-        padding-left: @padding-mid-rem;
-        padding-right: @padding-mid-rem;
-      });
+      padding-left: unit(10/@base,rem);
+      padding-right: unit(10/@base,rem);
     }
   
     &-introduction {
@@ -46,72 +104,91 @@
       border-color: var(--c-fourth);
     }
   }
-}
-
-.break-base({
-  @teaser-padding: 30;
-  @teaser-padding-rem: unit(@teaser-padding/@base, rem);
-
-  .teasers {
-    display: flex;
-    overflow-x: scroll;
-    width: 100vw;
-    margin-left: unit(-1 * @teaser-padding/@base,rem);
-    margin-right: unit(-1 * @teaser-padding/@base,rem);
-    padding-left: @teaser-padding-rem;
-    padding-right: @teaser-padding-rem;
-    padding-bottom: @teaser-padding-rem;
-    box-sizing: border-box;
-    .space(bottom,2);
-  
-    //no idea why this works
-    //but it stops the last item hitting the end
-    //of the scrollable area
-    &:after {
-      content: "";
-      display: block;
-      flex: 1 0 1px;
-    }
-  }
-  
-  .teaser-card;
 });
 
-//general teaser styling 
-.teaser {
-  position: relative;
-  &-link {
-    #type > #size > .h2;
-    #type > #font > .serif;
-    .space(bottom);
-    text-decoration: none;
-    color: var(--c-text);
-    &:before {
+
+//> min
+.break-min({
+  .teaser {
+
+    &-title,
+    &-date {
+      .space(bottom);
+      display: block;
+    }
+
+    &-cover-container {
+      position: relative;
+      border-bottom: var(--space) solid var(--c-first);
+      border-right: var(--space) solid var(--c-first);
+      background-color: var(--c-first);
+    }
+    &-cover-container:after {
       content: "";
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
+      display: block;
       position: absolute;
-      z-index: 2;
+      width: calc(100% + var(--space));
+      height: calc(100% + var(--space));
+      top: 0;
+      left: 0;
+      background-color: var(--c-first);
+      mix-blend-mode: color;
+    }
+    &-cover-image {
+      display: block;
+    }
+
+    //colours
+    &:nth-of-type(4n-2) &-cover-container {
+      background-color: var(--c-second);
+      border-color: var(--c-second);
+      &:after {
+        background-color: var(--c-second);
+      }
+    }
+    &:nth-of-type(4n-2) &-content {
+      border-color: var(--c-second);
+    }
+    &:nth-of-type(4n-1) &-cover-container {
+      background-color: var(--c-third);
+      border-color: var(--c-third);
+      &:after {
+        background-color: var(--c-third);
+      }
+    }
+    &:nth-of-type(4n-1) &-content {
+      border-color: var(--c-third);
+    }
+    &:nth-of-type(4n) &-cover-container {
+      background-color: var(--c-fourth);
+      border-color: var(--c-fourth);
+      &:after {
+        background-color: var(--c-fourth);
+      }
+    }
+    &:nth-of-type(4n) &-content {
+      border-color: var(--c-fourth);
     }
   }
-  
-  &-introduction {
-    #type > #size > .p;
-  }
-  &-cover {
-    width: 100%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-  }
-  &-date {
-    #type > #size > .small;
-  }
-}
+});
 
-.break-min({
+
+//< min > mid
+.break-min-only({
+  .teaser {
+    &-content {
+      background-color: var(--c-background);
+      transform: translateX(var(--space)) translateY(-50%);
+      max-width: var(--max-text-width);
+      width: 80%;
+      padding: var(--space);
+      border: 6px solid var(--c-first);
+    }
+  }
+});
+
+//> mid
+.break-mid({
   .teaser {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -123,41 +200,18 @@
       grid-column: 1;
     }
 
-    &-title,
-    &-date {
-      .space(bottom);
-      display: block;
-    }
-
-
     &-cover {
       grid-column: 2;
       grid-row: 1;
-
-      &-container {
-        position: relative;
-        &:after {
-          content: "";
-          display: block;
-          position: absolute;
-          width: calc(100% + var(--space));
-          height: calc(100% + var(--space));
-          top: 0;
-          left: 0;
-          background-color: var(--c-first);
-          mix-blend-mode: hard-light;
-        }
-      }
-    
-      &-image {
-        display: block;
-      }
-      
     }
 
     //reverse direction
     &:nth-of-type(2n) &-content {
       grid-column: 2;
+    }
+    &:nth-of-type(2n) &-cover-container {
+      border-right: none;
+      border-left: var(--space) solid var(--c-first);
     }
     &:nth-of-type(2n) &-cover {
       grid-column: 1;

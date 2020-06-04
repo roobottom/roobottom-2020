@@ -21,8 +21,18 @@
     @rule();
   }
 }
+.break-min-only(@rule) {
+  @media screen and (min-width: (@break-min-rem) ) and (max-width: (@break-mid-rem)) {
+    @rule();
+  }
+}
 .break-mid(@rule) {
   @media screen and (min-width: (@break-mid-rem) ) {
+    @rule();
+  }
+}
+.break-mid-only(@rule) {
+  @media screen and (min-width: (@break-mid-rem) ) and (max-width: (@break-max-rem)) {
     @rule();
   }
 }
@@ -47,7 +57,8 @@
   --c-fourth: #F00699;
 
   //values
-  --space: 20 / 16 * 1rem;
+  --space: calc(20 / 16 * 1rem);
+  --max-text-width: calc(570 / 16 * 1rem);
 }
 
 .break-min({
