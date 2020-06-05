@@ -74,7 +74,7 @@ module.exports = function (eleventyConfig) {
     return array.slice(0, n);
   })
   eleventyConfig.addFilter("hangingPunctuation", (str) => {
-    return str.replace(/^(["“])(.*)/g,"<span class='hanging-punctuation'>$1</span>$2")
+    return str.replace(/^(<p>)*([“"])(.*)/gm,"$1<span class='hanging-punctuation'>$2</span>$3")
   })
 
   //special filter that provides meta data for archives

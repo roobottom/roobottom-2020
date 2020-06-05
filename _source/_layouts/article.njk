@@ -18,8 +18,8 @@ layout: _wrapper.njk
 <footer class="article-date">
   <span class="visually-hidden">Published on</span> <time class="dt-published" datetime="{{ date | date('') }}">{{ date | date }}</time>
 </footer>
-<div class="prose article-content">
-  {{ content | safe }}
+<div class="article-content">
+  {{ content | hangingPunctuation | safe }}
 </div>
 <div class="article-tags">
   <ul class="tags">
