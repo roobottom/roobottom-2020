@@ -93,16 +93,6 @@
       #type > #size > .p;
     }
 
-    //colour modifiers for each
-    &:nth-of-type(4n-2) {
-      border-color: var(--c-second);
-    }
-    &:nth-of-type(4n-1) {
-      border-color: var(--c-third);
-    }
-    &:nth-of-type(4n) {
-      border-color: var(--c-fourth);
-    }
   }
 });
 
@@ -119,8 +109,6 @@
 
     &-cover-container {
       position: relative;
-      border-bottom: var(--space) solid var(--c-first);
-      border-right: var(--space) solid var(--c-first);
       background-color: var(--c-first);
     }
     &-cover-container:after {
@@ -141,33 +129,21 @@
     //colours
     &:nth-of-type(4n-2) &-cover-container {
       background-color: var(--c-second);
-      border-color: var(--c-second);
       &:after {
         background-color: var(--c-second);
       }
     }
-    &:nth-of-type(4n-2) &-content {
-      border-color: var(--c-second);
-    }
     &:nth-of-type(4n-1) &-cover-container {
       background-color: var(--c-third);
-      border-color: var(--c-third);
       &:after {
         background-color: var(--c-third);
       }
     }
-    &:nth-of-type(4n-1) &-content {
-      border-color: var(--c-third);
-    }
     &:nth-of-type(4n) &-cover-container {
       background-color: var(--c-fourth);
-      border-color: var(--c-fourth);
       &:after {
         background-color: var(--c-fourth);
       }
-    }
-    &:nth-of-type(4n) &-content {
-      border-color: var(--c-fourth);
     }
   }
 });
@@ -208,10 +184,6 @@
     //reverse direction
     &:nth-of-type(2n) &-content {
       grid-column: 2;
-    }
-    &:nth-of-type(2n) &-cover-container {
-      border-right: none;
-      border-left: var(--space) solid var(--c-first);
     }
     &:nth-of-type(2n) &-cover {
       grid-column: 1;

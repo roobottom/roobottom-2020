@@ -148,24 +148,11 @@ h1 {
 .hanging-punctuation {
   margin-left: -0.3em;
 }
-
-.prose {
-  //spacing
-  h2, h3, h4, h5, h6 {
-    .space(top,2);
-    .space(bottom,.25);
+@supports (hanging-punctuation: first) {
+  p {
+    hanging-punctuation: first;
   }
-  p, ul, ol, figure {
-    .space(bottom);
-  }
-  li:not(:last-child) {
-    .space(bottom,.25);
-  }
-
-  h2, h3, h4, h5, h6 {
-    #type > #size > .h3;
-  }
-  p, li {
-    #type > #size > .p;
+  .hanging-punctuation {
+    margin-left: 0;
   }
 }
