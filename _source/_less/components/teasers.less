@@ -30,6 +30,10 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+    &-image {
+      display: block;
+      max-width: 100%;
+    }
   }
   &-date {
     #type > #size > .small;
@@ -160,7 +164,19 @@
       padding: var(--space);
       border: 6px solid var(--c-first);
     }
+
+    &:nth-of-type(4n-2) &-content {
+      border-color: var(--c-second)
+    }
+    &:nth-of-type(4n-1) &-content {
+      border-color: var(--c-third)
+    }
+    &:nth-of-type(4n) &-content {
+      border-color: var(--c-fourth)
+    }
+
   }
+
 });
 
 //> mid

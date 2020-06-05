@@ -1,10 +1,12 @@
 .introduction {
+  .space(bottom,5);
   &-title {
     .peek(start);
     color: var(--c-first);
-    .space(bottom,2);
   }
   &-content {
-    #type > #size > .p;
+    #type > #size > .introduction;
+    #type > #font > .serif;
+    max-width: var(--max-text-width);
   }
 }

@@ -1,13 +1,9 @@
 .wrapper {
   max-width: @break-max-rem;
   margin: 0 auto;
-  padding-left: unit(30/@base, rem);
-  padding-right: unit(30/@base, rem);
+  padding-left: var(--space);
+  padding-right: var(--space);
   box-sizing: border-box;
-  .break-min({
-    padding-left: unit(100/@base, rem);
-    padding-right: unit(100/@base, rem);
-  });
 }
 
 .space(@direction, @distance: 1, @prop: margin) {
@@ -15,8 +11,7 @@
 }
 
 .peek-calc(@distance, @prop) {
-  @{prop}: unit(-1 * (@distance * 10) / @base, rem);
-  .break-min({
+  .break-max({
     @{prop}: unit(-1 * (@distance * 30) / @base, rem);
   });
 }

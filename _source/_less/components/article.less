@@ -15,6 +15,9 @@
       text-align: center;
     });
   }
+
+// Typography
+
   &-content {
     
     //rhythm
@@ -48,7 +51,7 @@
     hr {
       margin-left: auto;
       margin-right: auto;
-      max-width: @max-text-width-rem;
+      max-width: var(--max-text-width);
     }
 
 
@@ -66,5 +69,43 @@
     a {
       #type > #style > .link;
     }
+  }
+
+
+// images
+  &-content img {
+    width: 100%;
+    display: block;
+  }
+  
+  //images not part of a gallery
+  &-content > figure {
+    width: calc(100% + (2 * var(--site-padding)));
+    margin-left: calc(-1 * var(--site-padding));
+    margin-right: calc(-1 * var(--site-padding));
+    .break-min({
+      width: 100%;
+      max-width: var(--max-text-width);
+      margin-left: auto;
+      margin-right: auto;
+    });
+  }
+
+
+  //common figcaption styling
+  &-content figcaption {
+    #type > #size > .small;
+    .space(top,.5);
+    color: var(--c-text-tint);
+  }
+
+  //figcaptions for single images
+  &-content > figure figcaption {
+    padding-left: var(--site-padding);
+    padding-right: var(--site-padding);
+    .break-min({
+      padding-left: 0;
+      padding-right: 0;
+    });
   }
 }

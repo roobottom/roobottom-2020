@@ -7,8 +7,7 @@
 @break-min: 570;
 @break-min-rem: unit(@break-min/@base,rem);
 
-@max-text-width: 590;
-@max-text-width-rem: unit(@max-text-width/@base, rem);
+
 
 
 .break-base(@rule) {
@@ -46,7 +45,7 @@
 :root {
   //colours
   --c-background: #FFFFFF;
-  --c-background-tint: #FAF8FA;
+  --c-background-tint: #F1F1F1;
   --c-text: #1E1A1E;
   --c-text-tint: #5D686F;
   --c-link: #1E1A1E;
@@ -61,12 +60,21 @@
 
   //spacing
   --space: calc(20 / 16 * 1rem);
-  --max-text-width: calc(570 / 16 * 1rem);
+  --max-text-width: calc(470 / 16 * 1rem);
+  --site-padding: calc(20 / 16 * 1rem);
 }
 
 .break-min({
   :root {
     --space: calc(30 / 16 * 1rem);
+    --site-padding: calc(30 / 16 * 1rem);
+  }
+});
+
+.break-mid({
+  :root {
+    --site-padding: calc(100 / 16 * 1rem);
+    --max-text-width: calc(590 / 16 * 1rem);
   }
 });
 
