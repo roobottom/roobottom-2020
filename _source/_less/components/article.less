@@ -1,111 +1,155 @@
+.article-title {
+  .break-min({
+    text-align: center;
+  });
+  .space(bottom,.5);
+}
 
+.article-date {
+  #type > #size > .small;
+  color: var(--c-text-tint);
+  .space(bottom,1);
+  .break-min({
+    text-align: center;
+  });
+}
 
-.article {
-  &-title {
-    .break-min({
-      text-align: center;
-    });
-    .space(bottom,.5);
-  }
-  &-date {
-    #type > #size > .small;
-    color: var(--c-text-tint);
-    .space(bottom,1);
-    .break-min({
-      text-align: center;
-    });
-  }
+.article-tags,
+.article-prevNext {
+  max-width: var(--max-text-width);
+  margin-left: auto;
+  margin-right: auto;
+  .space(bottom,3);
+}
 
-// Typography
+//content
+.article-content {
 
-  &-content {
+  .space(bottom);
     
-    //rhythm
-    h2, h3, h4, h5, h6 {
-      .space(top,2);
-      .space(bottom,.25);
-    }
-    hr {
-      .space(top,3);
-      .space(bottom,3);
-    }
-    p, ul, ol, figure {
-      .space(bottom);
-    }
-    li:not(:last-child) {
-      .space(bottom,.25);
-    }
-
-    //sizes
-    h2, h3, h4, h5, h6 {
-      #type > #size > .h3;
-    }
-    p, li {
-      #type > #size > .p;
-    }
-
-
-    //layout
-    >p, >ul, >ol,
-    h1, h2, h3, h4, h5, h6,
-    hr {
-      margin-left: auto;
-      margin-right: auto;
-      max-width: var(--max-text-width);
-    }
-
-
-    //styles
-    hr {
-      background-image: url("/assets/style-images/roo-mark-sm.svg");
-      background-repeat: no-repeat;
-      background-position: center center;
-      height: unit(20/@base,rem);
-      width: 100%;
-      border: none;
-      filter: brightness(var(--filter-roo-mark));
-    }
-
-    a {
-      #type > #style > .link;
-    }
+  //rhythm
+  h2, h3, h4, h5, h6 {
+    .space(top,2);
+    .space(bottom,.25);
   }
+  hr {
+    .space(top,3);
+    .space(bottom,3);
+  }
+  p, ul, ol, figure, .gallery {
+    .space(bottom);
+  }
+  li:not(:last-child) {
+    .space(bottom,.25);
+  }
+
+  //sizes
+  h2, h3, h4, h5, h6 {
+    #type > #size > .h3;
+  }
+  p, li {
+    #type > #size > .p;
+  }
+
+
+  //layout
+  >p, >ul, >ol,
+  h1, h2, h3, h4, h5, h6,
+  hr {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--max-text-width);
+  }
+  >ol>li,
+  >ul>li {
+    margin-left: 1em;
+  }
+
+
+  //styles
+  hr {
+    background-image: url("/assets/style-images/roo-mark-sm.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: unit(20/@base,rem);
+    width: 100%;
+    border: none;
+    filter: brightness(var(--filter-roo-mark));
+  }
+
+  a {
+    #type > #style > .link;
+  }
+}
 
 
 // images
-  &-content img {
+
+.single-image() {
+  width: calc(100% + (2 * var(--site-padding)));
+  margin-left: calc(-1 * var(--site-padding));
+  margin-right: calc(-1 * var(--site-padding));
+  .break-min({
     width: 100%;
-    display: block;
-  }
+    max-width: var(--max-text-width);
+    margin-left: auto;
+    margin-right: auto;
+  });
+}
+
+//general styling for img tag
+.article-content img {
+  width: 100%;
+  display: block;
+}
+
+//single images
+.article-content > figure {
+  .single-image();  
+}
+
+
+//common figcaption styling
+.article-content figcaption {
+  #type > #size > .small;
+  .space(top,.5);
+  color: var(--c-text-tint);
+}
+
+//figcaptions for single images
+.article-content > figure figcaption {
+  padding-left: var(--site-padding);
+  padding-right: var(--site-padding);
+  .break-min({
+    padding-left: 0;
+    padding-right: 0;
+  });
+}
+
+//galleries
+.article-content .gallery {
+  .break-min({
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  });
   
-  //images not part of a gallery
-  &-content > figure {
-    width: calc(100% + (2 * var(--site-padding)));
-    margin-left: calc(-1 * var(--site-padding));
-    margin-right: calc(-1 * var(--site-padding));
+
+  figure {
+    .single-image();
     .break-min({
-      width: 100%;
-      max-width: var(--max-text-width);
-      margin-left: auto;
-      margin-right: auto;
-    });
+      max-width: 400px;
+      background-color: var(--c-background);
+      padding: calc(var(--space) / 2);
+      margin: 0 calc(-1 * var(--space) / 2);
+      &:nth-of-type(2n) {
+        transform: translateY(calc(var(--space) / 2));
+      }
+    });  
   }
 
-
-  //common figcaption styling
-  &-content figcaption {
-    #type > #size > .small;
-    .space(top,.5);
-    color: var(--c-text-tint);
+  figcaption {
+    padding-right: calc(var(--space) / 2);
   }
 
-  //figcaptions for single images
-  &-content > figure figcaption {
-    padding-left: var(--site-padding);
-    padding-right: var(--site-padding);
-    .break-min({
-      padding-left: 0;
-      padding-right: 0;
-    });
-  }
 }

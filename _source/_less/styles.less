@@ -21,7 +21,7 @@
   }
 }
 .break-min-only(@rule) {
-  @media screen and (min-width: (@break-min-rem) ) and (max-width: (@break-mid-rem)) {
+  @media screen and (min-width: (@break-min-rem)) and (max-width: (@break-mid-rem)) {
     @rule();
   }
 }
@@ -31,7 +31,7 @@
   }
 }
 .break-mid-only(@rule) {
-  @media screen and (min-width: (@break-mid-rem) ) and (max-width: (@break-max-rem)) {
+  @media screen and (min-width: (@break-mid-rem)) and (max-width: (@break-max-rem)) {
     @rule();
   }
 }
@@ -79,7 +79,7 @@
 });
 
 //globals
-// @import "_darkmode";
+@import "_darkmode";
 @import "_reset";
 @import "_typography";
 @import "_layout";
@@ -89,6 +89,8 @@
 @import "components/introduction";
 @import "components/article";
 @import "components/teasers";
+@import "components/tags";
+@import "components/prevNext";
 
 body {
   background-color: var(--c-background);
