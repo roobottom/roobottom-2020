@@ -3,15 +3,16 @@ permalink: /tags/
 layout: default.njk
 title: Categories
 ---
+<div class="layout-like-article">
+<p class="prose">I categorise my articles with tags. There are {{ collections.tagList | length}} tags.</p>
 
-<p>I categorise my articles with tags. There are {{ collections.tagList | length}} tags.</p>
-
-<h2>Tags</h2>
+<h2 class="heading-s heading--border">Tags</h2>
 <dl class="summary-list">
   {%- for tag in collections.tagList -%}
   <div class="summary-list-row">
-      <dt><a href="/tags/{{ tag | slug }}">{{ tag }}</a></dt>
-      <dd>{{ collections[tag] | length }} {{ 'article' | plural(collections[tag] | length) }}<dd>
+      <dt class="summary-list-title"><a href="/tags/{{ tag | slug }}">{{ tag | title }}</a></dt>
+      <dd class="summary-list-meta">{{ collections[tag] | length }} {{ 'article' | plural(collections[tag] | length) }}<dd>
     </div>
   {%- endfor -%}
 </dl>
+</div>
