@@ -21,7 +21,7 @@
   {%- for article in taglist | reverse -%}
     <div class="summary-list-row">
       <dt class="summary-list-title"><a href="{{ article.url }}">{{ article.data.title }}</a></dt>
-      <dd class="summary-list-meta"><time class="teaser-date" datetime="{{ article.date | date('') }}">{{ article.date | date }}</time><dd>
+      <dd class="summary-list-meta"><time datetime="{{ article.date | date('') }}">{{ article.date | date }}</time><dd>
     </div>
   {%- endfor -%}
 </dl>
