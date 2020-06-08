@@ -36,11 +36,16 @@
     .space(top,3);
     .space(bottom,3);
   }
-  p, ul, ol, figure, .gallery {
+  p, >ul, >ol, figure, .gallery,
+  pre, table {
     .space(bottom);
   }
   li:not(:last-child) {
     .space(bottom,.25);
+  }
+  ul>li,
+  ol>li {
+    .space(top,.25);
   }
 
   //sizes
@@ -55,14 +60,38 @@
   //layout
   >p, >ul, >ol,
   h1, h2, h3, h4, h5, h6,
-  hr {
+  hr, blockquote, pre, table {
     margin-left: auto;
     margin-right: auto;
     max-width: var(--max-text-width);
   }
+
+  //lists
   >ol>li,
   >ul>li {
     margin-left: 1em;
+  }
+  ul ul, ul ol, ol ol, ol ul {
+    padding: 0;
+    margin-left: 1em;
+  }
+  ul  {
+    list-style: disc;
+    ul {
+      list-style: circle;
+      ul {
+        list-style: square;
+      }
+    }
+  }
+  ol {
+    list-style: decimal;
+    ol {
+      list-style: lower-roman;
+      ol {
+        list-style: lower-latin;
+      }
+    }
   }
 
 
@@ -75,6 +104,59 @@
     width: 100%;
     border: none;
     filter: brightness(var(--filter-roo-mark));
+  }
+  blockquote {
+    #type > #font > .serif;
+    
+    &, a { color: var(--c-first); }
+
+    > p {
+      .peek(both);
+      #type > #size > .introduction;
+      &:before {
+        content: "“";
+        margin-left: -0.4em;
+      }
+    }
+    
+  }
+  code {
+    #type > #font > .mono;
+  }
+  p>code {
+    font-size: 95%;
+    color: var(--c-text-tint);
+    word-spacing: unit(-7/@base,rem);
+  }
+  pre {
+    background-color: var(--c-background-tint);
+    #type > #size > .p;
+    padding: unit(10/@base,rem);
+    box-sizing: border-box;
+  }
+  //tables
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--c-background-tint);
+    #type > #size > .p;
+  }
+
+  td, th {
+    text-align: left;
+    border-bottom: 1px solid var(--c-text-tint);
+    padding: .5em 1em;
+    vertical-align: top;
+  }
+
+  tr:last-child td {
+    border: none;
+  }
+
+  th {
+      font-weight: bold;
+      border-bottom: 2px solid var(--c-text-tint);
   }
 
   a {
