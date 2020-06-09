@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en" data-theme="dar">
+<html class="no-js" lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -18,7 +18,6 @@
             {%- for item in global.menu -%}
             <li class="banner-navigation__item"><a href="{{ item.url }}" {% if page.url.startsWith(item.url) %}aria-current="page"{% endif %} class="banner-navigation__link">{{ item.title }}</a></li>
             {%- endfor -%}
-            <li class="banner-navigation__item"><button class="banner-navigation__switch">Switch between dark and light modes</button></li>
         </ul>
     </nav>
 </header>
