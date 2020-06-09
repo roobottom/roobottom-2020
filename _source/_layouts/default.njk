@@ -2,4 +2,10 @@
 layout: _wrapper.njk
 ---
 {% if not omitTitle %}<h1 class="heading-l {{ titleClasses }}">{{ renderData.title or title }}</h1>{% endif %}
+{% if contentClasses %}
+<div class="{{ contentClasses }}">
 {{ content | safe }}
+</div>
+{% else %}
+{{ content | safe }}
+{% endif %}
