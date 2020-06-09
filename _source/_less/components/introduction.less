@@ -1,17 +1,14 @@
 .introduction {
-  .center(680);
-
-  h1, h2, h3, p {
-    margin-bottom: calc(var(--type-base) / var(--base));
+  .space(bottom,5);
+  &-title {
+    .peek(start);
+    color: var(--c-first);
+    text-align: left;
+    margin-bottom: 0;
   }
-
-  h1 {
-    #type > #size > .x-large;
-  }
-  p {
-    #type > #size > .large;
-  }
-  a {
-    #type > #style > .link;
+  &-content {
+    #type > #size > .introduction;
+    #type > #font > .serif;
+    max-width: var(--max-text-width);
   }
 }

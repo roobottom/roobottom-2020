@@ -1,6 +1,37 @@
 .footer {
-  margin-top: calc(var(--type-base) / var(--base));
-  margin-bottom: calc(var(--type-base) / var(--base));
-  text-align: center;
-  #type > #size > .small;
+  .space(top,6);
+
+  &-copyright {
+    #type > #size > .small;
+    display: block;
+    text-align: center;
+    .space(bottom);
+    color: var(--c-text-tint);
+  }
+  &-banner {
+    display: block;
+    height: unit(10/@base,rem);
+    max-width: 100%;
+  }
+  &-banner-segment-1 {
+    transform: scaleX(200%);
+  }
+  &-banner-segment-1,
+  &-banner-segment-5,
+  &-banner-segment-9 {
+    fill: var(--c-first);
+  }
+  &-banner-segment-2,
+  &-banner-segment-6,
+  &-banner-segment-10 {
+    fill: var(--c-second);
+  }
+  &-banner-segment-3,
+  &-banner-segment-7 {
+    fill: var(--c-third);
+  }
+  &-banner-segment-4,
+  &-banner-segment-8 {
+    fill: var(--c-fourth);
+  }
 }

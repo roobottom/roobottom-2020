@@ -39,17 +39,27 @@ const transforms = [
       fit: "cover"
     },
     greyscale: false
+  },
+  {
+    src: transform_basepath + "**/*.+(jpeg|jpg|png)",
+    dest: "./_site/articles",
+    options: {
+      width: 570,
+      height: 380,
+      fit: "cover"
+    },
+    greyscale: true,
+    filename_prepend: 'cover-'
   }
 ]
 
 const images = (callback) => {
   transforms.forEach( (transform) => {
-    
-
+    let prepend = (transform.filename_prepend === undefined) ? '' : transform.filename_prepend
     let files = glob.sync(transform.src)
 
     files.forEach( (file) => {
-      let filename = path.basename(file)
+      let filename = `${prepend}${path.basename(file)}`
       let filepath = path.dirname(file)
       filepath = filepath.replace(transform_basepath, "")
       let destPath = `${transform.dest}/${filepath}`

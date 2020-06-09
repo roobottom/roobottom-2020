@@ -1,12 +1,12 @@
 ---
 title: About
 layout: default.njk
-contentClasses: 'prose article-content'
+contentClasses: 'article-content'
 ---
-Hello. Thank you for taking the time for visiting my website. I've been writing articles here for the last 15 years. But I've been tinkering on this domain since 2001. 
+Hello. Thank you for taking the time for visiting my website. My name is Jon and I love making stuff for the web. 
 
-Like anything, I go through peeks and troughs. Sometimes months (or years) will pass without writing anything. On other occasions, the mood to write will strike multiple times in quick succession.
+I also like writing. So that's what I do here. I write short article about the things in my life. Usually that involves my wife Katie and our two children (who I call Roo and RooTwo).
 
-This website isn't really for anyone else. I just enjoy writing and building things for the web. But, of course, you're more than welcome to look around. Mi casa es su casa.
+This website isn't really for anyone else. But occasionally I'll write about web development, sport or politics. Others might find some interest there.
 
-Jon.
+In general though, I maintain this site simply because I like building stuff for the web.

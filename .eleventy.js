@@ -44,7 +44,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("tagList", require('./_lib/getTagList'))
 
   //filters
-  eleventyConfig.addFilter("date", (value, format = 'dddd, Do MMMM YYYY') => {
+  eleventyConfig.addFilter("date", (value, format = 'D MMMM YYYY') => { //GDS format FTW
     return moment(value).format(format)
   })
   eleventyConfig.addFilter("firstParagraph", (html) => {
@@ -66,6 +66,84 @@ module.exports = function (eleventyConfig) {
   })
   eleventyConfig.addFilter("markdown", (content) => {
     return md.render(content)
+  })
+  eleventyConfig.addFilter("limit", (array, n) => {
+    if( n < 0 ) {
+      return array.slice(n);
+    }
+    return array.slice(0, n);
+  })
+  eleventyConfig.addFilter("hangingPunctuation", (str) => {
+    return str.replace(/^(<p>)*([“"])(.*)/gm,"$1<span class='hanging-punctuation'>$2</span>$3")
+  })
+
+  //special filter that provides meta data for archives
+  eleventyConfig.addFilter("archives", (posts) => {
+    var archives = {
+      years: [],
+      posts: {},
+      yearStats: {
+        spread: 0,
+        busiest: {
+          year: 0,
+          count: 0
+        },
+        quietest: {
+          year: 0,
+          count: 1000000
+        },
+      }
+    }
+
+    //set up temporary variables
+    var year = null
+    var postsForYear = {}
+
+    //for each post
+    posts.forEach((item, index) => {
+      
+      //variable per loop to hold current items year
+      let itemYear = parseInt(moment(item.date).format('YYYY'))
+ 
+      if(itemYear !== year) { //if this is a new year we haven't seen before
+       
+        //push the new year directly into the archive.years array
+        archives.years.push(itemYear)
+
+        //add a new item to the postForYear temporary object
+        postsForYear[itemYear] = []
+
+        //update the year variable for the next loop
+        year = itemYear
+      }
+
+      //push the current posts item into the temporary object
+      postsForYear[year].push(item)
+    })
+
+    //update the archives.posts array with the contents of the temporary object
+    archives.posts = postsForYear
+
+    //calculate year spread
+    archives.yearStats.spread = Math.max( ...archives.years ) - Math.min( ...archives.years )
+
+    //calculate busiest and quietest year
+    archives.years.forEach( (year) => {
+      
+      if( archives.posts[year].length > archives.yearStats.busiest.count ) {
+        archives.yearStats.busiest.count = archives.posts[year].length
+        archives.yearStats.busiest.year = year
+      }
+
+      if( archives.posts[year].length < archives.yearStats.quietest.count ) {
+        archives.yearStats.quietest.count = archives.posts[year].length
+        archives.yearStats.quietest.year = year
+      }
+      
+    })
+
+    //return the full archives object
+    return archives
   })
 
 

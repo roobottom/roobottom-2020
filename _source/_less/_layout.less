@@ -1,55 +1,34 @@
 .wrapper {
-  max-width: var(--site-max-width);
+  max-width: @break-max-rem;
   margin: 0 auto;
-  padding: 0 calc(var(--grid-gap) / var(--base));
+  padding-left: var(--space);
+  padding-right: var(--space);
   box-sizing: border-box;
 }
 
-.grid {
-
-  display: grid;
-  gap: calc(var(--grid-gap) / var(--base));
-
-
-  .break-mid({
-    grid-template-columns: repeat(5, 1fr);
-    >* {
-      grid-column: span 2;
-    }
-  
-    >*:nth-child(4n-3),
-    >*:nth-child(4n) {
-      grid-column: span 3;
-    }
-  });
-
-  .break-max({
-    grid-template-columns: repeat(12, 1fr);
-    >*:nth-child(4n-3),
-    >*:nth-child(4n),
-    >* {
-      grid-column: span 3;
-    }
-
-    >*:nth-child(6n-5) {
-      grid-column: span 6;
-    }
-
-    >*:nth-child(6n-2) {
-      grid-column: span 5;
-    }
-
-    >*:nth-child(6n) {
-      grid-column: span 4;
-    }
-
-  });
-
-  
-
+.space(@direction, @distance: 1, @prop: margin) {
+  @{prop}-@{direction}: ~"calc(@{distance} * var(--space))";
 }
-.center(@width) {
-  max-width: unit(@width/@base, rem);
+
+.peek-calc(@distance, @prop) {
+  .break-max({
+    @{prop}: unit(-1 * (@distance * 30) / @base, rem);
+  });
+}
+.peek(@direction, @distance: 1) when (@direction = both) {
+  .peek-calc(@distance, margin-left);
+  .peek-calc(@distance, margin-right);
+}
+.peek(@direction, @distance: 1) when (@direction = start) {
+  .peek-calc(@distance, margin-left);
+}
+
+.peek(@direction, @distance: 1) when (@direction = end) {
+  .peek-calc(@distance, margin-right);
+}
+
+.layout-like-article {
   margin-left: auto;
   margin-right: auto;
+  max-width: var(--max-text-width);
 }

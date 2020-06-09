@@ -1,15 +1,18 @@
 ---
 permalink: /tags/
 layout: default.njk
-title: Tags
+title: Categories
 ---
-{% from "./_components/tag.njk" import tag %}
-<ul class="tagCloud">
-  {% for tagItem in collections.tagList %}
-    <li class="tagCloud-tag">{{ tag({
-      title: tagItem,
-      url: '/tags/' + tagItem | slug,
-      count: collections[tagItem] | length
-    }) }}</li>
-  {% endfor %}
-</ul>
+<div class="layout-like-article">
+<p class="prose">I categorise my articles with tags. There are {{ collections.tagList | length}} tags.</p>
+
+<h2 class="heading-s heading--border">Tags</h2>
+<dl class="summary-list">
+  {%- for tag in collections.tagList -%}
+  <div class="summary-list-row">
+      <dt class="summary-list-title"><a href="/tags/{{ tag | slug }}">{{ tag | title }}</a></dt>
+      <dd class="summary-list-meta">{{ collections[tag] | length }} {{ 'article' | plural(collections[tag] | length) }}<dd>
+    </div>
+  {%- endfor -%}
+</dl>
+</div>

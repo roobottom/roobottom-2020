@@ -1,9 +1,11 @@
 ---
 layout: _wrapper.njk
 ---
-<header class="defaultPage-header">
-  <h1 class="defaultPage-title">{{ renderData.title or title }}</h1>
-</header>
-<div class="defaultPage-content {{ contentClasses }}">
-  {{ content | safe }}
+{% if not omitTitle %}<h1 class="heading-l {{ titleClasses }}">{{ renderData.title or title }}</h1>{% endif %}
+{% if contentClasses %}
+<div class="{{ contentClasses }}">
+{{ content | safe }}
 </div>
+{% else %}
+{{ content | safe }}
+{% endif %}

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en" data-theme="dar">
+<html class="no-js" lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="The personal website of Jon Roobottom">
+    <meta name="description" content="Jon Roobottom’s personal website">
     <meta name="robots" content="index, follow">
     <title>{{ renderData.titleElement or renderData.title or title }} / Jon Roobottom’s website</title>
     <link href="/assets/styles.css" rel="stylesheet"/>
@@ -12,12 +12,12 @@
 </head>
 <body>
 <header class="banner wrapper">
-    <a href="/" class="banner-link" rel="home">Jon Roobottom’s Website</a>
+    <a href="/" class="banner-sitename" rel="home">Jon’s <span class="banner-sitename__description">Website</span></a>
     <nav class="banner-navigation" aria-label="site">
-        <ul class="navigation">
-            <li><a href="/articles" {% if page.url.startsWith('/articles') %}aria-current="page"{% endif %}>Articles</a></li>
-            <li><a href="/tags" {% if page.url.startsWith('/tags') %}aria-current="page"{% endif %}>Tags</a></li>
-            <li><a href="/about" {% if page.url.startsWith('/about') %}aria-current="page"{% endif %}>About</a></li>
+        <ul class="banner-navigation__list">
+            {%- for item in global.menu -%}
+            <li class="banner-navigation__item"><a href="{{ item.url }}" {% if page.url.startsWith(item.url) %}aria-current="page"{% endif %} class="banner-navigation__link">{{ item.title }}</a></li>
+            {%- endfor -%}
         </ul>
     </nav>
 </header>
@@ -26,6 +26,18 @@
 </main>
 <footer class="wrapper footer">
  <div class="footer-copyright">&copy; {{ today | date('YYYY') }}</div>
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1170 10" class="footer-banner" preserveAspectRatio="none" height="10px" width="100%">
+  <path d="M0 0h117v10H0z" class="footer-banner-segment-1"/>
+  <path d="M117 0h117v10H117z" class="footer-banner-segment-2"/>
+  <path d="M234 0h117v10H234z" class="footer-banner-segment-3"/>
+  <path d="M351 0h117v10H351z" class="footer-banner-segment-4"/>
+  <path d="M468 0h117v10H468z" class="footer-banner-segment-5"/>
+  <path d="M585 0h117v10H585z" class="footer-banner-segment-6"/>
+  <path d="M702 0h117v10H702z" class="footer-banner-segment-7"/>
+  <path d="M819 0h117v10H819z" class="footer-banner-segment-8"/>
+  <path d="M936 0h117v10H936z" class="footer-banner-segment-9"/>
+  <path d="M1053 0h117v10H1053z" class="footer-banner-segment-10"/>
+ </svg>
 </footer>
 </body>
 </html>

@@ -1,0 +1,35 @@
+.summary-list {
+  .space(bottom,2);
+  #type > #size > .p;
+
+  a {
+    #type > #style > .link;
+  }
+
+  &-row {
+    display: flex;
+    flex-direction: column;
+    .space(bottom,.25);
+    .break-mid({
+      flex-direction: row;
+    });
+  }
+
+  &-title {
+    .break-mid({
+      order: 1;
+    });
+  }
+
+  &-meta {
+    color: var(--c-text-tint);
+    .break-mid({
+      flex: 0 1 30%;
+      .space(right);
+    });
+  }
+  
+
+
+
+}
