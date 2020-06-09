@@ -115,17 +115,20 @@
       position: relative;
       background-color: var(--c-first);
     }
-    &-cover-container:after {
-      content: "";
-      display: block;
-      position: absolute;
-      width: calc(100% + var(--space));
-      height: calc(100% + var(--space));
-      top: 0;
-      left: 0;
-      background-color: var(--c-first);
-      mix-blend-mode: color;
+    @supports (mix-blend-mode: color) {
+      &-cover-container:after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: var(--c-first);
+        mix-blend-mode: color;
+      }
     }
+    
     &-cover-image {
       display: block;
     }
