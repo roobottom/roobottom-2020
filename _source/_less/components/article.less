@@ -176,7 +176,7 @@
   margin-right: calc(-1 * var(--site-padding));
   .break-min({
     width: 100%;
-    max-width: var(--max-text-width);
+    max-width: calc(var(--max-text-width) + (60px));
     margin-left: auto;
     margin-right: auto;
   });
@@ -202,8 +202,8 @@
   padding-left: var(--site-padding);
   padding-right: var(--site-padding);
   .break-min({
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 30px;
+    padding-right: 30px;
   });
 }
 
