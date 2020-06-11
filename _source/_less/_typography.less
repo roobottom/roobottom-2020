@@ -100,15 +100,12 @@
       font-size: unit(13/@base, rem);
       line-height: 15/13;
       .break-mid({
-        font-size: unit(15/@base, rem);
-        line-height: 20/15;
+        font-size: unit(17/@base, rem);
+        line-height: 20/17;
       });
     }
   }
   #font {
-    .sans() {
-      font-family: 'Overpass', sans-serif;
-    }
     .serif() {
       font-family: 'breave';
       text-rendering: optimizeLegibility;
@@ -139,12 +136,19 @@
 }
 
 body {
-  #type > #font > .sans;
+  font-family: "Breve Sans Text Book", sans-serif;
   color: var(--c-text);
   font-weight: 400;
 }
-strong {
-  font-weight: 900;
+strong, h2, h3, h4, h5 {
+  font-family: "Breve Sans Text Black", sans-serif;
+}
+em {
+  font-family: "Breve Sans Text Book Italic", sans-serif;
+}
+strong em,
+em strong {
+  font-family: "Breve Sans Text Black Italic", sans-serif;
 }
 
 //global type styles
