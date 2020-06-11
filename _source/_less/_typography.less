@@ -5,14 +5,7 @@
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'rajdhani';
-  src: url('/assets/fonts/rajdhani-bold.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Overpass+Mono&family=Overpass:ital,wght@0,400;0,900;1,400;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
 
 #type {
   #size {
@@ -21,13 +14,10 @@
       font-size: unit(40/@base, rem);
       line-height: 1;
       .break-min({
-        font-size: unit(60/@base,rem);
+        font-size: 10vw;
       });
-      .break-mid({
-        font-size: unit(80/@base, rem);
-      });
-      .break-max({
-        font-size: unit(110/@base, rem);
+      .break-max-site({
+        font-size: unit(160/@base, rem);
       });
     }
     .h2() {
@@ -117,7 +107,7 @@
       font-family: 'rajdhani';
     }
     .mono() {
-      font-family: 'Overpass Mono', monospace;
+      font-family: 'Source Code Pro', monospace;
     }
   }
   #style {
@@ -142,13 +132,19 @@ body {
 }
 strong, h2, h3, h4, h5 {
   font-family: "Breve Sans Text Black", sans-serif;
+  font-weight: normal;
+  font-style: normal;
 }
 em {
   font-family: "Breve Sans Text Book Italic", sans-serif;
+  font-weight: normal;
+  font-style: normal;
 }
 strong em,
 em strong {
   font-family: "Breve Sans Text Black Italic", sans-serif;
+  font-weight: normal;
+  font-style: normal;
 }
 
 //global type styles

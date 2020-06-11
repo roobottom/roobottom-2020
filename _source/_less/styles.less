@@ -1,5 +1,7 @@
 //responsiveness
 @base: 16;
+@break-max-site: 1600;
+@break-max-site-rem: unit(@break-max-site/@base,rem);
 @break-max: 1170;
 @break-max-rem: unit(@break-max/@base,rem);
 @break-mid: 870;
@@ -37,6 +39,11 @@
 }
 .break-max(@rule) {
   @media screen and (min-width: (@break-max-rem) ) {
+    @rule();
+  }
+}
+.break-max-site(@rule) {
+  @media screen and (min-width: (@break-max-site-rem) ) {
     @rule();
   }
 }
