@@ -1,3 +1,5 @@
+@import "images";
+
 .article-title {
   .break-min({
     text-align: center;
@@ -165,72 +167,15 @@
   a {
     #type > #style > .link;
   }
-}
-
-
-// images
-
-.single-image() {
-  width: calc(100% + (2 * var(--site-padding)));
-  margin-left: calc(-1 * var(--site-padding));
-  margin-right: calc(-1 * var(--site-padding));
-  .break-min({
-    width: 100%;
-    max-width: calc(var(--max-text-width) + (60px));
-    margin-left: auto;
-    margin-right: auto;
-  });
-}
-
-//general styling for img tag
-.article-content img {
-  width: 100%;
-  display: block;
-}
-
-//single images
-.article-content > figure {
-  .single-image();  
-}
-
-
-//common figcaption styling
-.article-content figcaption {
-  #type > #size > .small;
-  .space(top,.5);
-  color: var(--c-text-tint);
-  padding-left: var(--site-padding);
-  padding-right: var(--site-padding);
-  .break-min({
-    padding-left: 30px;
-    padding-right: 30px;
-  });
-}
-
-//galleries
-.article-content .gallery {
-  .break-min({
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  });
-  
 
   figure {
-    .single-image();
-    .break-min({
-      max-width: 400px;
-      background-color: var(--c-background);
-      padding: calc(var(--space) / 2);
-      margin: 0 calc(-1 * var(--space) / 2);
-      &:nth-of-type(2n) {
-        transform: translateY(calc(var(--space) / 2));
-      }
-    });  
+    #figure > .global;
   }
 
-  figcaption {
-    padding-right: calc(var(--space) / 2);
+  > figure {
+
   }
 
 }
+
+

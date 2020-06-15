@@ -51,3 +51,15 @@ Sometimes you might wish to abbreviate something, like CSS.
 *[CSS]: Cascading Style Sheets
 
 You may wish to redact ~~something you’ve previously said.~~
+
+## Images
+
+Single images come in two flavors, standard and wide
+
+Standard:
+
+![Here's a caption for this image. It's very long indeed. Hmm, what other interesting things could we say here? I've really no idea!](/articles/72/My-birthday.jpeg)
+
+Wide:
+
+![Here's a caption for this image. It's very long indeed. Hmm, what other interesting things could we say here? I've really no idea!](/articles/72/My-birthday.jpeg){.wide}
