@@ -30,27 +30,28 @@
 
   }
 
-  .single(@max-width: ~"var(--max-text-width)", @peek: unit(30/@base, rem)) {
+  .single(@peek: unit(30/@base, rem)) {
     .break-min({
-      max-width: ~"calc( @{max-width} + (2 * @{peek}))";
+      max-width: ~"calc( var(--max-text-width) + (2 * @{peek}))";
       figcaption {
         padding-left: @peek;
         padding-right: @peek;
       }
     });
   }
-  .single(@max-width, @peek: unit(30/@base, rem)) when (@max-width = 0) {
+
+  .single--wide() {
     .break-min({
       max-width: none;
-      >img {
+      img {
         width: 100%;
       }
       figcaption {
+        padding-left: 0;
+        padding-right: 0;
         max-width: var(--max-text-width);
         margin-left: auto;
         margin-right: auto;
-        padding-left: @peek;
-        padding-right: @peek;
       }
     });
   }
