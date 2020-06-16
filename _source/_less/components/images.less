@@ -30,6 +30,31 @@
 
   }
 
+  .single(@max-width: ~"var(--max-text-width)", @peek: unit(30/@base, rem)) {
+    .break-min({
+      max-width: ~"calc( @{max-width} + (2 * @{peek}))";
+      figcaption {
+        padding-left: @peek;
+        padding-right: @peek;
+      }
+    });
+  }
+  .single(@max-width, @peek: unit(30/@base, rem)) when (@max-width = 0) {
+    .break-min({
+      max-width: none;
+      >img {
+        width: 100%;
+      }
+      figcaption {
+        max-width: var(--max-text-width);
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: @peek;
+        padding-right: @peek;
+      }
+    });
+  }
+
 
 
 
