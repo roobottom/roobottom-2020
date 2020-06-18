@@ -51,3 +51,37 @@ Sometimes you might wish to abbreviate something, like CSS.
 *[CSS]: Cascading Style Sheets
 
 You may wish to redact ~~something you’ve previously said.~~
+
+## Images
+
+Single images come in two flavors, standard and wide
+
+![Here's a caption for this image. It's very long indeed. Hmm, what other interesting things could we say here? I've really no idea!](/articles/72/My-birthday.jpeg)
+
+![Here's a caption for this image. It's very long indeed. Hmm, what other interesting things could we say here? I've really no idea!](/articles/72/My-birthday.jpeg){.wide}
+
+## Galleries
+
+::: .gallery
+![The stunning views from Juliet’s Garden](/articles/68/juliets.jpg)
+
+![A selfie of Me, Katie and our two children at Centerparcs](/articles/70/roos.jpg)
+:::
+
+::: .gallery
+![The stunning views from Juliet’s Garden](/articles/68/juliets.jpg)
+
+![Katie and me enjoying a drink in the last of the evening sunshine at Juliet’s Garden](/articles/68/at-juliets.jpg)
+
+![A selfie of Me, Katie and our two children at Centerparcs](/articles/70/roos.jpg)
+:::
+
+::: .gallery
+![The stunning views from Juliet’s Garden](/articles/68/juliets.jpg)
+
+![Katie and me enjoying a drink in the last of the evening sunshine at Juliet’s Garden](/articles/68/at-juliets.jpg)
+
+![Here's a caption for this image. It's very long indeed. Hmm, what other interesting things could we say here? I've really no idea!](/articles/72/My-birthday.jpeg)
+
+![A selfie of Me, Katie and our two children at Centerparcs](/articles/70/roos.jpg)
+:::
