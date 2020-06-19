@@ -66,7 +66,7 @@
       figure {
         background-color: var(--c-background);
         padding: calc(var(--space) / 2);
-        max-width: 33.33%;
+        max-width: 50%;
         margin: 0 calc(-1 * var(--space) / 2);
         &:nth-of-type(2n) {
           transform: translateY(calc(var(--space) / 2));
@@ -75,6 +75,11 @@
       figcaption {
         padding-left: var(--space);
         padding-right: var(--space);
+      }
+    });
+    .break-mid({
+      figure {
+        max-width: 33.33%;
       }
     });
   }

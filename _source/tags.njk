@@ -14,7 +14,7 @@
   omitTitle: true
 }
 ---
-<h1 class="heading-l"><span class="heading-pre">Articles tagged</span><br>“{{ tag | title }}”</h1>
+<h1 class="heading-l">{{ tag | title }}</h1>
 <div class="layout-like-article">
 {% set taglist = collections[ tag ] %}
 <dl class="summary-list">

@@ -4,9 +4,7 @@ layout: default.njk
 title: Categories
 ---
 <div class="layout-like-article">
-<p class="prose">I categorise my articles with tags. There are {{ collections.tagList | length}} tags.</p>
 
-<h2 class="heading-s heading--border">Tags</h2>
 <dl class="summary-list">
   {%- for tag in collections.tagList -%}
   <div class="summary-list-row">

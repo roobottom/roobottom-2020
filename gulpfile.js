@@ -92,8 +92,8 @@ exports.default = function(callback) {
   eleventyLocal()
   watch(['./_source/_less/**/*.less', './_source/article_images/**/*.*'], 
     { ignoreInitial: false }, 
-    series(css, images))
+    series(css, js, images))
   callback()
 }
-exports.build = series(eleventyLive, css, images)
+exports.build = series(eleventyLive, css, js, images)
 exports.images = series(images)
