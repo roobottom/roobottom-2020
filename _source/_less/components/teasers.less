@@ -1,9 +1,13 @@
 //general teaser styling 
 .teaser {
   position: relative;
-  &-link {
+
+  &-title {
     #type > #size > .h2;
     #type > #font > .serif;
+  }
+
+  &-link {
     .space(bottom);
     text-decoration: none;
     color: var(--c-text);
@@ -16,8 +20,8 @@
       position: absolute;
       z-index: 2;
     }
-    &:hover {
-      text-decoration: underline;
+    &:focus {
+      outline: 3px solid var(--c-first);
     }
   }
   
@@ -131,6 +135,11 @@
     
     &-cover-image {
       display: block;
+    }
+
+    //hover state
+    &:hover {
+      background-color: var(--c-background-tint);
     }
 
     //colours

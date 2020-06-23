@@ -1,5 +1,5 @@
 ---
-title: Welcome
+title: Home
 layout: default.njk
 omitTitle: true
 ---
@@ -13,16 +13,16 @@ omitTitle: true
   {% elif article.templateContent | firstImage %}{% set cover = article.templateContent | firstImage %}
   {% else %}{% set cover = false %}
   {% endif %}
-  <article class="teaser{% if cover %} teaser--has-cover{% endif %}">
+  <article class="teaser{% if cover %} teaser--has-cover{% endif %}" role="article" aria-labelledby="{{ article.data.title | slugify }}">
     {% if cover %}
     <figure class="teaser-cover">
       <div class="teaser-cover-container">
-        <img src="{{ article.url }}cover-{{ cover }}" class="teaser-cover-image"/>
+        <img src="{{ article.url }}cover-{{ cover }}" class="teaser-cover-image" aria-hidden="true"/>
       </div>
     </figure>
     {% endif %}
     <div class="teaser-content">
-      <h2 class="teaser-title"><a href="{{ article.url }}" class="teaser-link">{{ article.data.title }}</a></h2>
+      <h2 class="teaser-title" id="{{ article.data.title | slugify }}"><a href="{{ article.url }}" class="teaser-link">{{ article.data.title }}</a></h2>
       <time class="teaser-date" datetime="{{ article.date | date('') }}">{{ article.date | date }}</time>
       <p class="teaser-introduction">{% if data.data.intro %}{{ article.data.intro }}{% else %}{{ article.templateContent | firstParagraph | stripTags | hangingPunctuation | safe }}{% endif %}</p>
     </div>
