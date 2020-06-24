@@ -10,6 +10,10 @@
   @{prop}-@{direction}: ~"calc(@{distance} * var(--space))";
 }
 
+.space(@direction, @distance: 1, @prop: margin) when (@direction = all) {
+  @{prop}: ~"calc(@{distance} * var(--space))";
+}
+
 .peek-calc(@distance, @prop) {
   .break-max({
     @{prop}: unit(-1 * (@distance * 30) / @base, rem);

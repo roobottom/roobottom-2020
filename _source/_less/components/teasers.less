@@ -199,6 +199,8 @@
     column-gap: var(--space);
     .space(bottom,5);
     .space(top,5);
+    .space(all,.5,padding);
+    border: 1px solid var(--c-background-tint);
 
     &-content {
       grid-column: 1;
@@ -208,6 +210,10 @@
       grid-column: 2;
       grid-row: 1;
     }
+    &-cover-container:after {
+      top: var(--space);
+      left: var(--space);
+    }
 
     //reverse direction
     &:nth-of-type(2n) &-content {
@@ -216,8 +222,7 @@
     &:nth-of-type(2n) &-cover {
       grid-column: 1;
       &-container:after {
-        left: auto;
-        right: 0;
+        left: calc(-1 * var(--space));
       }
     }
 
