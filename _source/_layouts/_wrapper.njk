@@ -10,6 +10,16 @@
     <link rel="stylesheet" href="https://webfonts.fontstand.com/WF-054202-a1e9203a6e480c847756d0cec31da4dc.css" type="text/css"/>
     <link href="/assets/styles.css" rel="stylesheet"/>
     <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+    <!-- open graph -->
+    {% set og_image %}https://roobottom.com{{ page.url }}{% if cover %}{{ cover }}{% elif content | firstImage %}{{ content | firstImage }}{% else %}null{% endif %}{% endset %}
+    <meta property="og:title" content="{{ renderData.titleElement or renderData.title or title }}"/>
+    <meta property="og:locale" content="en_gb"/>
+    <meta property="og:image" content="{{ og_image }}"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:description" content="{{ content | firstParagraph | stripTags }}"/>
+    <meta property="og:url" content="https://roobottom.com/{{ page.url }}"/>
+    <meta property="og:site_name" content="Jon Roobottom’s website"/>
 </head>
 <body>
 <header class="banner wrapper">
