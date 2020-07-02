@@ -21,13 +21,13 @@ layout: _wrapper.njk
 <div class="article-content">
   {{ content | hangingPunctuation | safe }}
 </div>
-<div class="article-tags">
+<nav class="article-tags" aria-label="tags">
   <ul class="tags">
     {% for tag in tags %}
       <li class="tags-item"><a href="/tags/{{ tag | slug }}" rel="tag" class="tags-link">{{ tag }}</a></li>
     {% endfor %}
   </ul>
-</div>
+</nav>
 <nav class="article-prevNext prevNext" aria-label="Pagination">
   <ul class="prevNext-list">
     {% if prevPage %}
