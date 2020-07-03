@@ -1,0 +1,37 @@
+:root, :root.lightmode {
+  --c-background: #FFFFFF;
+  --c-background-tint: #F1F1F1;
+  --c-text: #1E1A1E;
+  --c-text-tint: #5D686F;
+  --c-link: #1E1A1E;
+  --c-link-hover: #577590;
+  --c-first: #FFB600;
+  --c-second: #FF5D1A;
+  --c-third: #30BCED;
+  --c-fourth: #F00699;
+}
+
+.darkmode() {
+  --c-background: #1E1A1E;
+  --c-background-tint: #292729;
+  --c-text: #FFFFFF;
+  --c-text-tint: #9DA3A6;
+  --c-link: #FFFFFF;
+  --c-link-hover: #D4C685;
+  --c-first: #94E8B4;
+  --c-second: #EA638C;
+  --c-third: #87B38D;
+  --c-fourth: #119DA4;
+  --filter-roo-mark: 1000;
+}
+
+html.darkmode {
+  .darkmode;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  html:not(.lightmode) {
+   .darkmode;
+  }
+}
