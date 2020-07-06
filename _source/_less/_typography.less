@@ -5,6 +5,31 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'breve sans';
+  src: url('/assets/fonts/BreveSansText-Book.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'breve sans';
+  src: url('/assets/fonts/BreveSansText-BookItalic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'breve sans';
+  src: url('/assets/fonts/BreveSansText-Black.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'breve sans';
+  src: url('/assets/fonts/BreveSansText-BlackItalic.woff2') format('woff2');
+  font-weight: bold;
+  font-style: italic;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
 
 #type {
@@ -96,15 +121,15 @@
     }
   }
   #font {
+    .sans() {
+      font-family: 'breve sans';
+    }
     .serif() {
       font-family: 'breave';
       text-rendering: optimizeLegibility;
       font-weight: normal;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-    }
-    .alt() {
-      font-family: 'rajdhani';
     }
     .mono() {
       font-family: 'Source Code Pro', monospace;
@@ -126,25 +151,8 @@
 }
 
 body {
-  font-family: "Breve Sans Text Book", sans-serif;
+  #type > #font > .sans;
   color: var(--c-text);
-  font-weight: 400;
-}
-strong, h2, h3, h4, h5 {
-  font-family: "Breve Sans Text Black", sans-serif;
-  font-weight: normal;
-  font-style: normal;
-}
-em {
-  font-family: "Breve Sans Text Book Italic", sans-serif;
-  font-weight: normal;
-  font-style: normal;
-}
-strong em,
-em strong {
-  font-family: "Breve Sans Text Black Italic", sans-serif;
-  font-weight: normal;
-  font-style: normal;
 }
 
 //global type styles
