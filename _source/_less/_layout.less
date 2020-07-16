@@ -6,7 +6,7 @@
   //box-sizing: border-box;
 }
 
-.space(@direction, @distance: 1, @prop: margin) {
+.space(@direction, @distance: 1, @prop: margin) when not (@direction = all) {
   @{prop}-@{direction}: ~"calc(@{distance} * var(--space))";
 }
 
