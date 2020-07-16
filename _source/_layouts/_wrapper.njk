@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en" data-theme="default">
+<html class="no-js" lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -19,6 +19,8 @@
     <meta property="og:description" content="{{ content | firstParagraph | stripTags }}"/>
     <meta property="og:url" content="https://roobottom.com{{ page.url }}"/>
     <meta property="og:site_name" content="Jon Roobottom’s website"/>
+
+    <script src="/app.js" async></script>
 </head>
 <body>
 <header class="banner wrapper">
@@ -30,6 +32,7 @@
             {%- endfor -%}
         </ul>
     </nav>
+    <button class="banner-colour-mode-switch" data-toggle="colourmodes">Switch between light and dark modes</button>
 </header>
 <main class="wrapper">
   {{ content | safe }}
