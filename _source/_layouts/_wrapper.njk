@@ -9,6 +9,7 @@
     <title>{{ renderData.titleElement or renderData.title or title }} / Jon Roobottom’s website</title>
     <link href="/assets/styles.css" rel="stylesheet"/>
     <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="me" href="https://github.com/roobottom">
 
     <!-- open graph -->
     {% set og_image %}https://roobottom.com{{ page.url }}{% if cover %}{{ cover }}{% elif content | firstImage %}{{ content | firstImage }}{% else %}null{% endif %}{% endset %}
