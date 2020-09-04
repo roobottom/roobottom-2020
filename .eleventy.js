@@ -33,15 +33,18 @@ module.exports = function (eleventyConfig) {
   //passthough
   eleventyConfig.addPassthroughCopy("_source/assets")
 
-  //create articles category
+  //articles category
   eleventyConfig.addCollection("articles", function(collection) {
     return articles = collection.getFilteredByGlob("./_source/articles/*.md").sort( function(a, b) {
       return b.date - a.date
     })
   })
 
-  //create tagList collection
-  eleventyConfig.addCollection("tagList", require('./_lib/getTagList'))
+  //tagList collection
+  eleventyConfig.addCollection("tagList", require("./_lib/getT agList"))
+
+  //diary collection
+  
 
   //filters
   eleventyConfig.addFilter("date", (value, format = 'D MMMM YYYY') => { //GDS format FTW
