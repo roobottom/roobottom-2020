@@ -32,6 +32,7 @@ module.exports = function (eleventyConfig) {
 
   //passthough
   eleventyConfig.addPassthroughCopy("_source/assets")
+  eleventyConfig.addPassthroughCopy("_source/images")
 
   //create articles category
   eleventyConfig.addCollection("articles", function(collection) {
@@ -42,6 +43,11 @@ module.exports = function (eleventyConfig) {
 
   //create tagList collection
   eleventyConfig.addCollection("tagList", require('./_lib/getTagList'))
+
+  //shortcodes
+  eleventyConfig.addShortcode("figure", require('./_lib/figure.js'))
+
+  
 
   //filters
   eleventyConfig.addFilter("date", (value, format = 'D MMMM YYYY') => { //GDS format FTW
