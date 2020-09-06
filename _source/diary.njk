@@ -1,0 +1,11 @@
+---
+layout: default.njk
+title: Diary
+---
+<div class="layout-like-article">
+  {% for entry in collections.diary %}
+  <article>
+    {{ entry.templateContent | safe }}
+  </article>
+  {% endfor %}
+</div>
