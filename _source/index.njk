@@ -17,7 +17,7 @@ omitTitle: true
     {% if cover %}
     <figure class="teaser-cover">
       <div class="teaser-cover-container">
-        <img src="{{ article.url }}cover-{{ cover }}" class="teaser-cover-image" aria-hidden="true"/>
+        {% img cover, {'class': 'teaser-cover-image', 'aria-hidden': 'true'} %}
       </div>
     </figure>
     {% endif %}

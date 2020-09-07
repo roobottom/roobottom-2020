@@ -1,7 +1,10 @@
+const img = require('./img.js')
+const attrs = require('./attrs.js')
+
 module.exports = function(url, caption, classnames) {
   return `
-<figure ${style(classnames)}>
-  <img src="${url}"/>
+<figure ${attrs({'class':classnames})}>
+  ${img(url)}
   ${figcaption(caption)}
 </figure>
   `
@@ -10,9 +13,4 @@ module.exports = function(url, caption, classnames) {
 const figcaption = (caption) => {
   if(caption === undefined) return ''
   else return `<figcaption>${caption}</figcaption>`
-}
-
-const style = (classnames) => {
-  if(classnames === undefined) return ''
-  else return `class="${classnames}"`
 }

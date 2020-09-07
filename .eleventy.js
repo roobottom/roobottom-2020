@@ -46,6 +46,7 @@ module.exports = function (eleventyConfig) {
 
   //shortcodes
   eleventyConfig.addShortcode("figure", require('./_lib/figure.js'))
+  eleventyConfig.addShortcode("img", require('./_lib/img.js'))
 
   
 
