@@ -1,10 +1,10 @@
 const markdownIt = require("markdown-it")
 const markdownItAttrs = require("markdown-it-attrs")
-const markdownItImplicitFigures = require('markdown-it-implicit-figures')
 const markdownItDiv = require('markdown-it-div')
 const markdownItAbbr = require('markdown-it-abbr')
 const moment = require('moment')
 
+require('dotenv').config();
 
 module.exports = function (eleventyConfig) {
 
@@ -16,11 +16,6 @@ module.exports = function (eleventyConfig) {
   }
   let md =  markdownIt(mdOptions)
             .use(markdownItAttrs)
-            .use(markdownItImplicitFigures, {
-              dataType: true,
-              figcaption: true,
-              copyAttrs: 'class'
-            })
             .use(markdownItDiv)
             .use(markdownItAbbr)
 
