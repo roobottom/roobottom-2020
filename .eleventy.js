@@ -1,10 +1,10 @@
 const markdownIt = require("markdown-it")
 const markdownItAttrs = require("markdown-it-attrs")
-const markdownItImplicitFigures = require('markdown-it-implicit-figures')
 const markdownItDiv = require('markdown-it-div')
 const markdownItAbbr = require('markdown-it-abbr')
 const moment = require('moment')
 
+require('dotenv').config();
 
 module.exports = function (eleventyConfig) {
 
@@ -16,11 +16,6 @@ module.exports = function (eleventyConfig) {
   }
   let md =  markdownIt(mdOptions)
             .use(markdownItAttrs)
-            .use(markdownItImplicitFigures, {
-              dataType: true,
-              figcaption: true,
-              copyAttrs: 'class'
-            })
             .use(markdownItDiv)
             .use(markdownItAbbr)
 
@@ -32,6 +27,7 @@ module.exports = function (eleventyConfig) {
 
   //passthough
   eleventyConfig.addPassthroughCopy("_source/assets")
+  eleventyConfig.addPassthroughCopy("_source/images")
 
   //create articles category
   eleventyConfig.addCollection("articles", function(collection) {
@@ -42,6 +38,12 @@ module.exports = function (eleventyConfig) {
 
   //create tagList collection
   eleventyConfig.addCollection("tagList", require('./_lib/getTagList'))
+
+  //shortcodes
+  eleventyConfig.addShortcode("figure", require('./_lib/figure.js'))
+  eleventyConfig.addShortcode("img", require('./_lib/img.js'))
+
+  
 
   //filters
   eleventyConfig.addFilter("date", (value, format = 'D MMMM YYYY') => { //GDS format FTW
