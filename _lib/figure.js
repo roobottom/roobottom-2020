@@ -4,7 +4,7 @@ const attrs = require('./attrs.js')
 module.exports = function(url, caption, classnames) {
   return `
 <figure ${attrs({'class':classnames})}>
-  ${img(url)}
+  ${img(url,{},classnames)}
   ${figcaption(caption)}
 </figure>
   `

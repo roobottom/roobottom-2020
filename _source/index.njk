@@ -10,14 +10,12 @@ omitTitle: true
 <div class="teasers">
 {%- for article in collections.articles | limit(5) -%}
   {% if article.data.cover %}{% set cover =  article.data.cover %}
-  {% elif article.templateContent | firstImage %}{% set cover = article.templateContent | firstImage %}
-  {% else %}{% set cover = false %}
-  {% endif %}
+  {% else %}{% set cover = false %}{% endif %}
   <article class="teaser{% if cover %} teaser--has-cover{% endif %}" role="article" aria-labelledby="{{ article.data.title | slugify }}">
     {% if cover %}
     <figure class="teaser-cover">
       <div class="teaser-cover-container">
-        {% img cover, {'class': 'teaser-cover-image', 'aria-hidden': 'true'} %}
+        {% img cover, {'class': 'teaser-cover-image', 'aria-hidden': 'true'}, 'cover' %}
       </div>
     </figure>
     {% endif %}
