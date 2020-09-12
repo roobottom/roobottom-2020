@@ -1,19 +1,16 @@
 const attrs = require('./attrs.js')
-const urls = {
-  local: {
-    tld: 'https://roobottom.com',
-  }, 
-  cloudinary: {
-    url: 'https://res.cloudinary.com/roobottom/image/fetch/',
-    format: 'w_660'
-  }
+const transforms = {
+  default: 'tr:w-660',
+  cover: 'tr:w-660,e-grayscale',
+  wide: 'tr:w:1170'
 }
 
-module.exports = function(url, attrsObj) {
+module.exports = function(url, attrsObj, transform='default') {
+  url = (url.charAt(0) === '/') ? url.substring(1) : url
   if(process.env.NODE_ENV === 'dev') {
-    return `<img src="${url}" ${attrs(attrsObj)}/>`
+    return `<img src="/${url}" ${attrs(attrsObj)}/>`
   }
   else {
-    return `<img src="${urls.cloudinary.url}${urls.cloudinary.format}/${urls.local.tld}${url}" ${attrs(attrsObj)}/>`
+    return `<img src="https://ik.imagekit.io/roobottom/${transforms[transform]}/${url}" ${attrs(attrsObj)}/>`
   }
 }
