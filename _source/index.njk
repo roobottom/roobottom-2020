@@ -5,19 +5,17 @@ omitTitle: true
 ---
 <div class="introduction">
   <h1 class="introduction-title heading-l">Hello.</h1>
-  <p class="introduction-content">I’m Jon and this is my website. I write about things I find interesting. Here’s a few of the most recent&hellip;</p>
+  <p class="introduction-content">I’m Jon and this is my website. I write about things I find interesting. Here’s a few of my most recent articles&hellip;</p>
 </div>
 <div class="teasers">
 {%- for article in collections.articles | limit(5) -%}
   {% if article.data.cover %}{% set cover =  article.data.cover %}
-  {% elif article.templateContent | firstImage %}{% set cover = article.templateContent | firstImage %}
-  {% else %}{% set cover = false %}
-  {% endif %}
+  {% else %}{% set cover = false %}{% endif %}
   <article class="teaser{% if cover %} teaser--has-cover{% endif %}" role="article" aria-labelledby="{{ article.data.title | slugify }}">
     {% if cover %}
     <figure class="teaser-cover">
       <div class="teaser-cover-container">
-        <img src="{{ article.url }}cover-{{ cover }}" class="teaser-cover-image" aria-hidden="true"/>
+        {% img cover, {'class': 'teaser-cover-image', 'aria-hidden': 'true'}, 'cover' %}
       </div>
     </figure>
     {% endif %}
