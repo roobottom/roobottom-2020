@@ -3,7 +3,15 @@ new_page_extension: md
 auto_deploy: false
 admin_path: 
 webhook_url: 
-sections: 
+sections:
+- type: directory
+  path: _source/photos
+  label: Photos
+  create: documents
+  match: "**/*.md"
+  new_doc_ext: ".md"
+  templates:
+  - photos
 upload_dir: _source/images/photos
 public_path: "/images/photos"
 front_matter_path: ''
