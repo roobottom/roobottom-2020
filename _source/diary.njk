@@ -2,10 +2,15 @@
 layout: default.njk
 title: Diary
 ---
-<div class="layout-like-article">
-  {% for entry in collections.diary %}
-  <article>
-    {{ entry.templateContent | safe }}
-  </article>
-  {% endfor %}
-</div>
+{% for entry in collections.diary %}
+<article class="article-content">
+  {{ entry.templateContent | safe }}
+  {% if entry.data.photo %}
+    <div class="gallery">
+    {% for photo in entry.data.photo %}
+      {% figure photo.url, photo.alt %}
+    {% endfor %}
+    </div>
+  {% endif %}
+</article>
+{% endfor %}

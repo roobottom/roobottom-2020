@@ -41,7 +41,7 @@ module.exports = function (eleventyConfig) {
 
   //diary collection
   eleventyConfig.addCollection("diary", function(collection) {
-    return articles = collection.getFilteredByGlob("./_source/diary/*.md").sort( function(a, b) {
+    return articles = collection.getFilteredByGlob(["./_source/photos/*.md", "./_source/notes/*.md"]).sort( function(a, b) {
       return b.date - a.date
     })
   })
@@ -54,6 +54,9 @@ module.exports = function (eleventyConfig) {
 
   //filters
   eleventyConfig.addFilter("date", (value, format = 'D MMMM YYYY') => { //GDS format FTW
+    return moment(value).format(format)
+  })
+  eleventyConfig.addFilter("urldate", (value, format = 'YYYY-MM-DD') => { //GDS format FTW
     return moment(value).format(format)
   })
   eleventyConfig.addFilter("firstParagraph", (html) => {
