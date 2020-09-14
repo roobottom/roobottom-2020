@@ -16,3 +16,5 @@ fields:
   type: image_gallery
   config: {}
   label: Photos
+pages:
+- _source/photos/follow-the-dog.md
