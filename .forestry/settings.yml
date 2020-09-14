@@ -12,7 +12,7 @@ sections:
   new_doc_ext: md
   templates:
   - photos
-upload_dir: _source/images
+upload_dir: ''
 public_path: "/images"
 front_matter_path: ''
 use_front_matter_path: false
