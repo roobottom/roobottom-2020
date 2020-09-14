@@ -9,11 +9,11 @@ sections:
   label: Photos
   create: documents
   match: "**/*.md"
-  new_doc_ext: ".md"
+  new_doc_ext: md
   templates:
   - photos
-upload_dir: _source/images/photos
-public_path: "/images/photos"
+upload_dir: _source/images
+public_path: "/images"
 front_matter_path: ''
 use_front_matter_path: false
 file_template: ":year:-:month:-:day:-:filename:"
