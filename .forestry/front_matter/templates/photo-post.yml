@@ -8,7 +8,7 @@ fields:
   description: ''
   config:
     required: false
-    date_format: DD MM YYYYY
+    date_format: DD MMMM YYYY
     time_format: 
     display_utc: false
     export_format: YYYY-MM-DD
