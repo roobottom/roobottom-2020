@@ -12,8 +12,8 @@ sections:
   new_doc_ext: md
   templates:
   - photo-post
-upload_dir: ''
-public_path: "/images"
+upload_dir: _source/images/photos
+public_path: "/images/photos"
 front_matter_path: ''
 use_front_matter_path: false
 file_template: ":year:-:month:-:day:-:filename:"
