@@ -9,7 +9,7 @@ sections:
   label: Photos
   create: documents
   match: "*.md"
-  new_doc_ext: ".md"
+  new_doc_ext: md
   templates:
   - photo-post
 - type: directory
