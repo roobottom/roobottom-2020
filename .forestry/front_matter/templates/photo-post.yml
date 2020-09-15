@@ -1,0 +1,20 @@
+---
+label: Photo post
+hide_body: false
+fields:
+- name: date
+  type: datetime
+  label: Date
+  description: ''
+  config:
+    required: false
+    date_format: DD MMMM YYYY
+    time_format: ''
+    display_utc: false
+    export_format: YYYY-MM-DD
+- name: photo
+  type: image_gallery
+  config: {}
+  label: Photos
+pages:
+- _source/photos/follow-the-dog.md

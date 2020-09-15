@@ -29,15 +29,22 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("_source/assets")
   eleventyConfig.addPassthroughCopy("_source/images")
 
-  //create articles category
+  //articles collection
   eleventyConfig.addCollection("articles", function(collection) {
     return articles = collection.getFilteredByGlob("./_source/articles/*.md").sort( function(a, b) {
       return b.date - a.date
     })
   })
 
-  //create tagList collection
-  eleventyConfig.addCollection("tagList", require('./_lib/getTagList'))
+  //tagList collection
+  eleventyConfig.addCollection("tagList", require("./_lib/getTagList"))
+
+  //diary collection
+  eleventyConfig.addCollection("diary", function(collection) {
+    return articles = collection.getFilteredByGlob(["./_source/photos/*.md", "./_source/notes/*.md"]).sort( function(a, b) {
+      return b.date - a.date
+    })
+  })
 
   //shortcodes
   eleventyConfig.addShortcode("figure", require('./_lib/figure.js'))
@@ -47,6 +54,9 @@ module.exports = function (eleventyConfig) {
 
   //filters
   eleventyConfig.addFilter("date", (value, format = 'D MMMM YYYY') => { //GDS format FTW
+    return moment(value).format(format)
+  })
+  eleventyConfig.addFilter("urldate", (value, format = 'YYYY-MM-DD') => { //GDS format FTW
     return moment(value).format(format)
   })
   eleventyConfig.addFilter("firstParagraph", (html) => {

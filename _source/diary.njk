@@ -1,0 +1,16 @@
+---
+layout: default.njk
+title: Diary
+---
+{% for entry in collections.diary %}
+<article class="article-content">
+  {{ entry.templateContent | safe }}
+  {% if entry.data.photo %}
+    <div class="gallery">
+    {% for photo in entry.data.photo %}
+      {% figure photo.url, photo.alt %}
+    {% endfor %}
+    </div>
+  {% endif %}
+</article>
+{% endfor %}
