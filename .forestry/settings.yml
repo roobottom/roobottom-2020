@@ -8,6 +8,14 @@ sections:
   path: _source/photos
   label: Photos
   create: documents
+  match: "*.md"
+  new_doc_ext: ".md"
+  templates:
+  - photo-post
+- type: directory
+  path: _source/photos
+  label: Photos
+  create: documents
   match: "**/*.md"
   new_doc_ext: md
   templates:
