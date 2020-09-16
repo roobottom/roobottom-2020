@@ -1,0 +1,23 @@
+backend:
+  name: git-gateway
+  branch: master
+  repo: "roobottom/roobottom-2020"
+  api_route: "https://api.github.com"
+  site_domain: "cms.netlify.com"
+  base_url: "https://api.netlify.com"
+  auth_endpoint: "auth"
+  cms_label_prefix: "netlify-cms/"
+media_folder: "_source/images/photos"
+public_folder: "/images/photos"
+collections:
+  - name: "photos"
+    label: "Photos"
+    folder: "_source/photos"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {
+        label: "Title",
+        name: "title",
+        widget: "string"
+      }

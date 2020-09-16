@@ -28,7 +28,7 @@ const js = (callback) => {
 
 exports.default = function(callback) {
   eleventyLocal()
-  watch(['./_source/_less/**/*.less'], 
+  watch(['./_source/_less/**/*.less', './_source/app.js'], 
     { ignoreInitial: false }, 
     series(css, js))
   callback()
