@@ -5,9 +5,14 @@ fields:
 - type: datetime
   name: date
   label: date
+  config:
+    date_format: DD MMMM YYYY
+    export_format: YYYY-MM-DD
 - type: list
   name: tags
   label: tags
+  config:
+    use_select: false
 - type: field_group_list
   name: photo
   label: photo
