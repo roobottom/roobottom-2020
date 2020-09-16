@@ -16,8 +16,17 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {
-        label: "Title",
-        name: "title",
-        widget: "string"
-      }
+      - { label: "Slug", name: "title", widget: "string" }
+      - label: "Photos"
+        name: "photo"
+        widget: "object"
+        fields:
+          - label: "File"
+            name: "url"
+            widget: "image"
+          - label: "Description"
+            name: "alt"
+            widget: "string"
+      - label: "Content"
+        name: "body"
+        widget: "markdown"
