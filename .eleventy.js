@@ -28,6 +28,7 @@ module.exports = function (eleventyConfig) {
   //passthough
   eleventyConfig.addPassthroughCopy("_source/assets")
   eleventyConfig.addPassthroughCopy("_source/images")
+  eleventyConfig.addPassthroughCopy("_source/admin/config.yml")
 
   //articles collection
   eleventyConfig.addCollection("articles", function(collection) {

@@ -16,8 +16,10 @@
     <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
     <link rel="micropub" href="https://roobottom-indiekit.herokuapp.com/micropub">
 
+    {# netlify cms #}
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
-    <!-- open graph -->
+    {# open graph #}
     {% set og_image %}https://roobottom.com{{ page.url }}{% if cover %}{{ cover }}{% elif content | firstImage %}{{ content | firstImage }}{% else %}null{% endif %}{% endset %}
     <meta property="og:title" content="{{ renderData.titleElement or renderData.title or title }}"/>
     <meta property="og:locale" content="en_gb"/>
@@ -56,5 +58,8 @@
   <path d="M1053 0h117v10H1053z" class="footer-banner-segment-10"/>
  </svg>
 </footer>
+
+{# main scripts #}
+<script src="/app.js"></script>
 </body>
 </html>
