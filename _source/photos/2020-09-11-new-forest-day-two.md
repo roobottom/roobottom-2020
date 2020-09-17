@@ -3,7 +3,7 @@ tags:
 - cycling
 - new forest
 date: 2020-09-11
-title: New Forest day two
+summary: New Forest day two
 photo:
 - url: "/images/photos/2020-09-17-new-forest-day-two-4.jpeg"
   alt: Paul next to the Portuguese Fireplace

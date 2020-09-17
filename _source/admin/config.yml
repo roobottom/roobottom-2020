@@ -1,5 +1,5 @@
 backend:
-  name: git-gateway
+  name: github
   branch: master
   repo: "roobottom/roobottom-2020"
   api_route: "https://api.github.com"
