@@ -8,14 +8,13 @@ fields:
   config:
     date_format: DD MMMM YYYY
     export_format: YYYY-MM-DD
-- type: list
-  name: tags
-  label: tags
-  config:
-    use_select: false
+- name: tags
+  type: tag_list
+  default: []
+  label: Tags
 - type: field_group_list
   name: photo
-  label: photo
+  label: Photos
   fields:
   - type: file
     name: url
@@ -23,3 +22,6 @@ fields:
   - type: text
     name: alt
     label: alt
+  description: Upload one or more photos
+  config:
+    labelField: alt
