@@ -16,10 +16,24 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { label: "Slug", name: "title", widget: "string" }
+      - label: "Date"
+        name: "date"
+        widget: "datetime"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        picker_utc: true
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
       - label: "Photos"
         name: "photo"
-        widget: "object"
+        widget: "list"
+        collapsed: false
+        label_singular: "photo"
         fields:
           - label: "File"
             name: "url"
@@ -30,3 +44,4 @@ collections:
       - label: "Content"
         name: "body"
         widget: "markdown"
+        required: false
