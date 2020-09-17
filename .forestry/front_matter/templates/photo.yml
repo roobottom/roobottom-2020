@@ -25,3 +25,5 @@ fields:
   description: Upload one or more photos
   config:
     labelField: alt
+pages:
+- _source/photos/2020-09-14-beers-on-the-beach.md
