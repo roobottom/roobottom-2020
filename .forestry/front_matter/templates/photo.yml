@@ -34,4 +34,5 @@ fields:
     labelField: alt
     min: 1
 pages:
+- _source/photos/2020-09-10-new-forest-day-one.md
 - _source/photos/2020-09-14-beers-on-the-beach.md
