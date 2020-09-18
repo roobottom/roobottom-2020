@@ -3,7 +3,7 @@ tags:
 - cornwall
 - friends
 date: 2005-06-19
-summary: Robs stag
+summary: Pauls stag
 photo:
 - url: "/images/photos/2020-09-18-20286523_294766eec2_o-1.jpg"
   alt: Matt's Surf Lodge - a bit of a dive, but we had fun
@@ -17,4 +17,4 @@ photo:
   alt: A beautiful evening for a surf
 
 ---
-Rob's stag weekend is a bit of a blur. We went surfing, had a BBQ on the beach, stayed at Matts Surf Lodge and did some embarrassing things to Rob. It was great fun!
+Paul's stag weekend is a bit of a blur. We went surfing, had a BBQ on the beach, stayed at Matts Surf Lodge and did some embarrassing things to Paul. It was great fun!

@@ -8,4 +8,4 @@ photo:
   alt: Paul with his medal after completing the Great North Run
 
 ---
-Paul did the Great North Run! Kris and I went to support him. What a chap, his time was 1:12:59.
+Paul did the Great North Run! Kris and I went to support him. What a champ, his time was 1:12:59.
