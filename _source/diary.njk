@@ -2,15 +2,26 @@
 layout: default.njk
 title: Diary
 ---
+<div class="layout-like-article">
+
 {% for entry in collections.diary %}
-<article class="article-content">
-  {{ entry.templateContent | safe }}
-  {% if entry.data.photo %}
-    <div class="gallery">
-    {% for photo in entry.data.photo %}
-      {% figure photo.url, photo.alt %}
-    {% endfor %}
+  <article class="diary">
+    <footer class="diary-footer">
+      <a href="{{ entry.url }}" rel="bookmark" class="diary-link">
+        <time datetime="{{ entry.date | date('') }}" class="diary-date">{{ entry.date | date }}</time>
+      </a>
+    </footer>
+    <div class="diary-content">
+      {{ entry.templateContent | safe }}
     </div>
-  {% endif %}
-</article>
+    {% if entry.data.photo %}
+    <ul class="diary-photos">
+      {% for photo in entry.data.photo %}
+      <li class="diary-photo">{% img photo.url, { 'alt': photo.alt }, 'square' %}
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </article>
 {% endfor %}
+
+</div>

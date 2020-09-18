@@ -2,7 +2,8 @@ const attrs = require('./attrs.js')
 const transforms = {
   default: 'tr:w-660',
   cover: 'tr:w-660,e-grayscale',
-  wide: 'tr:w:1170'
+  wide: 'tr:w:1170',
+  square: 'tr:w-240,h-240,fo-auto'
 }
 
 module.exports = function(url, attrsObj, transform='default') {

@@ -1,0 +1,48 @@
+.diary {
+  .space(bottom,3);
+  &-link {
+    #type > #size > .small;
+    #type > #style > .link;
+    .space(bottom,.25);
+    display: block;
+    text-decoration: none;
+  }
+  
+  &-content {
+    p, >ul, >ol, figure, .gallery,
+    pre, table {
+      .space(bottom);
+    }
+
+    h2 {
+      #type > #size > .h2;
+    }
+    h3, h4, h5, h6 {
+      #type > #size > .h3;
+    }
+    p, li {
+      #type > #size > .p;
+    }
+
+    a {
+      #type > #style > .link;
+    }
+  }
+
+  &-photos {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+  }
+
+  &-photo {
+    .space(right, .25);
+    .space(bottom, .25);
+    img {
+      width: 120px;
+      height: 120px;
+      display: block;
+    }
+  }
+  
+}
