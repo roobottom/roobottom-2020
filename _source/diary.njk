@@ -6,21 +6,26 @@ title: Diary
 
 {% for entry in collections.diary %}
   <article class="diary">
-    <footer class="diary-footer">
-      <a href="{{ entry.url }}" rel="bookmark" class="diary-link">
+    <header class="diary-footer">
+      <h2><a href="{{ entry.url }}" rel="bookmark" class="diary-link">
         <time datetime="{{ entry.date | date('') }}" class="diary-date">{{ entry.date | date }}</time>
-      </a>
-    </footer>
+      </a></h2>
+    </header>
     <div class="diary-content">
       {{ entry.templateContent | safe }}
+      {% if entry.data.photo %}
+        {% if entry.data.photo | length == 1 %}
+          {% img entry.data.photo[0].url, { 'alt': entry.data.photo[0].alt, 'class': 'diary-single-photo' } %}
+        {% else %}
+          <ul class="diary-photos diary-photos--{{ entry.data.photo | length % 3}}">
+            {% for photo in entry.data.photo %}
+            <li class="diary-photos-item">{% img photo.url, { 'alt': photo.alt, 'class': 'diary-photo' } %}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endif %}
     </div>
-    {% if entry.data.photo %}
-    <ul class="diary-photos">
-      {% for photo in entry.data.photo %}
-      <li class="diary-photo">{% img photo.url, { 'alt': photo.alt }, 'square' %}
-      {% endfor %}
-    </ul>
-    {% endif %}
+    
   </article>
 {% endfor %}
 

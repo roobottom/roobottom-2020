@@ -80,11 +80,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("markdown", (content) => {
     return md.render(content)
   })
-  eleventyConfig.addFilter("limit", (array, n) => {
-    if( n < 0 ) {
-      return array.slice(n);
+  eleventyConfig.addFilter("limit", (items, amount, startFrom=0) => {
+    if( amount < 0 ) {
+      return items.slice(amount);
     }
-    return array.slice(0, n);
+    return items.slice(startFrom, amount);
   })
   eleventyConfig.addFilter("hangingPunctuation", (str) => {
     return str.replace(/^(<p>)*([“"])(.*)/gm,"$1<span class='hanging-punctuation'>$2</span>$3")
