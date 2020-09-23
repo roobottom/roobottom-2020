@@ -1,14 +1,19 @@
 ---
 layout: default.njk
 title: Diary
+pagination:
+  data: collections.diary
+  size: 6
+  alias: posts
+permalink: 'diary//{% if pagination.pageNumber > 0 %}page-{{ pagination.pageNumber + 1 }}/{% endif %}/index.html'
 ---
 <div class="layout-like-article">
 
-{% for entry in collections.diary %}
+{% for entry in posts %}
   <article class="diary">
     <header class="diary-footer">
       <h2><a href="{{ entry.url }}" rel="bookmark" class="diary-link">
-        <time datetime="{{ entry.date | date('') }}" class="diary-date">{{ entry.date | date }}</time>
+        <time datetime="{{ entry.date | date('') }}" class="diary-date">{{ entry.date | date('dddd, D MMMM YYYY') }}</time>
       </a></h2>
     </header>
     <div class="diary-content">
@@ -28,5 +33,19 @@ title: Diary
     
   </article>
 {% endfor %}
+
+<nav class="article-prevNext prevNext" aria-label="Pagination">
+  {% for paginationPage in  pagination.pages %}
+
+  {% endfor %}
+</nav>
+
+<nav aria-label="Diary pagination">
+  <ol>
+{%- for pageEntry in pagination.pages %}
+    <li><a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}>Page {{ loop.index }}</a></li>
+{%- endfor %}
+  </ol>
+</nav>
 
 </div>
