@@ -20,10 +20,11 @@
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
     {# open graph #}
-    {% set og_image %}https://roobottom.com{{ page.url }}{% if cover %}{{ cover }}{% elif content | firstImage %}{{ content | firstImage }}{% else %}null{% endif %}{% endset %}
     <meta property="og:title" content="{{ renderData.titleElement or renderData.title or title }}"/>
     <meta property="og:locale" content="en_gb"/>
-    <meta property="og:image" content="{{ og_image }}"/>
+    {% if cover %}
+    <meta property="og:image" content="https://ik.imagekit.io/roobottom/tr:w-300{{ cover }}"/>
+    {% endif %}
     <meta property="og:type" content="article"/>
     <meta property="og:description" content="{{ content | firstParagraph | stripTags }}"/>
     <meta property="og:url" content="https://roobottom.com{{ page.url }}"/>
