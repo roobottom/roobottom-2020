@@ -14,7 +14,7 @@
     "child_process": "^1.0.2",
     "dotenv": "^8.2.0",
     "glob": "^7.1.6",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "markdown-it": "^10.0.0",
     "markdown-it-abbr": "^1.0.4",
     "markdown-it-attrs": "^3.0.3",
