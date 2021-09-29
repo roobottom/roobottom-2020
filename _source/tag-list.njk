@@ -7,10 +7,12 @@ title: Categories
 
 <dl class="summary-list">
   {%- for tag in collections.tagList -%}
+  {% if collections[tag] | length > 0 %}
   <div class="summary-list-row">
-      <dt class="summary-list-title"><a href="/tags/{{ tag | slug }}">{{ tag | title }}</a></dt>
-      <dd class="summary-list-meta">{{ collections[tag] | length }} {{ 'article' | plural(collections[tag] | length) }}<dd>
-    </div>
+    <dt class="summary-list-title"><a href="/tags/{{ tag | slug }}">{{ tag | title }}</a></dt>
+    <dd class="summary-list-meta">{{ collections[tag] | length }} {{ 'article' | plural(collections[tag] | length) }}<dd>
+  </div>
+  {% endif %}
   {%- endfor -%}
 </dl>
 </div>

@@ -8,6 +8,10 @@ module.exports = {
     {
       title: "Categories",
       url: "/tags"
+    },
+    {
+      title: "Diary",
+      url: "/diary"
     }
   ]
 }

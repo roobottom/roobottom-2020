@@ -1,4 +1,4 @@
 {
-  "layout": "article.njk",
+  "layout": "photo.njk",
   "permalink": "/diary/{{ page.date | urldate }}-{{ page.fileSlug }}/index.html"
 }

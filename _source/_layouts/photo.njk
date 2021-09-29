@@ -1,0 +1,27 @@
+---
+layout: _wrapper.njk
+---
+<header class="article-header">
+  <h1 class="heading-l">{{ title or date | date }}</h1>
+</header>
+<div class="article-content">
+  {{ content | hangingPunctuation | safe }}
+  {% if photo %}
+    {% if photo | length == 1 %}
+      {% img photo[0].url, photo[0].alt %}
+    {% else %}
+      <div class="gallery">
+      {% for photoItem in photo %}
+        {% figure photoItem.url, photoItem.alt %}
+      {% endfor %}
+      </div>
+    {% endif %}
+  {% endif %}
+</div>
+<nav class="article-tags" aria-label="tags">
+  <ul class="tags">
+    {% for tag in tags %}
+      <li class="tags-item"><a href="/tags/{{ tag | slug }}" rel="tag" class="tags-link">{{ tag }}</a></li>
+    {% endfor %}
+  </ul>
+</nav>
