@@ -2,16 +2,16 @@ module.exports = {
   env: process.env.ELEVENTY_ENV,
   menu: [
     {
-      title: "Archives",
+      title: "Articles",
       url: "/articles"
-    },
-    {
-      title: "Categories",
-      url: "/tags"
     },
     {
       title: "Diary",
       url: "/diary"
+    },
+    {
+      title: "Categories",
+      url: "/tags"
     }
   ]
 }
