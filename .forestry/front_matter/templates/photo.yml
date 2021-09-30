@@ -9,6 +9,8 @@ fields:
     date_format: DD MMMM YYYY
     export_format: YYYY-MM-DD
     required: true
+    display_utc: true
+  default: now
 - name: summary
   type: text
   config:
