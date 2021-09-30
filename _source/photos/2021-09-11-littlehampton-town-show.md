@@ -2,7 +2,7 @@
 tags:
 - Roo
 - Littlehampton
-date: 2021-09-09
+date: '2021-09-11'
 summary: ''
 photo:
 - url: "/images/photos/2021-09-30-roo-on-a-vespa.jpeg"
