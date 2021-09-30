@@ -2,15 +2,14 @@
 label: Photo
 hide_body: false
 fields:
-- type: datetime
-  name: date
-  label: date
+- name: date
+  type: text
   config:
-    date_format: DD MMMM YYYY
-    export_format: YYYY-MM-DD
     required: true
-    display_utc: true
-  default: now
+    min: 
+    max: 
+  label: Date
+  description: Enter the date in `yyyy-mm-dd
 - name: summary
   type: text
   config:
