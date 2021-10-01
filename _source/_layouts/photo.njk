@@ -8,10 +8,7 @@ layout: _wrapper.njk
   {{ content | hangingPunctuation | safe }}
   {% if photo %}
     {% if photo | length == 1 %}
-      <figure class="wide">
-        <img src="{{ photo[0].url }}">
-        <figcaption>{{ photo[0].alt }}</figcaption>
-      </figure>
+      {% figure photo[0].url, photo[0].alt, 'wide' %}
     {% else %}
       <div class="gallery">
       {% for photoItem in photo %}
