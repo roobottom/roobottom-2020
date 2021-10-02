@@ -6,8 +6,6 @@ tags:
 date: '2021-10-02'
 summary: RooTwo got Covid
 photo:
-- alt: RooTwo’s positive Lateral Flow Test
-  url: "/images/photos/2021-10-02-7329f58d-44ce-40ee-bbb4-6efaf4682d92.jpeg"
 - url: "/images/photos/2021-10-02-2b77a9a2-ac39-452c-be8a-bd4338f1dcb3.jpeg"
   alt: Roo enjoying a Halloween themed gingerbread man
 
