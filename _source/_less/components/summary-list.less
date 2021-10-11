@@ -9,7 +9,7 @@
   &-row {
     display: flex;
     flex-direction: column;
-    .space(bottom,.25);
+    .space(bottom,.5);
     .break-mid({
       flex-direction: row;
     });
@@ -24,11 +24,10 @@
 
   &-meta {
     color: var(--c-text-tint);
-    #type > #size > .small();
+    #type > #size > .label();
     .break-mid({
       width: 35%;
       text-align: right;
-      align-self: center;
       .space(right);
     });
   }

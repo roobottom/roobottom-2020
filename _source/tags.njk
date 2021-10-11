@@ -14,11 +14,11 @@
   omitTitle: true
 }
 ---
-{% macro articleTitle(title, photoCount) %}
+{% macro articleTitle(title, content) %}
 {%- if title %}
 {{ title }}
 {% else %}
-{{ photoCount}} {% if photoCount == 1 %}photo{% else %}photos{% endif %}
+{{ content | stripTags | firstSentence }}
 {% endif -%}
 {% endmacro %}
 
@@ -28,7 +28,7 @@
 <dl class="summary-list">
   {%- for article in taglist | reverse -%}
     <div class="summary-list-row">
-      <dt class="summary-list-title"><a href="{{ article.url }}">{{ articleTitle(article.data.title, article.data.photo | length) }}</a></dt>
+      <dt class="summary-list-title"><a href="{{ article.url }}">{{ articleTitle(article.data.title, article.templateContent) }}</a></dt>
       <dd class="summary-list-meta"><time datetime="{{ article.date | date('') }}">{{ article.date | date }}</time><dd>
     </div>
   {%- endfor -%}

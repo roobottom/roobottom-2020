@@ -64,6 +64,10 @@ module.exports = function (eleventyConfig) {
     var regexp = RegExp('\<p\>(.+?)\<\/p\>', 'm')
     return (regexp.exec(html) === null) ? '' : regexp.exec(html)[0]
   })
+  eleventyConfig.addFilter("firstSentence", (html) => {
+    var regexp = RegExp(/^(.*?)[.?!;]\s/, 'm')
+    return (regexp.exec(html) === null) ? html : regexp.exec(html)[0]
+  })
   eleventyConfig.addFilter("firstImage", (html) => {
     var regexp = RegExp('\<img src="(.+?)"', 'm')
     return (regexp.exec(html) === null) ? '' : regexp.exec(html)[1]

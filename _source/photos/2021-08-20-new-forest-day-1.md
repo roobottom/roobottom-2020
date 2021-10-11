@@ -11,7 +11,7 @@ tags:
 photo:
   - 
     url: "/images/photos/2021-08-20-russian-dolls.jpeg"
-    alt: "Roo and RooTwo siting next to a full compliment of Russian Dolls"
+    alt: "Roo and Rootwo siting next to a full compliment of Russian Dolls"
   -
     url: "/images/photos/2021-08-20-me-and-mom.jpeg"
     alt: "Me and mom sitting on the bench in the garden of our holiday cottage"
