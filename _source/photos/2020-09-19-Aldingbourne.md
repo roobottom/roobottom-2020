@@ -1,8 +1,8 @@
 ---
 tags:
-- Roo
-- Katie
-- 'Rootwo '
+  - roo
+  - katie
+  - rootwo 
 date: 2020-09-19
 summary: Aldingbourne trust
 photo:

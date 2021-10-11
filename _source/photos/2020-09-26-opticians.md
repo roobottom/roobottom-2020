@@ -1,6 +1,6 @@
 ---
 tags:
-- Roo
+- roo
 date: 2020-09-26
 summary: Roo’s first opticians visit
 photo:

@@ -1,9 +1,9 @@
 ---
 tags:
 - trips
-- Roo
-- Rootwo
-- Katie
+- roo
+- rootwo
+- katie
 date: 2020-10-04
 summary: A rainy Sunday at Amberly Museum
 photo:

@@ -1,7 +1,7 @@
 ---
 tags:
-- Roo
-- School
+- roo
+- school
 date: 2020-09-07
 summary: Roo’s first day in year 1
 photo:

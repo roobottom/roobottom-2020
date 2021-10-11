@@ -3,12 +3,17 @@ layout: default.njk
 title: Diary
 ---
 <div class="layout-like-article">
+  {% set archives = collections.diary | archives %}
+  <p class="prose">Over the last {{ archives.yearStats.spread }} years I’ve written {{ collections.articles | length }} diary entries.</p>
+  {%- for year in archives.years -%}
+  <h2 class="heading-s heading--border heading--center">{{ year }}</h2>
   <dl class="summary-list">
-    {%- for entry in collections.diary -%}
+    {%- for entry in archives.posts[year] -%}
       <div class="summary-list-row">
         <dt class="summary-list-title"><a href="{{ entry.url }}">{{ entry.templateContent | stripTags | firstSentence }}</a></dt>
         <dd class="summary-list-meta"><time class="quiet" datetime="{{ entry.date | date('') }}">{{ entry.date | date }}</time><dd>
       </div>
     {%- endfor -%}
   </dl>
+  {%- endfor -%}
 </div>

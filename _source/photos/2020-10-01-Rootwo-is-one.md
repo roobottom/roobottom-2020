@@ -1,6 +1,6 @@
 ---
 tags:
-- Rootwo
+- rootwo
 - birthday
 date: 2020-10-01
 summary: 'A year of Rootwo '
