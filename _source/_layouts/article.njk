@@ -34,12 +34,14 @@ layout: _wrapper.njk
     <li class="prevNext-item prevNext-item--prev">
       <span class="prevNext-itemLabel">Previous article</span>
       <a href="{{ prevPage.url }}" rel="prev" class="prevNext-link">{{ prevPage.data.title }}</a>
+      <time class="quiet prevNext-item-date" datetime="{{ prevPage.date | date('') }}">{{ prevPage.date | date }}</time>
     </li>
     {% endif %}
     {% if nextPage %}
     <li class="prevNext-item prevNext-item--next">
       <span class="prevNext-itemLabel">Next article</span>
       <a href="{{ nextPage.url }}" rel="next" class="prevNext-link">{{ nextPage.data.title }}</a>
+      <time class="quiet prevNext-item-date" datetime="{{ nextPage.date | date('') }}">{{ nextPage.date | date }}</time>
     </li>
     {% endif %}
   </ul> 

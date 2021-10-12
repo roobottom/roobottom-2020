@@ -1,6 +1,16 @@
 ---
 layout: _wrapper.njk
 ---
+{% set count = 0 %}
+{% set prevPage = null %}
+{% set nextPage = null %}
+{%- for post in collections.diary -%}
+  {% if post.url == page.url %}
+    {% set prevPage = collections['diary'][count + 1] %}
+    {% set nextPage = collections['diary'][count - 1] %}
+  {% endif %}
+  {% set count = count + 1 %}
+{%- endfor -%}
 <header class="article-header">
   <h1 class="heading-l">{{ date | date }}</h1>
 </header>
@@ -24,4 +34,22 @@ layout: _wrapper.njk
       <li class="tags-item"><a href="/tags/{{ tag | slug }}" rel="tag" class="tags-link">{{ tag }}</a></li>
     {% endfor %}
   </ul>
+</nav>
+<nav class="article-prevNext prevNext" aria-label="Pagination">
+  <ul class="prevNext-list">
+    {% if prevPage %}
+    <li class="prevNext-item prevNext-item--prev">
+      <span class="prevNext-itemLabel">Previous article</span>
+      <a href="{{ prevPage.url }}" rel="prev" class="prevNext-link">{{ prevPage.templateContent | stripTags | firstSentence }}</a>
+      <time class="quiet prevNext-item-date" datetime="{{ prevPage.date | date('') }}">{{ prevPage.date | date }}</time>
+    </li>
+    {% endif %}
+    {% if nextPage %}
+    <li class="prevNext-item prevNext-item--next">
+      <span class="prevNext-itemLabel">Next article</span>
+      <a href="{{ nextPage.url }}" rel="next" class="prevNext-link">{{ nextPage.templateContent | stripTags | firstSentence }}</a>
+      <time class="quiet prevNext-item-date" datetime="{{ nextPage.date | date('') }}">{{ nextPage.date | date }}</time>
+    </li>
+    {% endif %}
+  </ul> 
 </nav>

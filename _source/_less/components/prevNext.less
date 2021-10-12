@@ -1,23 +1,22 @@
 .prevNext {
   &-list {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+
   }
   &-item {
     list-style: none;
-    .break-min({
-      flex: 0 1 50%;
-    });  
   }
   &-itemLabel {
     display: block;
-    #type > #size > .p;
+    #type#size.h4;
+    font-weight: bold;
+  }
+  &-item-date {
+    display: block;
+    #type#size.label;
   }
 
   &-item--next {
-    text-align: right;
-    margin-left: auto;
+    .space(top);
   }
 
   &-item--prev &-itemLabel:before {
