@@ -9,7 +9,7 @@ fields:
     min: 
     max: 
   label: Date
-  description: Enter the date in `yyyy-mm-dd
+  description: Enter the date in yyyy-mm-dd
 - name: summary
   type: text
   config:
@@ -20,6 +20,7 @@ fields:
   type: tag_list
   default: []
   label: Tags
+  description: Use lower case
 - type: field_group_list
   name: photo
   label: Photos
