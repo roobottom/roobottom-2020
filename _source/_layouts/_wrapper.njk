@@ -10,8 +10,6 @@
     <link href="/assets/styles.css" rel="stylesheet"/>
     <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
     <link rel="me" href="https://github.com/roobottom">
-    <link href="https://micro.blog/roobottom" rel="me">
-    <link href="https://roobottom.com" rel="me">
     <link rel="authorization_endpoint" href="https://indieauth.com/auth">
     <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
     <link rel="micropub" href="https://roobottom-indiekit.herokuapp.com/micropub">
@@ -27,7 +25,7 @@
     <meta property="og:url" content="https://roobottom.com{{ page.url }}"/>
     <meta property="og:site_name" content="Jon Roobottom’s website"/>
 </head>
-<body>
+<body class="{{ body_class }}">
 <header class="banner wrapper">
     <a href="/" class="banner-sitename" rel="home">Jon’s <span class="banner-sitename__description">Website</span></a>
     <nav class="banner-navigation" aria-label="site">
@@ -37,6 +35,7 @@
             {%- endfor -%}
         </ul>
     </nav>
+    {% block header %}{% endblock %}
 </header>
 <main class="wrapper">
   {{ content | safe }}

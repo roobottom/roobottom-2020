@@ -61,7 +61,7 @@ module.exports = function (eleventyConfig) {
     return moment(value).format(format)
   })
   eleventyConfig.addFilter("firstParagraph", (html) => {
-    var regexp = RegExp('\<p\>(.+?)\<\/p\>', 'm')
+    var regexp = RegExp(/\<p\>(.+?)\<\/p\>/, 'm')
     return (regexp.exec(html) === null) ? '' : regexp.exec(html)[0]
   })
   eleventyConfig.addFilter("firstSentence", (html) => {
